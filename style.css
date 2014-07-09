@@ -37,9 +37,19 @@ a.footnote:before {
   display: none;
 }
 
+.print-only {
+  display: none;
+}
+
 @media print {
   #footnotes {
     display: block;
+  }
+
+  a { color: black; }
+
+  .print-only {
+    display: inline;
   }
 }
 
