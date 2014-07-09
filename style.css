@@ -1,0 +1,51 @@
+body {
+  counter-reset: footnote;
+}
+
+.footnote {
+  position: relative;
+  font-size: 8pt;
+  vertical-align: super;
+}
+
+.note {
+  font-size: 8pt;
+  border: thin solid black;
+  padding: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  min-width: 10em;
+  word-wrap: break-word;
+
+  background: white;
+  z-index: 100;
+}
+
+a.footnote:before {
+  content: '[' counter(footnote) ']';
+  counter-increment: footnote;
+}
+
+#footnotes {
+  display: none;
+}
+
+@media print {
+  #footnotes {
+    display: block;
+  }
+}
+
+body {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 10pt;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
