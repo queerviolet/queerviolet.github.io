@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
     <script type="text/javascript" src="http://use.typekit.net/stm3eky.js"></script>
@@ -11,17 +11,17 @@
     <header class="vcard">
       <address>
         <h1 class="fn">Ashi Krishnan Mysore</h1>
-        <a class="email" href="mailto:me@ashi.works">me@ashi.works</a> ●
+        <a class="email" href="mailto:me@ashi.works">me@ashi.works</a> &#x2022;
         <span class="tel">+1 303.666.4202</span>
       </address>
     </header>
     <section>
-      <h1>About Me</h1>
       <p>I’m a software engineer with ten years of professional
       experience. I’ve worked on a wide range of projects—everything
-      from graphics, to UX, to running massive scale spam filtering. I
-      love learning and I love teaching. I thrive in environments
-      where I’m working closely with other people, either in person or
+      from graphics, to embedded UX, to running massive scale spam
+      filtering. I'm a highly capable writer and communicator. I love
+      learning and I love teaching. I thrive in environments where I’m
+      working closely with other people, either in person or
       remotely.</p>
     </section>
       
@@ -29,7 +29,8 @@
       <h1>Experience</h1>
 
       <section>
-	<h2>Google, Software Engineer in Site Reliability Engineering, 2010 to present</h2>
+	<h2>Google, Software Engineer in Site Reliability Engineering</h2>
+	<div class="dates">2010 to present</span>
 	<p>My team handles the deployment, monitoring, repair, and
 	  production tuning of numerous large services at Google.</p>
 	<ul>
@@ -46,9 +47,11 @@
       </section>
 
       <section>
-	<h2>Research Scientist, NOAA, 2007 to 2010</h2>
-	<p>I worked on a projection art museum exhibit called Science
-	on a Sphere. It’s a carbon fiber globe six feet in diameter
+	<h2><a href="http://www.noaa.gov">NOAA</a>, Research Scientist</h2>
+	<div class="dates">2007 to 2010</div>
+	<p>I worked on a projection art museum exhibit
+	called <a href="http://sos.noaa.gov">Science on a
+	Sphere</a>. It’s a carbon fiber globe six feet in diameter
 	that hangs in the center of a dark theater, illuminated by
 	four projectors. In terms of physical wow factor, this is the
 	coolest project I have ever worked on for money.</p>
@@ -70,9 +73,11 @@
       </section>
 
       <section>
-	<h2>Software Engineer, Medioh, 2005 to 2007</h2>
+	<h2>Medioh, Software Engineer (Intern, Contracting)</h2>
+	<div class="dates">2005 to 2007</div>
 	<p>While in school, I did an internship and, later, contract
-	work for a startup with a variety of product interests.</p>
+	work for a startup with a variety of video-centric product
+	interests.</p>
 
 	<ul>
 	  <li>As an intern, I worked with two other developers to
@@ -91,8 +96,8 @@
       </section>
 
       <section>
-	<h2>Student Research Assistant, NOAA, 2004 to 2007</h2>
-
+	<h2>NOAA, Student Research Assistant</h2>
+	<div class="dates">2004 to 2007</div>
 	<p>As a student researcher, I worked on a Python framework
 	that let weather forecasters write their own tools.</p>
 	<ul>
@@ -111,23 +116,43 @@
       and frameworks with ease. Here’s a summary of the technologies
       I’ve been using recently.</p>
 
-      <h2>I use these every day with delightful alacrity</h2>
+      <h2>I use these every day with delightful alacrity:</h2>
+      <ul>
+	<li>C++
+	<li>Javascript/HTML/CSS/jQuery
+	<li>Python
+	<li>SQL
+	<li>Linux internals and command line
+	<li>data visualization ergonomics
+	<li>highly scalable software design
+	<li>API design
+	<li>production monitoring
+	<li>capacity planning and performance characterization
+      </ul>
 
-      <p>C++, Javascript/HTML/CSS/jQuery/etc, Python, SQL, Linux
-      internals and command line, data visualization ergonomics,
-      highly scalable software design, API design, production
-      monitoring, capacity planning, performance characterization.</p>
 
-      <h2>I’ve used these in the last month. I’m comfortable with them
-      if I have a reference.</h2>
+      <h2>I’ve used these in the last six months. I’m comfortable with them
+      if I have a reference:</h2>
 
-      <p>C, Go, Java, relational database schema design, Processing
-      and OpenGL.</p>
+      <ul>
+	<li>C
+	<li>Go
+	<li>Java
+	<li>relational database schema design
+	<li>Processing / GLSL / OpenGL
+      </ul>
 
-      <h2>I’ve used these at some point, and I could come up to speed
-      in a week or so.</h2>
+      <h2>I’ve used these at some point and I could come up to speed
+      in a week or so:</h2>
 
-      <p>Ruby/Rails, R, Matlab, Lisp, Perl<a class="footnote"><span class="note">I was young. All the cool kids were doing it. I never inhaled.</span></a>, PHP<a class="footnote"><span class="note">This I blame on Wordpress.</span></a>.</p>
+      <ul>
+	<li>Ruby/Rails
+	<li>R
+	<li>Matlab
+	<li>Lisp
+	<li>Perl<a class="footnote"><span class="note">I was young. All the cool kids were doing it. I never inhaled.</span></a>
+	<li>PHP<a class="footnote"><span class="note">This I blame on Wordpress.</span></a>
+      </ul>
     </section>
 
     <section>
@@ -144,6 +169,7 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>
+      /* Adapted from what-if.xkcd.com */
       jQuery.noConflict();
       jQuery(function() {
         var footnotes = jQuery("#footnotes > ol");

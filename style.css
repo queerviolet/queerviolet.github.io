@@ -3,13 +3,19 @@ body {
 }
 
 .footnote {
+  font-family: Inconsolata;
+  font-size: 10pt;
   position: relative;
-  font-size: 8pt;
   vertical-align: super;
+  cursor: pointer;
+  padding: 2px;
+}
+
+a.footnote:hover {
+  text-decoration: none;
 }
 
 .note {
-  font-size: 8pt;
   border: thin solid black;
   padding: 2px;
   position: absolute;
@@ -38,8 +44,8 @@ a.footnote:before {
 }
 
 body {
-  font-family: 'proxima-nova', 'Libre Baskerville', serif;
-  font-size: 10pt;
+  font-family: 'proxima-nova', 'Proxima Nova', Helvetica, sans-serif;
+  font-size: 12pt;
 }
 
 a {
@@ -48,4 +54,49 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-style: normal;
+  font-weight: 600;
+  margin: 0;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 20pt;
+  margin: 0;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 16pt;
+}
+
+h2 {
+   margin-bottom: 0;
+}
+
+.dates {
+  color: rgb(20, 20, 20);
+  font-weight: 400;
+}
+
+p {
+  font-weight: 400;
+}
+
+@media screen {
+  section {
+    width: 640px;
+    margin: auto;
+  }
+
+  section + section {
+    margin-top: 25px;
+  }
 }
