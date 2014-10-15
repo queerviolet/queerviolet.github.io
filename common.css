@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic&subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,latin-ext);
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	background: black;
+
+	font-family: 'Ubuntu Mono', Menlo;
+	font-size: 18px;
+	height: 100%;
+}
+
+p { 
+	margin: 0;
+	padding: 0;
+}
