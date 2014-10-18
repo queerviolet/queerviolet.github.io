@@ -3,48 +3,60 @@
 <head>
 	<link rel="stylesheet" href="../common.css">
 	<style>
-		div {
+		.hoverable {
 			background: fuchsia;
-			display: inline-block;
-			padding: 18px;
-			clip-path: inset(150px 0 0 0);
-			-webkit-clip-path: inset(150px 0 0 0); /*circle(100px);*/
-		}
-		svg { width: 100px; height: 100px;}
-
-		.pageCenter {
+			display: block;
 			position: relative;
-			top: 50%;
-			left: 50%;
-			-webkit-transform: translate3d(-50%, -50%, 0);
-			-ms-transform: translate3d(-50%, -50%, 0);
-			transform3d: translate3d(-50%, -50%, 0);
+			padding: 18px;
+			width: 468px;
+			margin: 0;
+		}
+
+		.hoverable > .on-hover {
+			background: #0fe;
+			background: #07f;
+			color: white;
+
+			position: absolute;
+			padding: 18px;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+
+			display: block;
+			transition: -webkit-clip-path 113ms;
+			-webkit-clip-path: polygon(0% 0%, 101% 0%, 101% 0%, 0% 0%);
+		}
+
+		.hoverable:hover > .on-hover {
+			-webkit-clip-path: polygon(0% 0%, 101% 0%, 101% 101%, 0% 101%);
+		}
+
+		body {			
+			width: 100%;
+			height: 100%;
+			
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 		}
 	</style>
 </head>
 <body>
-	
-	<div class="pageCenter">
-		/*<br>
-		&nbsp;*<br>
-		&nbsp;*<br>
-		&nbsp;*<br>
-		&nbsp;* This div is clipped by a clip path.<br>
-		&nbsp;* This example is currently broken in Chrome.<br>
-		&nbsp;*<br>
-		&nbsp;*<br>
-		&nbsp;*<br>
-		&nbsp;*/<br>
+	<div class="hoverable" id="foo">
+		<p>On hover, this div reveals another. The swipe effect
+		is created with CSS clip paths and transitions.</p>
+		<br>
+		<p>state: inactive</p>
+		<div class="on-hover">
+			<p>On hover, this div reveals another. The swipe effect
+			is created with CSS clip paths and transitions.</p>
+			<br>
+			<p><strong>state: hover</strong></p>
+		</div>
 	</div>
-	<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-		<defs>
-			<clipPath id="clipping">
-				<rect x="0" y="0" width="100" height="50"></rect>
-			</clipPath>
-			<clipPath id="clipping2">
-				<rect x="0" y="0" width="100px" height="100px"></rect>
-			</clipPath>
-		</defs>
-	</svg>
 </body>
 </html>
