@@ -72,3 +72,28 @@ input::-webkit-inner-spin-button:after {
 	height: 27px;
 	background: #ff77ff;
 }
+
+input[type="number"] {
+	width: 54px;
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	border: 0;
+	border-radius: 0;
+	outline: 0;
+	background: #f7f;
+	padding: 9px;
+
+	font-family: 'Ubuntu Mono', Menlo;
+	font-size: 18px;
+
+	display: inline;
+	position: relative;
+	width: auto;
+
+	text-align: center;
+}

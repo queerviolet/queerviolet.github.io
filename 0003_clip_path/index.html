@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
 <head>
+	<script src="../jquery.min.js"></script>
 	<link rel="stylesheet" href="../common.css">
 	<style>
-		.hoverable {
+		div {
 			background: fuchsia;
 			display: block;
 			position: relative;
@@ -12,26 +13,60 @@
 			margin: 0;
 		}
 
-		.hoverable > .on-hover {
-			background: #0fe;
+		.on-hover {
 			background: #07f;
 			color: white;
 
 			position: absolute;
-			padding: 18px;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
-
-
-			display: block;
-			transition: -webkit-clip-path 113ms;
-			-webkit-clip-path: polygon(0% 0%, 101% 0%, 101% 0%, 0% 0%);
+			transition: -webkit-clip-path 113ms;			
 		}
 
-		.hoverable:hover > .on-hover {
-			-webkit-clip-path: polygon(0% 0%, 101% 0%, 101% 101%, 0% 101%);
+		.down > .on-hover {
+			-webkit-clip-path: polygon(-1% -1%, 101% -1%, 101% -1%, -1% -1%);
+		}
+
+		.up > .on-hover {
+			-webkit-clip-path: polygon(-1% 101%, 101% 101%, 101% 101%, -1% 101%);
+		}
+
+		.right > .on-hover {
+			-webkit-clip-path: polygon(-1% -1%, -1% -1%, -1% 101%, -1% 101%);
+		}
+
+		.left > .on-hover {
+			-webkit-clip-path: polygon(101% -1%, 101% -1%, 101% 101%, 101% 101%);
+		}
+
+		:hover > .on-hover {
+			-webkit-clip-path: polygon(-1% -1%, 101% -1%, 101% 101%, -1% 101%);
+		}
+
+		.down code.up,
+		.down code.left,
+		.down code.right {
+			display: none;
+		}
+
+		.up code.down,
+		.up code.left,
+		.up code.right {
+			display: none;
+		}
+
+		.right code.up,
+		.right code.down,
+		.right code.left {
+			display: none;
+		}
+
+		.left code.right,
+		.left code.up,
+		.left code.down {
+			display: none;
 		}
 
 		body {			
@@ -43,19 +78,142 @@
 			align-items: center;
 			justify-content: center;
 		}
+
+		code {
+			white-space: pre-wrap;
+		}
 	</style>
 </head>
 <body>
-	<div class="hoverable" id="foo">
-		<p>On hover, this div reveals another. The swipe effect
-		is created with CSS clip paths and transitions.</p>
-		<br>
-		<p>state: inactive</p>
+	<div style="background: #222; color: white; line-height: 27px;">
+	On hover, the div below reveals another. The swipe effect is
+	created with CSS clip paths and transitions. It lasts
+	<input type="number" value="113"
+	oninput="setSwipeDuration(this.value);"> ms, and travels
+	<select onchange="setSwipeDirection(this.value);">
+		<option value="down">down</option>
+		<option value="up">up</option>
+		<option value="right">right</option>
+		<option value="left">left</option>
+	</select>.
+
+	<script>
+		function setSwipeDirection(dir) {
+			document.getElementById('hover').setAttribute('class', dir);
+		}
+
+		function setSwipeDuration(ms) {
+			var dur = ms + "ms";
+			var css = "-webkit-clip-path " + dur;
+			$('.on-hover').css('transition', css);
+			$('.swipe-duration').text(dur);
+		}
+	</script>
+
+	</div>
+
+	<div id="hover" class="down">
+		<code>.on-hover {
+	background: #07f;
+	color: white;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: -webkit-clip-path <span class="swipe-duration">113ms</span>;
+}</code>
+<br>
+<br>
+<code class="down">.down > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% -1%,
+	  101% -1%,
+	  101% -1%,
+	  -1% -1%);
+}</code>
+<code class="up">.up > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% 101%,
+	  101% 101%,
+	  101% 101%,
+	  -1% 101%);
+}</code>
+<code class="right">.right > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% -1%,
+	  -1% -1%,
+	  -1% 101%,
+	  -1% 101%);
+}</code>
+<code class="left">.left > .on-hover {
+	-webkit-clip-path: polygon(
+	  101% -1%,
+	  101% -1%,
+	  101% 101%,
+	  101% 101%);
+}</code>
+<br>
+<br>
+<code>:hover > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% -1%,
+	  101% -1%,
+	  101% 101%,
+	  -1% 101%);
+}</code>
 		<div class="on-hover">
-			<p>On hover, this div reveals another. The swipe effect
-			is created with CSS clip paths and transitions.</p>
-			<br>
-			<p><strong>state: hover</strong></p>
+			<code>.on-hover {
+	background: #07f;
+	color: white;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: -webkit-clip-path <span class="swipe-duration">113ms</span>;
+}</code>
+<br>
+<br>
+<code class="down">.down > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% -1%,
+	  101% -1%,
+	  101% -1%,
+	  -1% -1%);
+}</code>
+<code class="up">.up > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% 101%,
+	  101% 101%,
+	  101% 101%,
+	  -1% 101%);
+}</code>
+<code class="right">.right > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% -1%,
+	  -1% -1%,
+	  -1% 101%,
+	  -1% 101%);
+}</code>
+<code class="left">.left > .on-hover {
+	-webkit-clip-path: polygon(
+	  101% -1%,
+	  101% -1%,
+	  101% 101%,
+	  101% 101%);
+}</code>
+<br>
+<br>
+<code><strong>:hover > .on-hover {
+	-webkit-clip-path: polygon(
+	  -1% -1%,
+	  101% -1%,
+	  101% 101%,
+	  -1% 101%);
+}</strong></code>
 		</div>
 	</div>
 </body>
