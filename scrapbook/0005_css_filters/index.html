@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="../common.css">
+	<style>
+		.example {
+			background: fuchsia;
+			color: black;
+			display: inline-block;
+			padding: 18px;
+			margin: 18px auto 0 auto;
+			-webkit-transform: translate3d(0, 0, 0);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="example">
+		This is an unfiltered div.
+	</div>
+	<div id="hue-rotate"
+		 class="example"
+		 style="-webkit-filter: hue-rotate(-90deg)"
+		 oninput="setHueRotation(event);">
+		This is the same color, but has had its hue rotated <input type="number" value="-90" style="width: 54px;"> degrees.
+	</div>
+	<script>
+		var hueRotate = document.getElementById('hue-rotate');
+		function setHueRotation(event) {
+			hueRotate.setAttribute('style',
+				'-webkit-filter: hue-rotate(' +
+					event.target.value + 'deg)');
+		}
+	</script>
+</body>
+</html>
