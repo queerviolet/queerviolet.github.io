@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="../common.css">
+	<style>
+	form {
+		color: white;
+		display: flex;
+	}
+
+	input[type="radio"] {
+		display: none;
+	}
+
+	label {
+		display: inline-block;
+		color: black;
+		padding: 9px;
+		margin: 0;
+		border: thin solid black;
+	}
+
+	input[type="radio"] + label {
+		background: white;
+	}
+
+	input[type="radio"]:active + label {
+		background: blue;
+	}
+
+	input[type="radio"]:hover + label {
+		background: lightblue;
+	}	
+
+	input[type="radio"]:checked + label {
+		background: fuchsia;
+	}
+
+	</style>
+</head>
+<body>
+	<form>
+	<input id="t1" name="group" type="radio" value="thing one"><label for="t1">thing one</label>
+	<input id="t2" name="group" type="radio" value="thing two">
+	<label for="t2">Thing two</label>
+	<input id="t3" name="group" type="radio" value="thing three">
+	<label for="t3">Thing three</label>
+	</form>
+</body>
+</html>
