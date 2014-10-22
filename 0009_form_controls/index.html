@@ -3,9 +3,20 @@
 <head>
 	<link rel="stylesheet" href="../common.css">
 	<style>
+	body { display: block; }
+
 	form {
-		color: white;
-		display: flex;
+		display: block;
+		background: #222;
+	}
+
+	section {
+		display: table;
+		align-items: stretch;
+		flex-flow: center;
+		width: 100%;
+		min-height: 100px;
+		vertical-align: middle;
 	}
 
 	input[type="radio"] {
@@ -13,25 +24,29 @@
 	}
 
 	label {
-		display: inline-block;
-		color: black;
-		padding: 9px;
+		display: table-cell;
+		background: #222;
+		color: white;		
+		border: thin solid #999;
+
 		margin: 0;
-		border: thin solid black;
+		padding: 9px;
+
+		text-align: center;
+		vertical-align: middle;
 	}
 
-	input[type="radio"] + label {
-		background: white;
+	input[type="radio"]:active + label
+	label:active {
+		background: #a0a;
 	}
 
-	input[type="radio"]:active + label {
-		background: blue;
+	input[type="radio"]:hover + label,
+	label:hover {
+		background: #909;
 	}
 
-	input[type="radio"]:hover + label {
-		background: lightblue;
-	}	
-
+	 
 	input[type="radio"]:checked + label {
 		background: fuchsia;
 	}
@@ -40,16 +55,18 @@
 </head>
 <body>
 	<form>
-	<input id="t1" name="group" type="radio" value="thing one"><label for="t1">one</label>
-	<input id="t2" name="group" type="radio" value="thing two">
-	<label for="t2">two</label>
-	<input id="t3" name="group" type="radio" value="thing three">
-	<label for="t3">three</label>
-	<input id="t4" name="group" type="radio" value="thing three">
-	<label for="t4">four</label>
-	<input id="t5" name="group" type="radio" value="thing three">
-	<label for="t5">five</label>
-
+		<section class="radiobar">
+			<input id="t1" name="group" type="radio" value="one">
+			<label for="t1">one</label>
+			<input id="t2" name="group" type="radio" value="two">
+			<label for="t2">two</label>
+			<input id="t3" name="group" type="radio" value="three">
+			<label for="t3">three</label>
+			<input id="t4" name="group" type="radio" value="four">
+			<label for="t4">four</label>
+			<input id="t5" name="group" type="radio" value="five">
+			<label for="t5">five</label>
+		</section>
 	</form>
 </body>
 </html>
