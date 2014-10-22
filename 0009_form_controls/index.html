@@ -12,11 +12,8 @@
 
 	section {
 		display: table;
-		align-items: stretch;
-		flex-flow: center;
 		width: 100%;
 		min-height: 250px;
-		vertical-align: middle;
 	}
 
 	input[type="radio"] {
@@ -34,11 +31,10 @@
 		text-align: center;
 		vertical-align: middle;
 		font-size: 36px;
-	}
 
-	input[type="radio"]:active + label
-	label:active {
-		background: #a0a;
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-select: none;
 	}
 
 	input[type="radio"]:hover + label,
