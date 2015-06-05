@@ -102,7 +102,7 @@ p {
 
 @media screen {
   section {
-    width: 640px;
+    max-width: 640px;
     margin: auto;
   }
 
