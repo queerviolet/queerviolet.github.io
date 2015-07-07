@@ -1,0 +1,111 @@
+This is my solution to Bridgewater's Blob finder coding challenge.
+
+I've spent about ten hours on it. I had a working solution with BFS flood fill
+within about an hour. BFS isn't that great for this particular application, so
+I wrote another approach, which traces an outline without backtracking. Along
+the way, I wrote a visualizer.
+
+I think the outlining algorithm I settled on is elegant, but I'm a little
+distressed that I don't have a formal proof of its correctness. It sortof-
+intuitively works, however, and it works extensively on random test cases.
+
+I also wrote an exhaustive analysis algorithm, to facilitate this random
+testing. This algorithm finds all blobs and returns their bounding boxes and
+pixel coordinates. It's used by the automated tester to verify the solution to
+randomly generated blobs.
+
+The main solution is in blob.js. main.js contains a driver program. If you call
+it like this,
+
+    ./main.js 100
+
+It'll run 100 random tests, bailing if any fail.
+
+If you open index.html in Chrome or Safari, you'll see editable visualizations
+of the different search algorithms.
+
+I've tested the visualizer on my machine only: OS X Chrome 43.0.2357.134
+and Safari 8.0.7 (10600.7.11.0.1).
+
+tile-inspector.js contains the code for the visualization. It's not as well
+documented as blob.js.
+
+The only external library I used, in node_modules, is the web components
+polyfill. This is just for the visualizer; it lets the <tile-inspector> custom
+tag machinery work in Safari.
+
+bundle.js is the browserified bundle of JS code. The Makefile creates the
+bundle if you have browserify installed.
+
+~ Ashi Krishnan <me@ashi.works>
+
+
+# Process notes
+
+Wednesday, July 15 2015
+- Got this at 6:00, worked on it for about an hour.
+- Worked on it for an hour more that night, from 11-12am.
+
+Thursday, July 16 2015
+
+At this point, I have a working BFS solution. Outlining should clearly be the
+better approach, as the outline grows like sqrt(n: points in blob size).
+Except of course there's something wrong with it in this test case:
+
+  1100000000
+  1100000000
+  1111000000
+  1100000000
+  0100000000
+  0111000000
+  0011100000
+  1011100000
+  1110000000
+  1110000000
+
+Since I want to write a visualizer anyway, I'm tempted to just work on that so
+I can see what the problem is. That seems worthwhile, right?
+
+~ 3.18pm ~
+
+I'm really happy with the visualization. It was already super helpful: I could see
+exactly what was going on with the outline algorithm. The problem was this:
+
+1100000000
+1100000000
+11110
+
+On the third line, we'll have visited all the ones in a row heading east. But then
+we've painted ourselves into a corner: we've visited all the cells leading up to
+us. We need to backtrack, but we don't have a stack. Thus: on to writing a stack.
+
+~ 6.46pm ~
+
+I have a nice working demo!
+
+I'm just now going to go clean up the code, make the demos page a bit nicer, and
+start researching what algorithm I should have used ;) The algorithm I settled on
+is quite clever, and I can't say I 100% understand it, in the sense of being able
+to prove that it works. Here's what we do:
+
+  - store visited, a set<key: bearing, position>
+  - become an ant. ants have bearing and position.
+  - ants store the largest bounding box they have encountered.
+  - the ant starts at the southeast corner (located by linear scan), bearing west.
+  - on taking a step, the ant marks her (bearing, position) as visited
+  - the ant turns right (clockwise), then scans all the way around her. She is
+    looking for a square that she hasn't while bearing in that direction, and
+    which is alive.
+  - if there is a square that matches, she turns and steps onto it.
+  - if no square matches, she stops walking, and the bounding box thus discovered.
+
+It took me a while to convince myself that this seemed likely to work, and I think
+it's well behaved because what constitutes a blob is highly constrained, and the
+output on tiles which contain multiple blobs is undefined.
+
+Friday, July 17
+
+~ 2.36pm ~
+
+I've worked on this since 11. This has mostly been cleanups: adding comments and
+explanations, a better readme, and cleaning up the gallery.

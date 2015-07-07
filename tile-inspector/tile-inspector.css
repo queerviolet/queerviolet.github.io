@@ -1,0 +1,172 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+body {
+  background: black;
+  color: white;
+  font-family: Ubuntu;
+  text-align: center;
+}
+
+h1 {
+  font-size: 18pt;
+  margin: 10px;
+  text-align: center;
+}
+
+tile-inspector {
+  display: table;
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Ubuntu;
+}
+
+tile-inspector > .stats {
+  display: inline-block;
+  vertical-align: middle;  
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+}
+
+tile-inspector > .table-container {
+  margin: 25px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.table-container td {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  font-size: 8pt;
+}
+
+.table-container td > .tile-label {
+  line-height: 35px;
+  vertical-align: middle;
+}
+
+tile-inspector td.tile-low {
+  background: #222;
+}
+
+tile-inspector td.tile-high {
+  background: #777;
+}
+
+tile-inspector .table-container table {
+  cell-spacing: 2px;
+  border-collapse: collapse;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+tile-inspector .table-container td {
+  position: relative;
+  border: 2px solid #222;
+}
+
+tile-inspector .stats {
+  line-height: 250px;
+  vertical-align: middle;
+}
+
+tile-inspector .stats table {
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+  margin: 10px;
+  border: 2px solid #222;
+  background: #222;
+}
+
+/*tile-inspector .stats*/
+
+tile-inspector .stats td {
+  font-size: 12pt;
+  white-space: pre;
+  text-align: left;
+  padding: 9px;
+}
+
+.tile-label,
+.tile-highlight {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+}
+
+.tile-highlight {
+  opacity: 0;
+}
+
+.tile-highlight-outline { background: fuchsia; }
+.tile-highlight-bfs { background: rgba(119, 238, 255, 0.9); }
+.tile-highlight-concentric { border: 2px solid yellow; }
+
+tile-inspector .stats tr.stats-header-algo-outline { background: fuchsia; }
+tile-inspector .stats tr.stats-header-algo-bfs {
+  background: rgba(119, 238, 255, 1.0);
+  color: black;
+}
+tile-inspector .stats tr.stats-header-algo-concentric td { border: 2px solid yellow; }
+
+/*.outline-off .stats tr.stats-header-algo-outline { opacity: 0.5; }
+.bfs-off .stats tr.stats-header-algo-bfs { opacity: 0.5; }
+.concentric-off .stats tr.stats-header-algo-concentric td { border: 2px solid rgba(255, 255, 0, 0.2); }
+*/
+.outline-off .stats-table-outline { opacity: 0.5; }
+.bfs-off .stats-table-bfs { opacity: 0.5; }
+.concentric-off .stats-table-concentric { opacity: 0.5; }
+
+.tile-highlight.highlight-on {
+  animation: breathe 5s infinite;
+  -webkit-animation: breathe 5s infinite;
+}
+
+.bfs-off .tile-highlight-bfs { display: none; }
+.outline-off .tile-highlight-outline { display: none; }
+
+.concentric-off .tile-highlight-concentric
+{
+  display: none;
+}
+
+
+@-webkit-keyframes breathe {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1.0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes breathe {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1.0;
+  }
+
+  100% {
+    opacity: 0;
+  }  
+}

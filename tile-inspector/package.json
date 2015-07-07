@@ -1,0 +1,13 @@
+{
+  "name": "blobs",
+  "version": "1.0.0",
+  "description": "Bridgewater coding challenge. Find blobs within a tile of boolean values.",
+  "main": "main.js",
+  "scripts": {
+    "test": "main.js"
+  },
+  "author": "Ashi Krishnan <me@ashi.works>",
+  "dependencies": {
+    "webcomponents.js": "^0.7.2"
+  }
+}
