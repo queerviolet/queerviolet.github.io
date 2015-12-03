@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="inkpad.js"></script>
+		<style>
+		body {
+			margin: 0; padding: 0;
+		}
+
+		ink-pad#ink {
+			position: absolute;
+			left: 0; right: 50%; top: 0; bottom: 0;
+			background: fuchsia;
+		}
+
+		ink-pad#moreink {
+			position: absolute;
+			left: 50%; right: 0; top: 0; bottom: 0;
+			background: #7ef;
+		}
+
+		/* Chrome, Safari, Opera */
+		@-webkit-keyframes rainbow {
+			0%   {color: red; width: 5px;}
+			15%  {color: orange; width: 10px;}
+			30%  {color: yellow; width: 2px;}
+			45%  {color: green; width: 4px;}
+			60%  {color: blue; width: 7px;}
+			75%  {color: indigo; width: 8px;}
+			90%  {color: violet; width: 2px;}
+			100% {color: fuchsia; width:5px;}
+		}
+
+		ink-pad .pen {
+			width: 10px;
+		}
+
+		ink-pad#ink .pen {
+			color: rgba(119, 238, 255, 1);
+		}
+
+		ink-pad#moreink .pen {
+			color: rgba(255, 0, 255, 0.05);
+			width: 100px;
+			-webkit-animation: rainbow 2s;
+			-webkit-animation-iteration-count: infinite;
+		}
+
+		</style>
+	</head>
+	<body>
+		<ink-pad id="ink"></ink-pad>
+		<ink-pad id="moreink"></ink-pad>
+		<!--<script>
+		// You can play with the canvases in the console. I thought this was
+		// pretty:
+		//ink.ctx.lineWidth = 10;
+		//ink.ctx.strokeStyle = 'rgba(119, 238, 255, 0.05)';
+		moreink.ctx.lineWidth = 10;
+		moreink.ctx.strokeStyle = 'rgba(255, 0, 255, 0.05)';
+		</script>-->
+	</body>
+</html>
