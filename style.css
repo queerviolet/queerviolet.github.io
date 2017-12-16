@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
+
 body {
   counter-reset: footnote;
   background: none;
@@ -59,7 +61,7 @@ a.footnote:before {
 }
 
 body {
-  font-family: 'proxima-nova', 'Proxima Nova', Helvetica, sans-serif;
+  font-family: Nunito, Helvetica, sans-serif;
   font-size: 12pt;
 }
 
@@ -128,8 +130,9 @@ p {
 }
 
 .content {
-  margin-top: 100vw;
-  max-width: 640px;  
+  max-width: 640px;   
+  margin: auto; 
+  margin-top: 100vh;
 }
 
 
@@ -223,6 +226,8 @@ p {
   }
 
   section {
+    margin: auto;
+    max-width: 640px;
   }
 
   section + section {
