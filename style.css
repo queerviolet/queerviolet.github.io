@@ -1,5 +1,8 @@
 body {
   counter-reset: footnote;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footnote {
@@ -42,6 +45,8 @@ a.footnote:before {
 }
 
 @media print {
+  #backdrop { display: none; }
+  
   #footnotes {
     display: block;
   }
@@ -66,20 +71,12 @@ a:hover {
   text-decoration: underline;
 }
 
-header {
-  text-align: center;
-}
-
-header h1 {
-  font-style: normal;
-  font-weight: 600;
-  margin: 0;
-}
-
 h1 {
-  font-weight: 100;
+  font-weight: 400;
   font-size: 20pt;
   margin: 0;
+  color: #1D111C;
+  text-align: right;
 }
 
 h2 {
@@ -100,13 +97,143 @@ p {
   font-weight: 400;
 }
 
+/* .hbox {
+  display: flex;
+  flex-flow: row nowrap;  
+}
+
+.content {
+  overflow: scroll;
+  height: 100vh;
+  flex-grow: 1;
+} */
+
+#headshot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -200;
+  height: 100vh;
+  width: 80vh;
+  background: url(ashi-headshot-01.jpg) no-repeat;
+  background-size: contain;
+}
+
+.tile {
+  background: url(ashi-headshot-01-blur.png) no-repeat;
+  background-attachment: fixed;
+  background-size: auto 100vh;    
+  
+  padding: 9px;
+}
+
+.content {
+  margin-top: 100vw;
+  max-width: 640px;  
+}
+
+
+@media screen and (min-width: 1024px) {
+  .content {
+    margin-top: 0;
+    margin-left: 40vw;    
+  }
+}
+
+
 @media screen {
+  .parallax {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective-origin-x: 100%;    
+  }
+  
+  .parallax-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin-x: 100%;    
+  }
+
+  .base {
+    transform: translateZ(0);
+  }
+  .back {
+    transform: translateZ(-2px) scale(3);
+  }
+
+  #backdrop {
+    position: fixed;
+    top: 0; left: 0;  
+    background: url(lilac-gradient.jpg) repeat-x;
+    width: calc(100vw + 10px);
+    height: calc(100vh + 10px);
+    filter: blur(4px);
+    z-index: -200;
+    background-size: auto 100vh;    
+  }
+
+  /* #headshot {
+    display: block;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+    background: url(ashi-headshot-01.jpg) no-repeat;
+    background-size: contain;
+  } */
+
+  #card.hidden { opacity: 0; }
+
+  #card {
+    position: absolute;
+    bottom: 9px; left: 9px;
+    color: #FDF4F9;
+    opacity: 0.9;
+    font-size: 18px;
+    font-variant: normal;
+    text-shadow:1px 1px 1px #1D111C;
+    transition: opacity 113ms;
+    opacity: 1;
+  }
+
+  #card a {
+    color: #FDF4F9;
+    font-size: 28px;
+    font-variant: normal;
+  }
+
+  #card h1 {
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+    font-size: 24px;
+    color: #FDF4F9;
+  }
+
+  #card h2 {
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+    font-size: 14px;
+  }
+
   section {
-    max-width: 640px;
-    margin: auto;
   }
 
   section + section {
-    margin-top: 25px;
+    margin-top: 35px;
   }
+}
+
+address {
+  font-style: normal; 
+}
+
+#card .email i {
+  transform: scale(0.8);
 }
