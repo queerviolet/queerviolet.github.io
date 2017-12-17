@@ -127,6 +127,7 @@ p {
   background-size: auto 100vh;    
   
   padding: 9px;
+  transform: translateZ(0);
 }
 
 .content {
@@ -173,22 +174,12 @@ p {
     position: fixed;
     top: 0; left: 0;  
     background: url(lilac-gradient.jpg) repeat-x;
-    width: calc(100vw + 10px);
-    height: calc(100vh + 10px);
+    width: 110vw;
+    height: 110vh;
     filter: blur(4px);
     z-index: -200;
-    background-size: auto 100vh;    
+    background-size: auto calc(100vh + 8px);
   }
-
-  /* #headshot {
-    display: block;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: -100;
-    background: url(ashi-headshot-01.jpg) no-repeat;
-    background-size: contain;
-  } */
 
   #card.hidden { opacity: 0; }
 
