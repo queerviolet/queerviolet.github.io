@@ -137,7 +137,7 @@ p {
 }
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .content {
     margin-top: 0;
     margin-left: 40vw;    
@@ -197,7 +197,7 @@ p {
 
   #card a {
     color: #FDF4F9;
-    font-size: 28px;
+    font-size: 34px;
     font-variant: normal;
   }
 

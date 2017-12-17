@@ -258,7 +258,7 @@
       const card = document.getElementById('card')
       function updateCard() {
         raf = null
-        if (window.innerWidth < 1024 && window.scrollY) {
+        if (window.innerWidth < 768 && window.scrollY) {
           card.classList.add('hidden')
         } else {
           card.classList.remove('hidden')
