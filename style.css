@@ -67,6 +67,13 @@ body {
 
 a {
   text-decoration: none;
+  font-weight: 700;
+  color: rgb(255, 249, 252);
+}
+
+.full-viewport {
+  width: 100vw;
+  height: 100vh;
 }
 
 a:hover {
@@ -75,9 +82,10 @@ a:hover {
 
 h1 {
   font-weight: 400;
-  font-size: 20pt;
+  font-size: 48px;
   margin: 0;
-  color: #1D111C;
+  /* color: #FDF4F9;   */
+  color: rgb(255, 249, 252);  
   text-align: right;
 }
 
@@ -91,59 +99,18 @@ h2 {
 }
 
 .dates {
-  color: rgb(20, 20, 20);
   font-weight: 400;
 }
 
-p {
+p, li {
   font-weight: 400;
-}
-
-/* .hbox {
-  display: flex;
-  flex-flow: row nowrap;  
-}
-
-.content {
-  overflow: scroll;
-  height: 100vh;
-  flex-grow: 1;
-} */
-
-#headshot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -200;
-  height: 100vh;
-  width: 80vh;
-  background: url(ashi-headshot-01.jpg) no-repeat;
-  background-size: contain;
-}
-
-.tile {
-  background: url(ashi-headshot-01-blur.png) no-repeat;
-  background-attachment: fixed;
-  background-size: auto 100vh;    
-  
-  padding: 9px;
-  transform: translateZ(0);
 }
 
 .content {
   max-width: 640px;   
-  margin: auto; 
-  margin-top: 100vh;
+  margin: auto;
+  padding: 9px;
 }
-
-
-@media screen and (min-width: 768px) {
-  .content {
-    margin-top: 0;
-    margin-left: 40vw;    
-  }
-}
-
 
 @media screen {
   .parallax {
@@ -151,7 +118,7 @@ p {
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    perspective-origin-x: 100%;    
+    perspective-origin: 100% 0;
   }
   
   .parallax-layer {
@@ -160,31 +127,71 @@ p {
     right: 0;
     bottom: 0;
     left: 0;
-    transform-origin-x: 100%;    
+    transform-origin: 100% 0;
   }
 
-  .base {
-    transform: translateZ(0);
+  .above {
+    transform: translateZ(1px);
   }
+
+  .front {
+    transform: translateZ(0);
+    z-index: 500;
+  }
+
+  .mid {
+    transform: translateZ(-1px) scale(2);    
+  }
+
   .back {
     transform: translateZ(-2px) scale(3);
+    z-index: -1000;
   }
 
-  #backdrop {
+  .back-back {
+    transform: translateZ(-3px) scale(4);
+    z-index: -2000;
+  }
+
+  #headshot {
+    background:
+      url(ashi-headshot-01.jpg) no-repeat,
+      url(lilac-gradient.jpg) repeat-x;
+    background-size:
+      auto 110%,
+      auto 110%;
+    background-position-x:
+      -60px,
+      -60px;
+  }
+
+  #hi {
+    text-align: center;
+    font-size: 10vh;
+    color: #5f1e4b;
+    text-shadow: 2px 2px 0 #fff0f898;    
+    z-index: 10000;
     position: fixed;
-    top: 0; left: 0;  
-    background: url(lilac-gradient.jpg) repeat-x;
-    width: 110vw;
-    height: 110vh;
-    filter: blur(4px);
-    z-index: -200;
-    background-size: auto calc(100vh + 8px);
+    top: 25px; left: 0; right: 0;
+    bottom: calc(90vh - 25px);
+  }
+
+  #resume {
+    background: #5f1e4b;
+    color: #FDF4F9;
+
+    position: relative;
+    top: 100vh;
+    width: 100vw;
   }
 
   #card.hidden { opacity: 0; }
 
   #card {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    transform: translateY(-115px);
+    z-index: 100;
     bottom: 9px; left: 9px;
     color: #FDF4F9;
     opacity: 0.9;
