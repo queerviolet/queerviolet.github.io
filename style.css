@@ -64,7 +64,7 @@ a.footnote:before {
 
 body {
   font-family: Nunito, Helvetica, sans-serif;
-  font-size: 12pt;
+  font-size: 20px;
 }
 
 a {
@@ -91,19 +91,6 @@ h1 {
   text-align: right;
 }
 
-h2 {
-  font-weight: 400;
-  font-size: 22px;
-  margin-bottom: 0;
-  line-height: 22px;  
-}
-
-.dates {  
-  font-weight: 300;
-  font-size: 16px;
-  float: right;
-}
-
 p, li {
   font-weight: 400;
 }
@@ -112,6 +99,41 @@ p, li {
   max-width: 640px;   
   margin: auto;
   padding: 9px;
+}
+
+.job-md {
+  display: flex;
+  align-items: center;
+}
+
+.job-md-logo {
+  height: 30px;
+  padding: 9px;
+}
+
+.job-md-place, .job-md-position {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 0;
+  line-height: 22px;
+}
+
+.job-md-position {
+  flex-grow: 1;  
+}
+
+.job-md-position:before {
+  content: ', ';
+}
+
+.job-md-dates {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.job-description {
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 @media screen {
@@ -155,61 +177,100 @@ p, li {
     z-index: -2000;
   }
 
-  #hi {
-    will-change: filter;
-    background:
-      url(ashi-headshot-01.jpg) no-repeat,
-      url(lilac-gradient.jpg) repeat-x;
-    background-size:
-      auto 110%,
-      auto 110%;
-    background-position-x:
-      -60px,
-      -60px;
-    
-    color: #5f1e4b;
-    text-align: center;
-    font-family: Lato;
-    font-weight: 400;
-    font-size: 10vh;
-    text-shadow: 2px 2px 0 #fff0f898;        
+  #hero {
+    background: url(lilac-gradient.jpg) repeat-x;
+    background-size: auto 110%;
 
-    top: 25px; left: 0; right: 0;
-    bottom: calc(90vh - 25px);
-    z-index: 100;    
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #headshot {
+    background: url(ashi-headshot-01.jpg) no-repeat;
+    background-size: auto 110%;
+    background-position-x: -100px;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  #by-nadya {
+    position: absolute;
+    left: 9px; bottom: 9px;
+
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+    font-size: 16px;
+    
+    color: #FDF4F9; 
+    text-shadow:1px 1px 1px #1D111C;
+    opacity: 0.7; 
+  }
+
+  #hi {
+    position: fixed;
+    left: 50%; bottom: 0;
+    transform: translate(-50%, -50%);
+
+    color: hsla(328, 100%, 97%, 0.904);
+    text-align: center;
+    font-weight: 300;
+    font-size: 9vh;
   }
 
   #resume {
     background: #5f1e4b;
     color: #FDF4F9;
-
-    position: relative;
-    top: 100vh;
     width: 100vw;
+    margin-top: 100vh;
   }
 
   #card.hidden { opacity: 0; }
 
   #card {
-    position: absolute;
-    top: -9px;
-    left: 9px;    
-    transform: translateY(-100%);
+    position: fixed;
+    top: 0;
+    right: 9px;    
+    /* transform: translateY(-100%); */
     z-index: 100;
     
-    color: #FDF4F9;
+    color: #1D111C;
     opacity: 0.9;
     font-size: 18px;
-    font-variant: normal;
-    text-shadow:1px 1px 1px #1D111C;
+    text-shadow:1px 1px 0px #FDF4F9;
     transition: opacity 113ms;
-    opacity: 1;
+    opacity: 0.9;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    transition: text-shadow 113ms;
   }
 
+  #card.invert {
+    text-shadow:1px 1px 0px #1D111C;
+  }
+
+  #card.invert a {
+    color: #FDF4F9;    
+  }
+
+  h1.fn { display: none; }
+
   #card a {
-    color: #FDF4F9;
-    font-size: 34px;
+    color: #1D111C;
+    font-size: 42px;
     font-variant: normal;
+    transition: color 113ms;
+  }
+
+  #card a:hover {
+    text-decoration: none;
   }
 
   #card h1 {
@@ -219,13 +280,6 @@ p, li {
     margin-bottom: -5px;
     font-size: 24px;
     color: #FDF4F9;
-  }
-
-  #card h2 {
-    font-style: normal;
-    font-weight: 400;
-    margin: 0;
-    font-size: 14px;
   }
 
   section {
