@@ -31,7 +31,7 @@
       </div> 
       <div id=resume class=front>               
         <div class="content">
-          <h1>I’ve been hacking for 27 years.</h1>
+          <h1 id=been-hacking>I’ve been hacking for 27 years.</h1>
 
           <p>I’ve worked on a wide range of projects—everything
           from graphics, to embedded UX, to running massive scale spam
@@ -155,7 +155,7 @@
               </ul>
             </div>
           </section>
-          
+          <!--
           <section>
             <div class=job-md>                
               <span class=job-md-place>Medioh</span>
@@ -203,6 +203,7 @@
               </ul>
             </div>
           </section>
+        -->
           <section>
             <div class=job-md>
               <span class=job-md-logo>🎓</span>
@@ -256,12 +257,6 @@
         const y = window.scrollY
         // shot.style.transform = translateY(px(-0.2 * y))
         hero.style.filter = filters(brightness(100 + y), hue(-y / 2))
-
-        if (y > window.innerHeight) {
-          card.classList.add('invert')
-        } else {
-          card.classList.remove('invert')
-        }
       }
       processScroll()
 

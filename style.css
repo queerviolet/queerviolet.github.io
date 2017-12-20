@@ -72,7 +72,8 @@ body {
 a {
   text-decoration: none;
   font-weight: 700;
-  color: rgb(255, 249, 252);
+  /* color: rgb(255, 249, 252); */
+  color: #1D111C;
 }
 
 .full-viewport {
@@ -89,7 +90,8 @@ h1 {
   font-size: 48px;
   margin: 0;
   /* color: #FDF4F9;   */
-  color: rgb(255, 249, 252);  
+  /* color: rgb(255, 249, 252);   */
+  color: #1D111C;
   text-align: right;
 }
 
@@ -136,6 +138,11 @@ p, li {
 .job-description {
   margin-left: 30px;
   margin-right: 30px;
+}
+
+#been-hacking {
+  text-align: center;
+  margin-top: 18px;
 }
 
 @media screen {
@@ -227,8 +234,8 @@ p, li {
   }
 
   #resume {
-    background: #5f1e4b;
-    color: #FDF4F9;
+    color: #5f1e4b;
+    background: #FDF4F9;
     width: 100vw;
     margin-top: 100vh;
   }
@@ -281,7 +288,7 @@ p, li {
     margin: 0;
     margin-bottom: -5px;
     font-size: 24px;
-    color: #FDF4F9;
+    color: #FDF4F9;    
   }
 
   section {
