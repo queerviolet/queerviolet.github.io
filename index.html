@@ -1,20 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <link href='//fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
-    <script type="text/javascript" src="//use.typekit.net/stm3eky.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    <script src="https://use.fontawesome.com/2f0832fcef.js"></script>
   </head>
   <body>
     <div class=parallax>
-      <div id=headshot class="parallax-layer back full-viewport">
-      </div>
-      <h1 id=hi class="parallax-layer back-back">
+      <div id=hi class="parallax-layer back full-viewport">
         hi, i'm ashi
-      </h1>
+      </div> 
       <div id=resume class=front>
         <address id=card>
           <h1 class="fn">Ashi Krishnan</h1>
@@ -44,8 +38,8 @@
           <p>Here's what I've been up to.</p>
 
             <section>
+              <span class=dates>2016 ⇢</span>
               <h2>Grace Hopper Academy, Instructor</h2>
-              <div class="dates">2016 to now</div>
               <p>These days I work as an instructor at Grace Hopper academy, a new coding bootcamp for women run by Fullstack Academy.</p>
               <ul>
                 <li>It's an all-Javascript curriculum. Even as I've begun to fall for Swift, Javascript is still
@@ -54,8 +48,8 @@
             </section>
 
             <section>
-              <h2>Hopscotch Technologies, Senior Developer</h2>
-              <div class="dates">2015 to 2016</div>
+              <span class=dates>2015 → 2016</span>
+              <h2>Hopscotch Technologies, Senior Developer</h2>              
               <p>Hopscotch makes a visual programming language for kids for the iPad and, now, the iPhone.</p>
               <ul>
                 <li>I worked with the CTO and product team to rewrite the code editor as an iPhone app.</li>
@@ -65,8 +59,8 @@
             </section>
 
             <section>
-              <h2>Dev Bootcamp, Instructor</h2>
-              <div class="dates">2014 to 2015</div>
+              <span class=dates>2014 → 2015</span>
+              <h2>Dev Bootcamp, Instructor</h2>              
               <p>I left full time development to work as an instructor at Dev Bootcamp. Teaching is the most
               powerful and rewarding job I've ever had.</p>
               <ul>
@@ -80,8 +74,8 @@
             </section>
 
             <section>
-              <h2>Google, Software Engineer in Site Reliability Engineering</h2>
-              <div class="dates">2010 to 2014</div>
+              <div class=dates>2010 → 2014</div>
+              <h2>Google, Software Engineer in Site Reliability Engineering</h2>              
               <p>My team handles the deployment, monitoring, repair, and
               production tuning of numerous large services at Google.</p>
               <ul>
@@ -98,10 +92,11 @@
             </section>
 
             <section>
-              <h2><a href="http://www.noaa.gov"
-              title="The National Oceanic and Atmospheric Administration">NOAA</a>,
+              <span class=dates>2007 → 2010</span>              
+              <h2><a
+                href=http://www.noaa.gov
+                title="The National Oceanic and Atmospheric Administration">NOAA</a>,
               Research Scientist</h2>
-              <div class="dates">2007 to 2010</div>
               <p>I worked on a projection art museum exhibit
               called <a href="http://sos.noaa.gov">Science on a
               Sphere</a>. It’s a carbon fiber globe six feet in diameter
@@ -125,8 +120,8 @@
             </section>
 
             <section>
+              <span class=dates>2005 → 2007</span>              
               <h2>Medioh, Software Engineer (Intern, Contracting)</h2>
-              <div class="dates">2005 to 2007</div>
               <p>While in school, I did an internship and, later, contract
               work for a startup with a variety of video-centric product
               interests.</p>
@@ -147,8 +142,8 @@
             </section>
 
             <section>
+              <span class=dates>2004 → 2007</span>              
               <h2>NOAA, Student Research Assistant</h2>
-              <div class="dates">2004 to 2007</div>
               <p>As a student researcher, I worked on a Python framework
               that let weather forecasters write their own tools.</p>
               <ul>
@@ -223,43 +218,37 @@
         </div>
       </div>
     </div>    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script>
-      /* Adapted from what-if.xkcd.com */
-      jQuery.noConflict();
-      jQuery(function() {
-        var footnotes = jQuery("#footnotes > ol");
-        jQuery(".note").hide();
-        jQuery(".note").each(function(i, el) {
-          jQuery('<li>' + el.innerHTML + '</li>').appendTo(footnotes);
-        });
-        jQuery(".footnote").click(function(event) {
-          var this_note = jQuery(this).children('.note');
-          jQuery('.note').not(this_note).hide();
-          this_note.toggle();
-          event.stopPropagation();
-        });
-        jQuery("body").click(function(event) {
-          jQuery('.note').hide();
-        });
-      });
-      window.addEventListener('scroll', didScroll)
-      window.addEventListener('resize', didScroll)
+    <script> 
+      // let raf = null
+      // function didScroll() {
+      //   raf = raf || requestAnimationFrame(saturateHi)
+      // }
 
-      let raf = null
-      function didScroll() {
-        raf = raf || requestAnimationFrame(updateCard)
-      }
+      /* Doesn't seem to work reliably in the presence of perspective
+         😭😡 */
+      // addEventListener('scroll', didScroll)
+      // addEventListener('resize', didScroll)
 
-      const card = document.getElementById('card')
-      function updateCard() {
-        raf = null
-        if (window.innerWidth < 768 && window.scrollY) {
-          card.classList.add('hidden')
-        } else {
-          card.classList.remove('hidden')
-        }
-      }
+      // const resume = document.getElementById('resume')
+      //     , hi = document.getElementById('hi')
+      // let hiSaturation = 100
+      // saturateHi()
+      // function saturateHi() {
+      //   // raf = null
+      //   requestAnimationFrame(saturateHi)
+      //   const h = window.innerHeight
+      //       , {top} = resume.getBoundingClientRect()
+      //       , t = (h - top) / h
+      //   const newHiSaturation = (t < 0 || t > 1)
+      //     ? 100
+      //     : 100 + Math.round(5000 * ((h - top) / h))
+      //   if (newHiSaturation !== hiSaturation) {
+      //     hiSaturation = newHiSaturation
+      //     const filter = `saturate(${hiSaturation}%)`
+      //     hi.style.filter = filter
+      //   }
+      // }
     </script>
+    <script async defer src="https://use.fontawesome.com/2f0832fcef.js"></script>        
   </body>
 </html>

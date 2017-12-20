@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400');
 
 body {
   counter-reset: footnote;
@@ -91,15 +93,15 @@ h1 {
 
 h2 {
   font-weight: 400;
-  font-size: 16pt;
+  font-size: 22px;
+  margin-bottom: 0;
+  line-height: 22px;  
 }
 
-h2 {
-   margin-bottom: 0;
-}
-
-.dates {
-  font-weight: 400;
+.dates {  
+  font-weight: 300;
+  font-size: 16px;
+  float: right;
 }
 
 p, li {
@@ -153,7 +155,8 @@ p, li {
     z-index: -2000;
   }
 
-  #headshot {
+  #hi {
+    will-change: filter;
     background:
       url(ashi-headshot-01.jpg) no-repeat,
       url(lilac-gradient.jpg) repeat-x;
@@ -163,17 +166,17 @@ p, li {
     background-position-x:
       -60px,
       -60px;
-  }
-
-  #hi {
-    text-align: center;
-    font-size: 10vh;
+    
     color: #5f1e4b;
-    text-shadow: 2px 2px 0 #fff0f898;    
-    z-index: 10000;
-    position: fixed;
+    text-align: center;
+    font-family: Lato;
+    font-weight: 400;
+    font-size: 10vh;
+    text-shadow: 2px 2px 0 #fff0f898;        
+
     top: 25px; left: 0; right: 0;
     bottom: calc(90vh - 25px);
+    z-index: 100;    
   }
 
   #resume {
@@ -189,10 +192,11 @@ p, li {
 
   #card {
     position: absolute;
-    top: 0;
-    transform: translateY(-115px);
+    top: -9px;
+    left: 9px;    
+    transform: translateY(-100%);
     z-index: 100;
-    bottom: 9px; left: 9px;
+    
     color: #FDF4F9;
     opacity: 0.9;
     font-size: 18px;
@@ -241,3 +245,5 @@ address {
 #card .email i {
   transform: scale(0.8);
 }
+
+/* #filters { display: none; } */
