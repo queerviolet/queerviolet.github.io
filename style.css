@@ -108,29 +108,73 @@ p, li {
 .job-md {
   display: flex;
   align-items: center;
+  position: relative;
+  max-width: 640px;
+  margin-bottom: 22px;
 }
 
 .job-md-logo {
   height: 30px;
   padding: 9px;
+  text-align: center;
+  order: 2;
 }
 
-.job-md-place, .job-md-position {
+.job-md-place, .job-md-position {  
   font-weight: 700;
   font-size: 22px;
   margin-bottom: 0;
   line-height: 22px;
 }
 
-.job-md-position {
-  flex-grow: 1;  
+.job-md-place {
+  order: 1;
+  width: 50%;
+  text-align: right;
 }
 
-.job-md-position:before {
-  content: ', ';
+.job-md-position {
+  order: 3;
+  width: 50%;
+}
+
+.job-md-position {
+  /* flex-grow: 1; */
+}
+
+.fold {
+  transition: border 113ms;
+}
+
+.is-folded {
+  overflow: hidden;
+  height: 0;
+  border-bottom: thin solid transparent;
+  border-top: thin solid transparent;
+}
+
+.is-unfolded {
+  border-bottom: thin solid #5f1e4c7c;
+  border-top: thin solid #5f1e4b7c;
+}
+
+.fold-content {
+  transition: clip-path 200ms;
+}
+
+.fold-content.is-visible {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);  
+}
+
+.fold-content.is-hidden {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);  
 }
 
 .job-md-dates {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, calc(100% + 9px));
+
   font-weight: 300;
   font-size: 16px;
 }
@@ -138,6 +182,10 @@ p, li {
 .job-description {
   margin-left: 30px;
   margin-right: 30px;
+}
+
+.scanline {
+  border-bottom: 1px solid fuchsia;
 }
 
 #been-hacking {

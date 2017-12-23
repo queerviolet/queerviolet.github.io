@@ -41,31 +41,33 @@
 
           <p>Here's what I've been up to.</p>
 
-          <section>
+          <section class=foldable>
             <div class=job-md>
               <img class=job-md-logo src="grace-hopper-logo.png">
               <span class=job-md-place><a href=https://fullstackacademy.com>Fullstack Academy</a></span>
               <span class=job-md-position>Teacher</span>                
-              <span class=job-md-dates>2016 ⇢</span>
+              <span class=job-md-dates>2016 ⇢ <span style="color: transparent;">0000</span></span>
             </div>
             <div class=job-description>
-              <p>These days I work as an instructor at Fullstack Academy. Primarily,
-              I teach at Grace Hopper, our coding immersive for women. I lecture daily
-              on CS topics, React, and Node, act as PM on student projects, and design
-              curriculum and tooling.              
-            </p>
-              <ul class=job-detail>
-                <li>Daily lectures on CS topics, JS, React, Express, Node, HTML/CSS, etc.</li>
-                <li>Frequent lectures on system design, engineering responsibility, and
-                robots: friend and foe</li>
-                <li>Guide student project work, acting as PM / tech lead</li>
-                <li>Prep students for technical interviews</li>
-                <li>Design curriculum &amp; tooling to support it</li>
-              </ul>
+              <div class=fold-content>
+                <p>These days I work as an instructor at Fullstack Academy. Primarily,
+                I teach at Grace Hopper, our coding immersive for women. I lecture daily
+                on CS topics, React, and Node, act as PM on student projects, and design
+                curriculum and tooling.              
+              </p>
+                <ul class=job-detail>
+                  <li>Daily lectures on CS topics, JS, React, Express, Node, HTML/CSS, etc.</li>
+                  <li>Frequent lectures on system design, engineering responsibility, and
+                  robots: friend and foe</li>
+                  <li>Guide student project work, acting as PM / tech lead</li>
+                  <li>Prep students for technical interviews</li>
+                  <li>Design curriculum &amp; tooling to support it</li>
+                </ul>
+              </div>
             </div>
           </section>
 
-          <section>
+          <section class=foldable>
             <div class=job-md>
               <img class=job-md-logo src="hopscotch-logo.png">
               <span class=job-md-place>Hopscotch Technologies</span>
@@ -73,22 +75,24 @@
               <span class=job-md-dates>2015 → 2016</span>
             </div>
             <div class=job-description>
-              <p>Hopscotch makes a visual programming language for kids for the iPad and,
-              now, the iPhone. While there, I rewrote the code editor to fit the iPhone,
-              and completed the web player (which involved, amongst other things, figuring
-              out how to lay out 🦄💩-filled text in cross-platform WebGL).</p>
-              <ul class=job-detail>
-                <li>Worked with CTO to rewrite the code editor as an iPhone app.</li>
-                <li>Wrote a ton of Swift and Objective-C. I learned I really like Swift</li>
-                <li>Productionized the web player, a Javascript+WebGL port of the Hopscotch runtime.
-                This involved, amongst other challenges,
-                writing our own text layout system that handles 🦄 identically(ish)
-                to how Core Graphics renders them.</li>
-              </ul>
+              <div class=fold-content>                    
+                <p>Hopscotch makes a visual programming language for kids for the iPad and,
+                now, the iPhone. While there, I rewrote the code editor to fit the iPhone,
+                and completed the web player (which involved, amongst other things, figuring
+                out how to lay out 🦄💩-filled text in cross-platform WebGL).</p>
+                <ul class=job-detail>
+                  <li>Worked with CTO to rewrite the code editor as an iPhone app.</li>
+                  <li>Wrote a ton of Swift and Objective-C. I learned I really like Swift</li>
+                  <li>Productionized the web player, a Javascript+WebGL port of the Hopscotch runtime.
+                  This involved, amongst other challenges,
+                  writing our own text layout system that handles 🦄 identically(ish)
+                  to how Core Graphics renders them.</li>
+                </ul>
+              </div>
             </div>
           </section>
 
-          <section>
+          <section class=foldable>
             <div class=job-md>
               <img class=job-md-logo src="dbc-logo.png">
               <span class=job-md-place>Dev Bootcamp</span>
@@ -96,13 +100,15 @@
               <span class=job-md-dates>2014 → 2015</span>
             </div>
             <div class=job-description>
-              <p>I left full time development to work as an instructor at Dev Bootcamp. Teaching,
-              I quickly discovered, would be the most powerful and rewarding job I've ever had.</p>                
-              </p>
+              <div class=fold-content>                    
+                <p>I left full time development to work as an instructor at Dev Bootcamp. Teaching,
+                I quickly discovered, would be the most powerful and rewarding job I've ever had.</p>                
+                </p>
+              </div>
             </div>
           </section>
 
-          <section>
+          <section class=foldable>
             <div class=job-md>
               <img class=job-md-logo src="google-logo.svg">
               <span class=job-md-place>Google</span>
@@ -110,25 +116,27 @@
               <span class=job-md-dates>2010 → 2014</span>
             </div>
             <div class=job-description>
-              <p>My team handled the deployment, monitoring, repair, and
-              production tuning of numerous large services at Google. I fought
-              fires, saved services, occasionally broke them, and
-              carried a pager.</p>
-              <ul class=job-detail>
-                <li>Worked with developer teams to design, document, test, and
-                safely deploy large scale architectural changes.</li>
-                <li>Designed monitoring for complex services and developed
-                capacity plans for services running on thousands of
-                machines.</li>
-                <li>Diagnosed and repaired perplexing issues arising from, for
-                example, the interplay of new code, ancient bugs, and
-                recursive asynchronous processing pipelines.</li>
-                <li>Carried a pager.</li>
-              </ul>
+              <div class=fold-content>                    
+                <p>My team handled the deployment, monitoring, repair, and
+                production tuning of numerous large services at Google. I fought
+                fires, saved services, occasionally broke them, and
+                carried a pager.</p>
+                <ul class=job-detail>
+                  <li>Worked with developer teams to design, document, test, and
+                  safely deploy large scale architectural changes.</li>
+                  <li>Designed monitoring for complex services and developed
+                  capacity plans for services running on thousands of
+                  machines.</li>
+                  <li>Diagnosed and repaired perplexing issues arising from, for
+                  example, the interplay of new code, ancient bugs, and
+                  recursive asynchronous processing pipelines.</li>
+                  <li>Carried a pager.</li>
+                </ul>
+              </div>
             </div>
           </section>
 
-          <section>
+          <section class=foldable>
             <div class=job-md>
               <img class=job-md-logo src="noaa-logo.svg">
               <span class=job-md-place><a href=http://www.noaa.gov>NOAA</a></span>
@@ -136,27 +144,29 @@
               <span class=job-md-dates>2007 → 2010</span>
             </div>
             <div class=job-description>
-              <p>I worked on a projection art museum exhibit
-              called <a href="http://sos.noaa.gov">Science on a
-              Sphere</a>. It’s a carbon fiber globe six feet in diameter
-              that hangs in the center of a dark theater, illuminated by
-              four projectors. In terms of physical wow factor, this is the
-              coolest project I have ever worked on for money.</p>
-              <ul class=job-detail>
-                <li>Rebuilt graphics pipeline with shaders and DMA video streaming.
-                This 4xed our pixel throughput.</li>
-                <li>Shrunk our hardware footprint from four
-                computers down to one (it grew again)</li>
-                <li>Invoked deep bluetooth hackery to add a full Wii remote interface</li>
-                <li>Improved our workflow. Before: Makefile maze, environment variables passed
-                down by oral tradition, source in CVS. After: continuous
-                builds and testing, hermetic packages, source—alas—in
-                Subversion.</li>
-              </ul>
+              <div class=fold-content>                    
+                <p>I worked on a projection art museum exhibit
+                called <a href="http://sos.noaa.gov">Science on a
+                Sphere</a>. It’s a carbon fiber globe six feet in diameter
+                that hangs in the center of a dark theater, illuminated by
+                four projectors. In terms of physical wow factor, this is the
+                coolest project I have ever worked on for money.</p>
+                <ul class=job-detail>
+                  <li>Rebuilt graphics pipeline with shaders and DMA video streaming.
+                  This 4xed our pixel throughput.</li>
+                  <li>Shrunk our hardware footprint from four
+                  computers down to one (it grew again)</li>
+                  <li>Invoked deep bluetooth hackery to add a full Wii remote interface</li>
+                  <li>Improved our workflow. Before: Makefile maze, environment variables passed
+                  down by oral tradition, source in CVS. After: continuous
+                  builds and testing, hermetic packages, source—alas—in
+                  Subversion.</li>
+                </ul>
+              </div>
             </div>
           </section>
           <!--
-          <section>
+          <section class=foldable>
             <div class=job-md>                
               <span class=job-md-place>Medioh</span>
               <span class=job-md-position>Contractor</span>
@@ -183,7 +193,7 @@
             </div>
           </section>
 
-          <section>
+          <section class=foldable>
             <div class=job-md>
               <img class=job-md-logo src="noaa-logo.svg">
               <span class=job-md-place><a href=http://www.noaa.gov>NOAA</a></span>
@@ -204,7 +214,7 @@
             </div>
           </section>
         -->
-          <section>
+          <section class=foldable>
             <div class=job-md>
               <span class=job-md-logo>🎓</span>
               <span class=job-md-place><a href=http://www.colorado.edu>University of Colorado</a></span>
@@ -241,6 +251,8 @@
           , brightness = percent => `brightness(${percent}%)`
           , hue = degrees => `hue-rotate(${degrees}deg)`
           , filters = (...filters) => filters.join(' ')
+          , $$ = (select, root=document) => [...root.querySelectorAll(select)]
+          , $ = (select, root=document) => root.querySelector(select)
       let raf = null
       function didScroll() {
         raf = raf || requestAnimationFrame(processScroll)
@@ -259,6 +271,53 @@
         hero.style.filter = filters(brightness(100 + y), hue(-y / 2))
       }
       processScroll()
+      const foldClose = e => () => {
+        e.classList.remove('is-unfolded')          
+        e.classList.add('is-folded')
+      }
+      const foldOpen = e => () => {
+        e.classList.remove('is-folded')
+        e.classList.add('is-unfolded')
+      }
+      const foldContentClose = e => () => {
+        e.classList.remove('is-visible')          
+        e.classList.add('is-hidden')
+      }
+      const foldContentOpen = e => () => {
+        e.classList.remove('is-hidden')
+        e.classList.add('is-visible')
+      }
+
+      const foldToggler = (fold, content=$('.fold-content', fold)) => {        
+        fold.classList.add('fold')
+        const openFold = foldOpen(fold)
+        const closeFold = foldClose(fold)
+        const openContent = content ? foldContentOpen(content) : ()=>{}
+        const closeContent = content ? foldContentClose(content) : ()=>{}
+        const open = () => {
+          console.log('opening')
+          openFold()
+          setTimeout(openContent, 200)
+        }
+        const close = () => {
+          console.log('closing')
+          closeContent()
+          setTimeout(closeFold, 200)
+        }
+        closeContent(); closeFold()
+        return () =>
+          fold.classList.contains('is-folded')
+            ? open()
+            : close()
+      }
+
+      const makeFoldable = e =>
+        $('.job-md', e)
+          .addEventListener('click',
+            foldToggler($('.job-description', e)))
+
+      $$('.foldable').forEach(makeFoldable)
+
 
       // const resume = document.getElementById('resume')
       //     , hi = document.getElementById('hi')
