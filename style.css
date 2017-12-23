@@ -7,6 +7,7 @@ body {
   background: none;
   padding: 0;
   margin: 0;
+  color: #5f1e4b;
 }
 
 .footnote {
@@ -105,12 +106,28 @@ p, li {
   padding: 9px;
 }
 
-.job-md {
+a.job-md {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   position: relative;
-  max-width: 640px;
-  margin-bottom: 22px;
+  max-width: 580px;
+  padding-bottom: 22px;
+  margin-bottom: -1px;
+
+  color: #5f1e4b;
+  transition: border-bottom-color 300ms;
+
+  border-bottom: 1px solid transparent;
+}
+
+a.job-md:hover {
+  text-decoration: none;
+}  
+
+a.job-md:active {
+  border-bottom-color: rgba(255, 0, 255, 0.678);
 }
 
 .job-md-logo {
@@ -182,10 +199,6 @@ p, li {
 .job-description {
   margin-left: 30px;
   margin-right: 30px;
-}
-
-.scanline {
-  border-bottom: 1px solid fuchsia;
 }
 
 #been-hacking {
