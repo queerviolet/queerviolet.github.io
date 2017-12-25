@@ -114,14 +114,14 @@ p, li {
   position: relative;
   width: 100%;
   max-width: 580px;
-  padding-bottom: 22px;
+
 
   color: #5f1e4b;
 }
 
 a.fold-thumb {
   display: block;  
-  padding: 18px 9px 18px 9px;
+  padding: 18px 9px 9px 9px;
   transition: height 113ms,
     border-color 300ms,
     border-image 300ms,
@@ -187,14 +187,9 @@ a.fold-thumb:active {
   text-align: right;
 }
 
-.job-md-position {
-  /* flex-grow: 1; */
-}
-
 .job-md-dates {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, calc(100% + 9px));
+  display: block;
+  text-align: center;
 
   font-weight: 300;
   font-size: 16px;
