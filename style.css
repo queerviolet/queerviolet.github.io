@@ -115,13 +115,12 @@ p, li {
   width: 100%;
   max-width: 580px;
 
-
-  color: #5f1e4b;
+  color: #5f1e4b;  
 }
 
 a.fold-thumb {
   display: block;  
-  padding: 18px 9px 9px 9px;
+  padding: 18px 9px;
   transition: height 113ms,
     border-color 300ms,
     border-image 300ms,
@@ -137,7 +136,7 @@ a.fold-thumb {
 a.fold-thumb:active {
   border-color: fuchsia;
   border-width: 2px;
-  padding: 17px 8px 17px 8px;
+  padding: 17px 9px;
 }
 
 .is-unfolded > a.fold-thumb {
@@ -147,7 +146,7 @@ a.fold-thumb:active {
 
 .is-unfolded > a.fold-thumb:active {
   border-color: fuchsia;
-  padding: 18px 9px 18px 9px;
+  padding: 18px 9px;
 }
 
 .foldable {
@@ -158,7 +157,7 @@ a.fold-thumb:active {
 .fold-content {
   box-sizing: border-box;
   position: absolute;
-  top: 100px; left: 0;
+  top: 102px; left: 0;
 }
 
 .job-md-logo {
