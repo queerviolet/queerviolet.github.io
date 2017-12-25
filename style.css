@@ -106,28 +106,59 @@ p, li {
   padding: 9px;
 }
 
-a.job-md {
-  margin-left: auto;
-  margin-right: auto;
+.job-md {
   display: flex;
+  margin-left: auto;
+  margin-right: auto;  
   align-items: center;
   position: relative;
+  width: 100%;
   max-width: 580px;
   padding-bottom: 22px;
-  margin-bottom: -1px;
 
   color: #5f1e4b;
-  transition: border-bottom-color 300ms;
-
-  border-bottom: 1px solid transparent;
 }
 
-a.job-md:hover {
-  text-decoration: none;
-}  
+a.fold-thumb {
+  display: block;  
+  padding: 18px 9px 18px 9px;
+  transition: height 113ms,
+    border-color 300ms,
+    border-image 300ms,
+    border-width 300ms,
+    padding 300ms;
+  box-sizing: border-box;
+  border-top: thin solid transparent;
+  border-bottom: thin solid transparent;
+  
+  text-decoration: none;    
+}
 
-a.job-md:active {
-  border-bottom-color: rgba(255, 0, 255, 0.678);
+a.fold-thumb:active {
+  border-color: fuchsia;
+  border-width: 2px;
+  padding: 17px 8px 17px 8px;
+}
+
+.is-unfolded > a.fold-thumb {
+  border-top: thin solid #5f1e4b7c;
+  border-bottom: thin solid #5f1e4b7c;  
+}
+
+.is-unfolded > a.fold-thumb:active {
+  border-color: fuchsia;
+  padding: 18px 9px 18px 9px;
+}
+
+.foldable {
+  overflow: hidden;
+  position: relative;
+}
+
+.fold-content {
+  box-sizing: border-box;
+  position: absolute;
+  top: 100px; left: 0;
 }
 
 .job-md-logo {
@@ -147,44 +178,17 @@ a.job-md:active {
 .job-md-place {
   order: 1;
   width: 50%;
-  text-align: right;
+  text-align: left;
 }
 
 .job-md-position {
   order: 3;
   width: 50%;
+  text-align: right;
 }
 
 .job-md-position {
   /* flex-grow: 1; */
-}
-
-.fold {
-  transition: border 113ms;
-}
-
-.is-folded {
-  overflow: hidden;
-  height: 0;
-  border-bottom: thin solid transparent;
-  border-top: thin solid transparent;
-}
-
-.is-unfolded {
-  border-bottom: thin solid #5f1e4c7c;
-  border-top: thin solid #5f1e4b7c;
-}
-
-.fold-content {
-  transition: clip-path 200ms;
-}
-
-.fold-content.is-visible {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);  
-}
-
-.fold-content.is-hidden {
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);  
 }
 
 .job-md-dates {
@@ -204,6 +208,19 @@ a.job-md:active {
 #been-hacking {
   text-align: center;
   margin-top: 18px;
+}
+
+.instruction {
+  text-align: center;
+  font-size: 18px;
+  font-variant: italic;
+  color:#5f1e4b7c;
+  /* bac: #FDF4F9; */
+  padding: 4px;
+  border-radius: 16px;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen {
@@ -360,6 +377,10 @@ a.job-md:active {
   section + section {
     margin-top: 35px;
   }
+}
+
+section.foldable + section.foldable {
+  margin-top: -1px;
 }
 
 address {

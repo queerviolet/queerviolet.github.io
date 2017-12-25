@@ -29,7 +29,7 @@
         <span id=hi>hi, i'm ashi</span>
         <cite id=by-nadya><a href="http://www.nadyalevphoto.com/">Photo: Nadya Lev</a></cite>
       </div> 
-      <div id=resume class=front>               
+      <div id=resume class=front>
         <div class="content">
           <h1 id=been-hacking>I’ve been hacking for 27 years.</h1>
 
@@ -39,14 +39,18 @@
           environments where I’m working closely with other people, either
           in person or remotely.</p>
 
-          <p>Here's what I've been up to.</p>
+          <p>Here's what I've been up to:</p>
 
+          <div class="instruction">Tap for more</div>              
+          
           <section class=foldable>
-            <a class=job-md>
-              <img class=job-md-logo src="grace-hopper-logo.png">
-              <span class=job-md-place>Fullstack Academy</span>
-              <span class=job-md-position>Teacher</span>                
-              <span class=job-md-dates>2016 ⇢ <span style="color: transparent;">0000</span></span>
+            <a class=fold-thumb>
+              <div class=job-md>
+                <img class=job-md-logo src="grace-hopper-logo.png">
+                <span class=job-md-place>Fullstack Academy</span>
+                <span class=job-md-position>Teacher</span>                
+                <span class=job-md-dates>2016 ⇢ <span style="color: transparent;">0000</span></span>
+              </div>
             </a>
             <div class=job-description>
               <div class=fold-content>
@@ -70,11 +74,13 @@
           </section>
 
           <section class=foldable>
-            <a class=job-md>
-              <img class=job-md-logo src="hopscotch-logo.png">
-              <span class=job-md-place>Hopscotch Technologies</span>
-              <span class=job-md-position>Senior Developer</span>                
-              <span class=job-md-dates>2015 → 2016</span>
+            <a class=fold-thumb>
+              <div class=job-md>
+                <img class=job-md-logo src="hopscotch-logo.png">
+                <span class=job-md-place>Hopscotch Technologies</span>
+                <span class=job-md-position>Senior Developer</span>                
+                <span class=job-md-dates>2015 → 2016</span>
+              </div>
             </a>
             <div class=job-description>
               <div class=fold-content>                    
@@ -95,11 +101,13 @@
           </section>
 
           <section class=foldable>
-            <a class=job-md>
-              <img class=job-md-logo src="dbc-logo.png">
-              <span class=job-md-place>Dev Bootcamp</span>
-              <span class=job-md-position>Instructor</span>
-              <span class=job-md-dates>2014 → 2015</span>
+            <a class=fold-thumb>
+              <div class=job-md>
+                <img class=job-md-logo src="dbc-logo.png">
+                <span class=job-md-place>Dev Bootcamp</span>
+                <span class=job-md-position>Instructor</span>
+                <span class=job-md-dates>2014 → 2015</span>
+              </div>
             </a>
             <div class=job-description>
               <div class=fold-content>                    
@@ -111,11 +119,13 @@
           </section>
 
           <section class=foldable>
-            <a class=job-md>
-              <img class=job-md-logo src="google-logo.svg">
-              <span class=job-md-place>Google</span>
-              <span class=job-md-position>Site Reliability Engineer</span>
-              <span class=job-md-dates>2010 → 2014</span>
+            <a class=fold-thumb>
+              <div class=job-md>
+                <img class=job-md-logo src="google-logo.svg">
+                <span class=job-md-place>Google</span>
+                <span class=job-md-position>Site Reliability Engineer</span>
+                <span class=job-md-dates>2010 → 2014</span>
+              </div>
             </a>
             <div class=job-description>
               <div class=fold-content>                    
@@ -139,11 +149,13 @@
           </section>
 
           <section class=foldable>
-            <a class=job-md>
-              <img class=job-md-logo src="noaa-logo.svg">
-              <span class=job-md-place>NOAA</span>
-              <span class=job-md-position>Research Scientist</span>
-              <span class=job-md-dates>2007 → 2010</span>
+            <a class=fold-thumb>
+              <div class=job-md>
+                <img class=job-md-logo src="noaa-logo.svg">
+                <span class=job-md-place>NOAA</span>
+                <span class=job-md-position>Research Scientist</span>
+                <span class=job-md-dates>2007 → 2010</span>
+              </div>
             </a>
             <div class=job-description>
               <div class=fold-content>                    
@@ -217,7 +229,7 @@
             </div>
           </section>
         -->
-          <section class=foldable>
+          <section>
             <div class=job-md>
               <span class=job-md-logo>🎓</span>
               <span class=job-md-place><a href=http://www.colorado.edu>University of Colorado</a></span>
@@ -274,73 +286,32 @@
         hero.style.filter = filters(brightness(100 + y), hue(-y / 2))
       }
       processScroll()
-      const foldClose = e => () => {
-        e.classList.remove('is-unfolded')          
-        e.classList.add('is-folded')
-      }
-      const foldOpen = e => () => {
-        e.classList.remove('is-folded')
-        e.classList.add('is-unfolded')
-      }
-      const foldContentClose = e => () => {
-        e.classList.remove('is-visible')          
-        e.classList.add('is-hidden')
-      }
-      const foldContentOpen = e => () => {
-        e.classList.remove('is-hidden')
-        e.classList.add('is-visible')
-      }
 
-      const foldToggler = (fold, content=$('.fold-content', fold)) => {        
-        fold.classList.add('fold')
-        const openFold = foldOpen(fold)
-        const closeFold = foldClose(fold)
-        const openContent = content ? foldContentOpen(content) : ()=>{}
-        const closeContent = content ? foldContentClose(content) : ()=>{}
+      function makeFoldable(fold, {
+        content = $('.fold-content', fold),
+        thumb = $('.fold-thumb', fold),
+        thumbHeight = thumb.getBoundingClientRect().height,
+        contentHeight = content.getBoundingClientRect().height,
+        fullHeight = thumbHeight + contentHeight,
+      }={}) {
         const open = () => {
-          console.log('opening')
-          openFold()
-          setTimeout(openContent, 200)
+          fold.classList.remove('is-folded')
+          fold.classList.add('is-unfolded')
+          thumb.style.height = px(fullHeight)
         }
         const close = () => {
-          console.log('closing')
-          closeContent()
-          setTimeout(closeFold, 200)
-        }
-        closeContent(); closeFold()
-        return () =>
+          fold.classList.remove('is-unfolded')          
+          fold.classList.add('is-folded')
+          thumb.style.height = px(thumbHeight)
+        }        
+        close()        
+        thumb.addEventListener('click', () =>
           fold.classList.contains('is-folded')
             ? open()
-            : close()
+            : close())
       }
 
-      const makeFoldable = e =>
-        $('.job-md', e)
-          .addEventListener('click',
-            foldToggler($('.job-description', e)))
-
       $$('.foldable').forEach(makeFoldable)
-
-
-      // const resume = document.getElementById('resume')
-      //     , hi = document.getElementById('hi')
-      // let hiSaturation = 100
-      // saturateHi()
-      // function saturateHi() {
-      //   // raf = null
-      //   requestAnimationFrame(saturateHi)
-      //   const h = window.innerHeight
-      //       , {top} = resume.getBoundingClientRect()
-      //       , t = (h - top) / h
-      //   const newHiSaturation = (t < 0 || t > 1)
-      //     ? 100
-      //     : 100 + Math.round(5000 * ((h - top) / h))
-      //   if (newHiSaturation !== hiSaturation) {
-      //     hiSaturation = newHiSaturation
-      //     const filter = `saturate(${hiSaturation}%)`
-      //     hi.style.filter = filter
-      //   }
-      // }
     </script>
     <script async defer src="https://use.fontawesome.com/2f0832fcef.js"></script>        
   </body>
