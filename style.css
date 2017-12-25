@@ -157,14 +157,20 @@ a.fold-thumb:active {
 .fold-content {
   box-sizing: border-box;
   position: absolute;
-  top: 102px; left: 0;
+  top: 114px; left: 0;
 }
 
 .job-md-logo {
-  height: 30px;
-  padding: 9px;
+  display: block;
+  height: 42px;
   text-align: center;
+  margin: auto;
+}
+
+.job-md-logo-and-date {
   order: 2;
+  width: 128px;
+  text-align: center;
 }
 
 .job-md-place, .job-md-position {  
@@ -192,6 +198,7 @@ a.fold-thumb:active {
 
   font-weight: 300;
   font-size: 16px;
+  white-space: nowrap;
 }
 
 .job-description {
