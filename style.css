@@ -345,9 +345,16 @@ a.fold-thumb:active {
 
   #card a {
     color: #1D111C;
-    font-size: 42px;
+    font-size: 32px;
     font-variant: normal;
-    transition: color 113ms;
+    transition: color 300ms;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  }
+
+  #card a:active {
+    color: fuchsia;
   }
 
   #card a:hover {
@@ -385,4 +392,9 @@ address {
   transform: scale(0.8);
 }
 
+@media (pointer: coarse) {
+  #card a {
+    font-size: 64px;
+  }    
+}
 /* #filters { display: none; } */
