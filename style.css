@@ -80,7 +80,6 @@ a.fold-thumb {
 
 a.fold-thumb:active {
   border-color: fuchsia;
-  border-width: 2px;
 }
 
 .is-unfolded > a.fold-thumb {
