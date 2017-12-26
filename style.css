@@ -1,66 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 @import url('https://fonts.googleapis.com/css?family=Lato:400');
 
 body {
-  counter-reset: footnote;
   background: none;
   padding: 0;
   margin: 0;
   color: #5f1e4b;
 }
 
-.footnote {
-  font-family: Inconsolata;
-  font-size: 10pt;
-  position: relative;
-  vertical-align: super;
-  cursor: pointer;
-  padding: 2px;
-}
+h1.fn { text-align: center; }
 
-a.footnote:hover {
-  text-decoration: none;
-}
-
-.note {
-  border: thin solid black;
-  padding: 2px;
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  min-width: 10em;
-  word-wrap: break-word;
-
-  background: white;
-  z-index: 100;
-}
-
-a.footnote:before {
-  content: '[' counter(footnote) ']';
-  counter-increment: footnote;
-}
-
-#footnotes {
-  display: none;
-}
 
 .print-only {
   display: none;
-}
-
-@media print {
-  #backdrop { display: none; }
-  
-  #footnotes {
-    display: block;
-  }
-
-  a { color: black; }
-
-  .print-only {
-    display: inline;
-  }
 }
 
 body {
@@ -73,13 +25,7 @@ body {
 a {
   text-decoration: none;
   font-weight: 700;
-  /* color: rgb(255, 249, 252); */
   color: #1D111C;
-}
-
-.full-viewport {
-  width: 100vw;
-  height: 100vh;
 }
 
 a:hover {
@@ -154,8 +100,6 @@ a.fold-thumb:active {
 
 .fold-content {
   box-sizing: border-box;
-  position: absolute;
-  top: 114px; left: 0;
 }
 
 .job-md-logo {
@@ -225,47 +169,14 @@ a.fold-thumb:active {
   margin-right: auto;
 }
 
-@media screen {
-  .parallax {
-    perspective: 1px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective-origin: 100% 0;
-  }
-  
-  .parallax-layer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform-origin: 100% 0;
-  }
+#hi {
+  text-align: center;
+  font-weight: 300;
+  font-size: 9vh;
+  color: #5f1e4b;
+}
 
-  .above {
-    transform: translateZ(1px);
-  }
-
-  .front {
-    transform: translateZ(0);
-    z-index: 500;
-  }
-
-  .mid {
-    transform: translateZ(-1px) scale(2);    
-  }
-
-  .back {
-    transform: translateZ(-2px) scale(3);
-    z-index: -1000;
-  }
-
-  .back-back {
-    transform: translateZ(-3px) scale(4);
-    z-index: -2000;
-  }
-
+@media only screen {
   #hero {
     background: url(lilac-gradient.jpg) repeat-x;
     background-size: auto 110%;
@@ -297,10 +208,12 @@ a.fold-thumb:active {
     margin: 0;
     font-size: 16px;
     
-    color: #FDF4F9; 
+    color: #FDF4F9;
     text-shadow:1px 1px 1px #1D111C;
     opacity: 0.7; 
   }
+
+  #by-nadya a { color: #FDF4F9; }
 
   #hi {
     position: fixed;
@@ -308,9 +221,6 @@ a.fold-thumb:active {
     transform: translate(-50%, -50%);
 
     color: hsla(328, 100%, 97%, 0.904);
-    text-align: center;
-    font-weight: 300;
-    font-size: 9vh;
   }
 
   #resume {
@@ -318,7 +228,19 @@ a.fold-thumb:active {
     background: #FDF4F9;
     width: 100vw;
     margin-top: 100vh;
+    transform: translateZ(0);
+    z-index: 500;
   }
+
+  .fold-content {
+    position: absolute;
+    top: 114px; left: 0;
+  }
+
+  .full-viewport {
+    width: 100vw;
+    height: 100vh;
+  }  
 
   #card.hidden { opacity: 0; }
 
@@ -405,4 +327,35 @@ address {
     font-size: 64px;
   }    
 }
-/* #filters { display: none; } */
+
+@media only print {
+  #backdrop { display: none; }
+  
+  #footnotes {
+    display: block;
+  }
+
+  a { color: black; }
+
+  .print-only {
+    display: inline;
+  }
+
+  #card {
+    text-align: center;
+  }
+
+  #card a:after {
+    content: attr(print-as);
+  }
+
+  #headshot { display: none; }
+
+  #by-nadya {
+    display: none;
+  }
+
+  #hi { display: none; }
+
+  .instruction { display: none; }
+}
