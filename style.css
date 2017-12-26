@@ -348,6 +348,37 @@ a.fold-thumb:active {
   section + section {
     margin-top: 35px;
   }
+
+  section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .eggplant {
+    background: #5f1e4b;
+    color: #FDF4F9;
+    border: thin solid transparent;
+    padding: 18px;
+    transform: translateZ(0);
+  }
+
+  .eggplant h1 {
+    color: #FDF4F9;
+  }
+
+  .eggplant a { color: white; }
+
+  #contact {
+    color: #5f1e4b;
+    background: #FDF4F9;
+    transform: translateZ(0);
+    padding: 18px;
+  }
+}
+
+.yt {
+  display: table;
+  margin: auto;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.562);
 }
 
 section.foldable + section.foldable {
@@ -398,4 +429,43 @@ address {
   #hi { display: none; }
 
   .instruction { display: none; }
+}
+
+#long-card h1.fn {
+  display: block;
+  font-size: 26px;
+  text-align: left;
+}
+
+#long-card a {
+  display: table;
+  border-radius: 22px;
+  border: thin solid transparent;  
+  margin: 4px;  
+  padding: 9px;
+
+  transition: border-color 113ms, background-color 300ms, color 113ms;
+}
+
+#long-card a i {
+  margin-right: 9px;
+}  
+
+#long-card a:after {
+  content: attr(title);
+}
+
+#long-card a:hover {
+  text-decoration: none;
+  border-color: fuchsia;
+}
+
+#long-card a:active {
+  background: fuchsia;
+  color: white;
+}
+  
+
+#long-card .email i {
+  transform: scale(0.8);
 }
