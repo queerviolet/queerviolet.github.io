@@ -8,19 +8,52 @@ body {
   color: #5f1e4b;
 }
 
-h1.fn { text-align: center; }
+li {
+  position: relative;
+  margin: 9px;
+}
 
+i.bullet {
+  font-style: normal;
+  display: inline-block;
+  position: absolute;
+  right: calc(100% + 9px);
+  width: 32px;
+  height: 32px;
+  text-align: center;
+}
+
+i.bullet {
+  transform: scale(1.3);
+}
+
+.bullet img {
+  width: 22px;
+  margin: 0;
+}
+
+li:nth-of-type(1) i.bullet { transition: transform 113ms; }
+li:nth-of-type(2) i.bullet { transition: transform 213ms; }
+li:nth-of-type(3) i.bullet { transition: transform 313ms; }
+li:nth-of-type(4) i.bullet { transition: transform 413ms; }
+li:nth-of-type(5) i.bullet { transition: transform 513ms; }
+li:nth-of-type(6) i.bullet { transition: transform 613ms; }
+li:nth-of-type(7) i.bullet { transition: transform 713ms; }
+
+h1.fn { text-align: center; }
 
 .print-only {
   display: none;
+}
+
+ul {
+  list-style-type: none;
 }
 
 body {
   font-family: Nunito, Helvetica, sans-serif;
   font-size: 20px;
 }
-
-.job-detail { display: none; }
 
 a {
   text-decoration: none;
@@ -234,6 +267,14 @@ a.fold-thumb:active {
   .fold-content {
     position: absolute;
     top: 114px; left: 0;
+  }
+
+  .is-folded i.bullet {
+    transform: scale(0);
+  }
+
+  .is-unfolded i.bullet {
+    transform: scale(1.3);
   }
 
   .full-viewport {
