@@ -357,7 +357,7 @@ a.fold-thumb:active {
     background: #5f1e4b;
     color: #FDF4F9;
     border: thin solid transparent;
-    padding: 18px;
+    padding: 48px 0;
     transform: translateZ(0);
   }
 
@@ -367,11 +367,12 @@ a.fold-thumb:active {
 
   .eggplant a { color: white; }
 
-  #contact {
+  .cream {
     color: #5f1e4b;
     background: #FDF4F9;
     transform: translateZ(0);
-    padding: 18px;
+    border: thin solid transparent;    
+    padding: 48px 0;
   }
 }
 
@@ -408,6 +409,8 @@ address {
   }
 
   a { color: black; }
+
+  .yt { display: none; }
 
   .print-only {
     display: inline;
