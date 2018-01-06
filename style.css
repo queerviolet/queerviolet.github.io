@@ -117,12 +117,12 @@ a.fold-thumb:active {
 
 .is-unfolded > a.fold-thumb {
   border-top: thin solid #5f1e4b7c;
-  border-bottom: thin solid #5f1e4b7c;  
+  border-bottom: thin solid #5f1e4b7c;
 }
 
-.is-unfolded > a.fold-thumb:active {
+.is-unfolded > a.fold-thumb:active,
+.is-unfolded > a.fold-thumb:focus {
   border-color: fuchsia;
-  padding: 18px 9px;
 }
 
 .foldable {
@@ -459,7 +459,7 @@ address {
   content: attr(title);
 }
 
-#long-card a:hover {
+#long-card a:hover, #long-card a:focus {
   text-decoration: none;
   border-color: fuchsia;
 }
@@ -468,8 +468,16 @@ address {
   background: fuchsia;
   color: white;
 }
-  
 
 #long-card .email i {
   transform: scale(0.8);
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  outline: none;
+}
+
+a:focus {
+  color: fuchsia;
 }
