@@ -120,8 +120,7 @@ a.fold-thumb:active {
   border-bottom: thin solid #5f1e4b7c;
 }
 
-.is-unfolded > a.fold-thumb:active,
-.is-unfolded > a.fold-thumb:focus {
+.is-unfolded > a.fold-thumb:active {
   border-color: fuchsia;
 }
 
