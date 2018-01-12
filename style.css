@@ -210,26 +210,30 @@ a.fold-thumb:active {
 
 @media only screen {
   #hero {
-    background: url(lilac-gradient.jpg) repeat-x;
-    background-size: auto 110%;
-
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    transform: translateZ(0);
+    transform: translateZ(0);    
   }
 
   #headshot {
-    background: url(ashi-headshot-01.jpg) no-repeat;
-    background-size: auto 110%;
-    background-position-x: -100px;
+    background:
+      url(ashi-headshot-01.jpg) no-repeat,
+      url(lilac-gradient.jpg) repeat-x;
+    background-size:
+      auto 110%,
+      auto 110%;
+    background-position-x:
+      -100px,
+      0;
 
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
+    transform: translateZ(0);    
   }
 
   #by-nadya {
