@@ -240,28 +240,31 @@
     </div>
     <script>
       const px = pixels => pixels + 'px'
-          , translateY = amount => `translateY(${amount})`
+          , translateY = amount => `translate3d(0, ${amount}, 0)`
           , brightness = percent => `brightness(${percent}%)`
+          , invert = percent => `invert(${percent}%)`
           , hue = degrees => `hue-rotate(${degrees}deg)`
-          , filters = (...filters) => filters.join(' ')
+          , scale = (...scales) => `scale(${scales.join(',')})`
+          , join = (...these) => these.join(' ')
           , $$ = (select, root=document) => [...root.querySelectorAll(select)]
           , $ = (select, root=document) => root.querySelector(select)
           , shot = $('#headshot')
           , hero = $('#hero')
-      let raf = null
-      function didScroll() {
-        raf = raf || requestAnimationFrame(processScroll)
-      }
+          , hi = $('#hi')
 
-      addEventListener('scroll', didScroll)
-      addEventListener('resize', didScroll)
+      addEventListener('scroll', processScroll)
+      addEventListener('resize', processScroll)
+      processScroll()
 
       function processScroll() {
-        raf = null
         const y = window.scrollY
-        hero.style.filter = filters(brightness(100 + y), hue(-y / 2))
+            , halfY = y / 2
+            , negQuarterY = -y / 4
+        hero.style.filter = join(brightness(100 + y), hue(-halfY))
+        hero.style.transform = translateY(px(negQuarterY))
+        hi.style.filter = invert(y)
+        hi.style.transform = translateY(px(negQuarterY))
       }
-      processScroll()
 
       const doNotScroll = ({target}) => target.scrollTop = 0
 
