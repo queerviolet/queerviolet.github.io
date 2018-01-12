@@ -262,12 +262,11 @@ a.fold-thumb:active {
   }
 
   #resume {
-    color: #5f1e4b;
-    background: #FDF4F9;
-    width: 100vw;
+    left: 0; right: 0;
     margin-top: 100vh;
     transform: translateZ(0);
     z-index: 500;
+    box-sizing: border-box;
   }
 
   .fold-content {
@@ -365,6 +364,7 @@ a.fold-thumb:active {
     border: thin solid transparent;
     padding: 48px 0;
     transform: translateZ(0);
+    box-sizing: border-box;
   }
 
   .eggplant h1 {
@@ -379,6 +379,7 @@ a.fold-thumb:active {
     transform: translateZ(0);
     border: thin solid transparent;    
     padding: 48px 0;
+    box-sizing: border-box;
   }
 }
 
