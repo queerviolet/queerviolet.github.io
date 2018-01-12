@@ -258,17 +258,18 @@
 
       function processScroll() {
         const y = window.scrollY
-            , halfY = y / 2
+            , negHalfY = -y / 2
+            , negThirdY = -y / 3
             , negQuarterY = -y / 4
-        headshot.style.filter = hue(-halfY)
-        hero.style.filter = brightness(100 + y)
+        headshot.style.filter = hue(negHalfY)
+        hero.style.filter = brightness(y > 0 ? 100 + y : 100)
         hero.style.transform = translateY(px(negQuarterY))
         hi.style.filter = invert(y)
         hi.style.transform = translateY(px(negQuarterY))
         hi.style.textShadow =
-           `${negQuarterY}px ${-halfY}px 0 rgba(200, 255, 200, 0.7),
-           0 ${-halfY}px 0 #FDF4F999,
-           ${-negQuarterY}px ${-halfY}px 0 rgba(200, 255, 200, 0.7)`
+           `${negQuarterY}px ${negThirdY}px 0 rgba(200, 255, 200, 0.7),
+           0                 ${negThirdY}px 0 #FDF4F999,
+           ${-negQuarterY}px ${negThirdY}px 0 rgba(200, 255, 200, 0.7)`
       }
 
       const doNotScroll = ({target}) => target.scrollTop = 0
