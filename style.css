@@ -242,6 +242,7 @@ a.fold-thumb:active {
     right: 0;
     transform: translateZ(0);
     filter: hue-rotate(0);
+    will-change: filter, transform;
   }
 
   #by-nadya {
@@ -407,7 +408,13 @@ address {
 }
 
 #card .email i {
-  transform: scale(0.8);
+  transform: scale(0.5);
+}
+
+small {
+  font-size: inherit;
+  opacity: 0.4;
+  font-style: italic;
 }
 
 @media (pointer: coarse) {
