@@ -5,7 +5,10 @@ body {
   background: none;
   padding: 0;
   margin: 0;
+
   color: #5f1e4b;
+  font-family: Nunito, Helvetica, sans-serif;
+  font-size: 20px;  
 }
 
 li {
@@ -50,11 +53,6 @@ ul {
   list-style-type: none;
 }
 
-body {
-  font-family: Nunito, Helvetica, sans-serif;
-  font-size: 20px;
-}
-
 a {
   text-decoration: none;
   font-weight: 700;
@@ -73,6 +71,7 @@ h1 {
   /* color: rgb(255, 249, 252);   */
   color: #1D111C;
   text-align: right;
+  page-break-after: avoid;
 }
 
 p, li {
@@ -209,6 +208,10 @@ a.fold-thumb:active {
 }
 
 @media only screen {
+  .print-only { display: none; }
+  /* Ugh. */
+  #long-card a.print-only { display: none; }
+
   #hero {
     position: fixed;
     top: 0; left: 0;
@@ -414,6 +417,8 @@ address {
 }
 
 @media only print {
+  body { font-size: 11pt; }
+
   #backdrop { display: none; }
   
   #footnotes {
@@ -445,6 +450,14 @@ address {
   #hi { display: none; }
 
   .instruction { display: none; }
+
+  .fold-thumb {
+    page-break-after: avoid;
+  }
+
+  .foldable {
+    page-break-inside: avoid;
+  }
 }
 
 #long-card h1.fn {
