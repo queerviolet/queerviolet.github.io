@@ -208,15 +208,16 @@ a.fold-thumb:active {
 }
 
 .tile {
-  border-radius: 4px;
-  vertical-align: top;
   font-size: 12px;
+  border-radius: 4px;
   padding: 4px;
+  vertical-align: top;
 }
 
 .eggplant .tile {
   color: #5f1e4b;
   background: #FDF4F9;  
+  border: 1px solid #5f1e4b;
 }
 
 @media only screen {
