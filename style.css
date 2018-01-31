@@ -212,10 +212,6 @@ a.fold-thumb:active {
   /* Ugh. */
   #long-card a.print-only { display: none; }
 
-  #talks {
-    page-break-before: always;
-  }
-
   #hero {
     position: fixed;
     top: 0; left: 0;
@@ -468,6 +464,10 @@ small {
 
   .foldable {
     page-break-inside: avoid;
+  }
+
+  #talks {
+    page-break-before: always;
   }
 }
 
