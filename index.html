@@ -288,6 +288,7 @@
             , negHalfY = -y / 2
             , negThirdY = -y / 3
             , negQuarterY = -y / 4
+        if (y > innerHeight) return
         headshot.style.filter = hue(negHalfY)
         hero.style.filter = brightness(y > 0 ? 100 + y : 100)
         hero.style.transform = translateY(px(negQuarterY))
