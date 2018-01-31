@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>i love you, mom.</title>
+    <style>
+      body, html {
+        background: black;
+      }
+
+      #flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id=flex>
+      <canvas id=scr width=384 height=272>
+      </canvas>
+    </div>
+  </body>  
+  <script src=c64.js></script>
+  <script src=i-love-you-mom.js></script>
+  <script>
+    const scr = document.getElementById('scr')
+        , aspect = scr.width / scr.height
+    
+    const fit = () =>
+      innerWidth / innerHeight > aspect
+        ? (scr.style.height = '100vh', scr.style.width ='auto')
+        : (scr.style.width = '100vw', scr.style.height = 'auto')    
+    addEventListener('resize', fit)
+    vic2.setScreenCanvas(scr)
+    main.start()
+    fit()
+
+    let events = DATA.map(_ => new KeyboardEvent(_.type, _))
+
+    setTimeout(() => {
+      let ival = setInterval(() => {
+        document.dispatchEvent(events.shift())
+        if (!events.length) clearInterval(ival)
+      }, 100)
+    }, 2000)
+  </script>
+</html>
