@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      html, body {
+        background: black;
+        font-size: 36px;
+      }
+
+      iframe {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+      }
+
+      .hidden {
+        opacity: 0;
+      }
+
+      .shown {
+        opacity: 1      
+      }
+
+      #teams {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100vw;
+        height: 100vh;
+        transition: opacity 200ms;  
+        justify-content: center;
+        align-items: center;
+      }
+
+      ul {
+        background: plum;
+        margin: 10px;
+        padding: 10px;
+      }
+
+      li {
+        list-style: none;
+        margin: 0; padding: 0;        
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id=vid width="560" height="315" src="https://www.youtube.com/embed/Y8aGlOj2VFo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div id=teams class=hidden>
+      <ul>
+        <li>Aaron Young
+        <li>Jeffrey Goldbeck
+        <li>Reese Long
+      </ul>
+      <ul>
+        <li>Alex Weis
+        <li>Domnik Mack
+        <li>Francisco Puente
+        <li>Sarah Laine
+      </ul>
+      <ul>
+        <li>Alfonso Millan
+        <li>James Kim
+        <li>Johnny Araujo
+        <li>Matthew Appleby
+      </ul>
+      <ul>
+        <li>Anthony Huang
+        <li>IIdi Bilali
+        <li>Marko Lisonek
+        <li>Sunny Kim
+      </ul>
+      <ul>
+        <li>Beth Barnes
+        <li>Gabriel Messager
+        <li>Johnny Rauh
+        <li>Tara Whirley
+      </ul>
+      <ul>
+        <li>Bruce Leong
+        <li>Connor Kirkwood
+        <li>Dongwoo Kang
+        <li>Philip Gingerich
+      </ul>
+      <ul>
+        <li>Christopher McIntosh
+        <li>Daniel Ryan
+        <li>Luis Rincon
+        <li>Noelle Laureano
+      </ul>
+      <ul>
+        <li>Danny McGillicuddy
+        <li>Micah Friedland
+        <li>Sarah Grossman
+        <li>Whit Johnson
+      </ul>
+      <ul>
+        <li>Elliot Broach
+        <li>Matthew Gaba
+        <li>Robert Rinaldo
+        <li>Romain Popescu
+      </ul>
+      <ul>
+        <li>Emilio da Costa
+        <li>Kyle Yee
+        <li>Michael Sam
+        <li>Steven DeVere
+      </ul>
+    </div>
+    <script>
+      setTimeout(() => {
+        vid.parentNode.removeChild(vid)
+        teams.classList.remove('hidden')
+        teams.classList.add('shown')
+      }, 45000)
+    </script>  
+  </body>
+</html>
