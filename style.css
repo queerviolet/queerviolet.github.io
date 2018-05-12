@@ -16,6 +16,11 @@ li {
   margin: 9px;
 }
 
+.glyph {
+  height: 1em;
+  display: inline-block;
+}
+
 i.bullet {
   font-style: normal;
   display: inline-block;
