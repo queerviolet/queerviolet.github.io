@@ -5,6 +5,7 @@
     <link rel=stylesheet href=style.css>
     <meta charset=utf-8>
     <meta name=theme-color content=#5f1e4b>
+
     <!-- <meta name=viewport content="width=device-width,initial-scale=1"> -->
     <meta property=og:title content="Ashi Krishnan">
     <meta property=og:type content=profile>
@@ -39,7 +40,7 @@
       <div id=headshot>     
       </div>
       <span id=hi>hi, i'm ashi</span>
-      <cite id=by-nadya><a href="http://www.nadyalevphoto.com/">Photo: Nadya Lev</a></cite>
+      <cite id=cover-photo-cite><a href="http://claytoncubitt.com/">Photo: Clayton Cubitt</a></cite>
     </div> 
     <div id=resume class=cream>
       <div class="content">
@@ -57,19 +58,35 @@
         </p>
         
         <p>
-          My current focus is teaching. I grew up learning these arcane
-          magicks that will save us if they don't destroy us first.
-          Now it's time to pass them on.
+          I'm currently at GitHub, building the next generation of developer tools.
         </p>
 
-        <div class="instruction">Tap for more</div>              
-        
+        <div class="instruction">Tap for more</div>
+        <section class=foldable>
+          <a class=fold-thumb>
+            <div class=job-md>
+              <div class=job-md-logo-and-date>
+                <img class=job-md-logo src="octocat-256.png">
+                <span class=job-md-dates>2018 ⇢ <span style="color: transparent">0000</span></span>
+              </div>                  
+              <span class=job-md-place>GitHub</span>
+              <span class=job-md-position>Sr. Software Engineer</span>
+            </div>
+          </a>
+          <div class=job-description>
+            <div class=fold-content>
+              <p>
+                Currently on Atom team, working on tooling for the next generation of coders.
+              </p>
+            </div>
+          </div>
+        </section>        
         <section class=foldable>
           <a class=fold-thumb>
             <div class=job-md>
               <div class=job-md-logo-and-date>
                 <img class=job-md-logo src="grace-hopper-logo.png">
-                <span class=job-md-dates>2016 ⇢ <span style="color: transparent;">0000</span></span>
+                <span class=job-md-dates>2016 ⇢ 2018</span>
               </div>                  
               <span class=job-md-place>Fullstack Academy</span>
               <span class=job-md-position>Teacher</span>                
@@ -78,10 +95,10 @@
           <div class=job-description>
             <div class=fold-content>
               <p>
-                These days I work as an instructor at
-                <a href=https://fullstackacademy.com>Fullstack Academy</a>. Primarily, I teach
+                For two years, I taught at
+                <a href=https://fullstackacademy.com>Fullstack Academy</a>—primarily
                 at <a href=https://gracehoppper.com>Grace Hopper</a>, our coding immersive for women.
-                I lecture daily on CS topics, React, and Node, act as PM on student projects,
+                I lectured daily on CS topics, React, and Node, act as PM on student projects,
                 and design curriculum and tooling.
               </p>
               <ul class=job-detail>
@@ -229,8 +246,10 @@
       <div class=content>
         <section>
           <h1>Talks</h1>
-          <h3><img class=glyph src=jsconf-heart.svg> JSConf.eu, Berlin, June 2018 <sup class=tile>Upcoming</sup></span></h3>
-
+          <h3><i class=strangeloop-logo></i> StrangeLoop, St. Louis, September 2018 <sup class=tile>Upcoming</sup></span></h3>
+          
+          <h3><img class=glyph src=jsconf-heart.svg> JSConf.eu, Berlin, June 2018</span></h3>
+          <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/SV-cgdobtTA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           <h3>❣️ Impact Fellowship, New York, 2018</h3>
           
           <h3>🚀 Full Stack Fest, Barcelona, 2017</h3>
@@ -289,6 +308,7 @@
             , negHalfY = -y / 2
             , negThirdY = -y / 3
             , negQuarterY = -y / 4
+        card.style.filter = invert(100 * Math.max(innerHeight - y, 0) / innerHeight)
         if (y > innerHeight) return
         headshot.style.filter = hue(negHalfY)
         hero.style.filter = brightness(y > 0 ? 100 + y : 100)

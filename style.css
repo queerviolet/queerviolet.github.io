@@ -240,19 +240,9 @@ a.fold-thumb:active {
   }
 
   #headshot {
-    background:
-        url(ashi-headshot-01.jpg) no-repeat
-      , url(lilac-gradient.jpg) repeat-x
-      ;
-    background-size:
-        auto 110%
-      , auto 110%
-      ;
-    background-position-x:
-        -100px
-      , 0
-      ;
-
+    background: url(ashi-headshot-01.jpg) no-repeat;
+    background-size: cover;
+    background-position: center 25%;
     position: absolute;
     left: 0;
     top: 0;
@@ -263,21 +253,21 @@ a.fold-thumb:active {
     will-change: filter, transform;
   }
 
-  #by-nadya {
+  #cover-photo-cite {
     position: absolute;
     left: 9px; bottom: 9px;
 
     font-style: normal;
     font-weight: 400;
     margin: 0;
-    font-size: 16px;
+    font-size: 12px;
     
     color: #FDF4F9;
     text-shadow:1px 1px 1px #1D111C;
     opacity: 0.7; 
   }
 
-  #by-nadya a { color: #FDF4F9; }
+  #cover-photo-cite a { color: #FDF4F9; }
 
   #hi {
     position: fixed;
@@ -410,11 +400,35 @@ a.fold-thumb:active {
   }
 }
 
+/* h3 {
+  font-size: 25px;
+  padding: 0;
+} */
+
 .yt {
   display: table;
   margin: auto;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.562);
   border-radius: 16px;
+}
+
+.strangeloop-logo::before {
+  display: inline-block;
+  content: '∞';
+  font-size: 1.4em;
+  line-height: 1em;
+  text-align: center;
+  font-weight: bold;
+  font-variant: normal;
+  font-style: normal;
+  color: #d0e9ae;
+}
+
+
+@media screen and (max-width: 600px) {
+  .yt {
+    width: calc(100vw - 20px);
+  }
 }
 
 section.foldable + section.foldable {
@@ -426,7 +440,7 @@ address {
 }
 
 #card .email i {
-  transform: scale(0.5);
+  transform: scale(0.8) translateX(-10%);
 }
 
 small {
@@ -468,7 +482,7 @@ small {
 
   #headshot { display: none; }
 
-  #by-nadya {
+  #cover-photo-cite {
     display: none;
   }
 
