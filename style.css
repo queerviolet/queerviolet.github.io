@@ -186,9 +186,17 @@ a.fold-thumb:active {
   margin-right: 30px;
 }
 
-#been-hacking {
+#beenHacking {
   text-align: center;
-  margin-top: 18px;
+  margin-top: 100vh;
+  transform: translateZ(0);
+  background: rgba(21, 0, 59, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 48px;
+  padding-right: 25vw;
+  padding-left: 25vw;
 }
 
 .instruction {
@@ -234,7 +242,7 @@ a.fold-thumb:active {
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 111vh;
     transform: translateZ(0);
     filter: brightness(100%);
   }
@@ -280,9 +288,7 @@ a.fold-thumb:active {
 
   #resume {
     left: 0; right: 0;
-    margin-top: 100vh;
     transform: translateZ(0);
-    z-index: 500;
     box-sizing: border-box;
   }
 
@@ -376,7 +382,7 @@ a.fold-thumb:active {
   }
 
   .eggplant {
-    background: #5f1e4b;
+    background: #25143b;
     color: #FDF4F9;
     border: thin solid transparent;
     padding: 48px 0;
