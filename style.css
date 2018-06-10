@@ -322,7 +322,7 @@ a.fold-thumb:active {
     color: #1D111C;
     opacity: 0.9;
     font-size: 18px;
-    /* text-shadow:1px 1px 0px #FDF4F9; */
+    text-shadow: 0 0 1px #FDF4F9;
     transition: opacity 113ms;
     opacity: 0.9;
     
