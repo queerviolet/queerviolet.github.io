@@ -8,7 +8,7 @@ body {
 
   color: #5f1e4b;
   font-family: Nunito, Helvetica, sans-serif;
-  font-size: 20px;  
+  font-size: 20px;
 }
 
 li {
@@ -48,7 +48,7 @@ li:nth-of-type(5) i.bullet { transition: transform 513ms; }
 li:nth-of-type(6) i.bullet { transition: transform 613ms; }
 li:nth-of-type(7) i.bullet { transition: transform 713ms; }
 
-h1.fn { text-align: center; }
+.fn { text-align: center; }
 
 .print-only {
   display: none;
@@ -84,7 +84,7 @@ p, li {
 }
 
 .content {
-  max-width: 640px;   
+  max-width: 640px;
   margin: auto;
   padding: 9px;
 }
@@ -92,17 +92,17 @@ p, li {
 .job-md {
   display: flex;
   margin-left: auto;
-  margin-right: auto;  
+  margin-right: auto;
   align-items: center;
   position: relative;
   width: 100%;
   max-width: 580px;
 
-  color: #5f1e4b;  
+  color: #5f1e4b;
 }
 
 a.fold-thumb {
-  display: block;  
+  display: block;
   padding: 18px 9px;
   transition: height 113ms,
     border-color 300ms,
@@ -111,8 +111,8 @@ a.fold-thumb {
   box-sizing: border-box;
   border-top: thin solid transparent;
   border-bottom: thin solid transparent;
-  
-  text-decoration: none;    
+
+  text-decoration: none;
 }
 
 a.fold-thumb:active {
@@ -137,22 +137,7 @@ a.fold-thumb:active {
   box-sizing: border-box;
 }
 
-.job-md-logo {
-  display: block;
-  height: 42px;  
-  font-size: 42px;
-  text-align: center;
-  margin: auto;
-}
-
-.job-md-logo-and-date {
-  order: 2;
-  width: 128px;
-  height: 64px;
-  text-align: center;
-}
-
-.job-md-place, .job-md-position {  
+.job-md-place, .job-md-position {
   font-weight: 700;
   font-size: 22px;
   margin-bottom: 0;
@@ -175,11 +160,29 @@ a.fold-thumb:active {
   display: block;
   text-align: center;
 
-  margin-top: 9px;
+  order: 2;
+  width: 128px;
+  height: 64px;
+
   font-weight: 300;
   font-size: 16px;
+  line-height: 118px;
+  vertical-align: sub;
   white-space: nowrap;
+
+  background-size: auto 48px;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
+
+#github .job-md-dates { background-image: url('octocat-256.png') }
+#grace-hopper .job-md-dates { background-image: url('grace-hopper-logo.png') }
+#hopscotch .job-md-dates { background-image: url('hopscotch-logo.png') }
+#dbc .job-md-dates { background-image: url('dbc-logo.png') }
+#google .job-md-dates { background-image: url('google-logo.svg') }
+#noaa .job-md-dates { background-image: url('noaa-logo.svg') }
+#cu .job-md-dates { background-image: url('graduation-cap.png') }
+
 
 .job-description {
   margin-left: 30px;
@@ -229,7 +232,7 @@ a.fold-thumb:active {
 
 .eggplant .tile {
   color: #5f1e4b;
-  background: #FDF4F9;  
+  background: #FDF4F9;
   border: 1px solid #5f1e4b;
 }
 
@@ -269,10 +272,10 @@ a.fold-thumb:active {
     font-weight: 400;
     margin: 0;
     font-size: 12px;
-    
+
     color: #FDF4F9;
     text-shadow:1px 1px 1px #1D111C;
-    opacity: 0.7; 
+    opacity: 0.7;
   }
 
   #cover-photo-cite a { color: #FDF4F9; }
@@ -308,24 +311,24 @@ a.fold-thumb:active {
   .full-viewport {
     width: 100vw;
     height: 100vh;
-  }  
+  }
 
   #card.hidden { opacity: 0; }
 
   #card {
     position: fixed;
     top: 0;
-    right: 9px;    
+    right: 9px;
     /* transform: translateY(-100%); */
     z-index: 100;
-    
+
     color: #1D111C;
     opacity: 0.9;
     font-size: 18px;
     text-shadow: 0 0 1px #FDF4F9;
     transition: opacity 113ms;
     opacity: 0.9;
-    
+
     display: flex;
     flex-flow: column nowrap;
     transition: text-shadow 113ms;
@@ -336,10 +339,10 @@ a.fold-thumb:active {
   }
 
   #card.invert a {
-    color: #FDF4F9;    
+    color: #FDF4F9;
   }
 
-  h1.fn { display: none; }
+  .fn { display: none; }
 
   #card a {
     color: #1D111C;
@@ -365,7 +368,7 @@ a.fold-thumb:active {
     margin: 0;
     margin-bottom: -5px;
     font-size: 24px;
-    color: #FDF4F9;    
+    color: #FDF4F9;
   }
 
   section {
@@ -400,7 +403,7 @@ a.fold-thumb:active {
     color: #5f1e4b;
     background: #FDF4F9;
     transform: translateZ(0);
-    border: thin solid transparent;    
+    border: thin solid transparent;
     padding: 48px 0;
     box-sizing: border-box;
   }
@@ -437,12 +440,12 @@ a.fold-thumb:active {
   }
 }
 
-section.foldable + section.foldable {
+.foldable + .foldable {
   margin-top: -1px;
 }
 
 address {
-  font-style: normal; 
+  font-style: normal;
 }
 
 #card .email i {
@@ -458,14 +461,14 @@ small {
 @media (pointer: coarse) {
   #card a {
     font-size: 64px;
-  }    
+  }
 }
 
 @media only print {
   body { font-size: 11pt; }
 
   #backdrop { display: none; }
-  
+
   #footnotes {
     display: block;
   }
@@ -509,17 +512,18 @@ small {
   }
 }
 
-#long-card h1.fn {
+#long-card .fn {
   display: block;
   font-size: 26px;
   text-align: left;
+  color:  #1D111C;
 }
 
 #long-card a {
   display: table;
   border-radius: 22px;
-  border: thin solid transparent;  
-  margin: 4px;  
+  border: thin solid transparent;
+  margin: 4px;
   padding: 9px;
 
   transition: border-color 113ms, background-color 300ms, color 113ms;
@@ -527,7 +531,7 @@ small {
 
 #long-card a i {
   margin-right: 9px;
-}  
+}
 
 #long-card a:after {
   content: attr(title);
