@@ -72,8 +72,6 @@ h1 {
   font-weight: 400;
   font-size: 48px;
   margin: 0;
-  /* color: #FDF4F9;   */
-  /* color: rgb(255, 249, 252);   */
   color: #1D111C;
   text-align: right;
   page-break-after: avoid;
@@ -189,13 +187,13 @@ a.fold-thumb:active {
   margin-right: 30px;
 }
 
-#beenHacking {
+#been-hacking {
   text-align: center;
   margin-top: 100vh;
   transform: translateZ(0);
   background: rgba(21, 0, 59, 0.9);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   color: white;
   padding: 48px;
   padding-right: 25vw;
@@ -282,7 +280,7 @@ a.fold-thumb:active {
 
   #hi {
     position: fixed;
-    left: 0; bottom: 20%;
+    left: 0; bottom: 30%;
     width: 100vw;
 
     color: hsla(328, 100%, 97%, 0.904);
@@ -341,8 +339,6 @@ a.fold-thumb:active {
   #card.invert a {
     color: #FDF4F9;
   }
-
-  .fn { display: none; }
 
   #card a {
     color: #1D111C;
@@ -409,11 +405,6 @@ a.fold-thumb:active {
   }
 }
 
-/* h3 {
-  font-size: 25px;
-  padding: 0;
-} */
-
 .yt {
   display: table;
   margin: auto;
@@ -432,7 +423,6 @@ a.fold-thumb:active {
   font-style: normal;
   color: #d0e9ae;
 }
-
 
 @media screen and (max-width: 600px) {
   .yt {
@@ -516,7 +506,7 @@ small {
   display: block;
   font-size: 26px;
   text-align: left;
-  color:  #1D111C;
+  color: #1D111C;
 }
 
 #long-card a {
@@ -531,6 +521,9 @@ small {
 
 #long-card a i {
   margin-right: 9px;
+  font-size: 32px;
+  line-height: 26px;
+  vertical-align: middle;
 }
 
 #long-card a:after {
@@ -549,6 +542,7 @@ small {
 
 #long-card .email i {
   transform: scale(0.8);
+  transform-origin: 0 0;
 }
 
 a {
