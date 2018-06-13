@@ -8,7 +8,7 @@
 <!-- <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1"> -->
 <meta property=og:title content="Ashi Krishnan">
 <meta property=og:type content=profile>
-<meta property=og:description content="teacher / writer / code whisperer / currently @fullstack / formerly @google">
+<meta property=og:description content="teacher / writer / code whisperer / currently @github / formerly @google">
 <meta property=profile:first_name content=Ashi>
 <meta property=profile:last_name content=Krishnan>
 <meta property=profile:username content=rakshesha>
@@ -254,10 +254,11 @@
   <div class=content>
     <div>
       <h1>Talks</h1>
-      <h3><i class=strangeloop-logo></i> StrangeLoop, St. Louis, September 2018 <sup class=tile>Upcoming</sup></span></h3>
+      <h3><i class=strangeloop-logo></i> StrangeLoop, St. Louis, September 2018 <sup class=tile>Upcoming</sup></h3>
 
-      <h3><img class=glyph src=jsconf-heart.svg> JSConf.eu, Berlin, June 2018</span></h3>
+      <h3><img class=glyph src=jsconf-heart.svg> JSConf.eu, Berlin, June 2018</h3>
       <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/SV-cgdobtTA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
       <h3>❣️ Impact Fellowship, New York, 2018</h3>
 
       <h3>🚀 Full Stack Fest, Barcelona, 2017</h3>
@@ -299,6 +300,7 @@
       , brightness = percent => `brightness(${percent}%)`
       , invert = percent => `invert(${percent}%)`
       , hue = degrees => `hue-rotate(${degrees}deg)`
+      , blur = px => `blur(${px}px)`
       , scale = (...scales) => `scale(${scales.join(',')})`
       , join = (...these) => these.join(' ')
       , $$ = (select, root=document) => [...root.querySelectorAll(select)]
