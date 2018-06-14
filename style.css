@@ -337,6 +337,7 @@ a.fold-thumb:active, a.fold-thumb:focus {
     transition: border-color 400ms;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    clip-path: circle(24px at 50% 50%);
   }
 
   .menu-toggler-dot {
@@ -350,6 +351,7 @@ a.fold-thumb:active, a.fold-thumb:focus {
     width: 12px;
     height: 12px;
     border-radius: 12px;
+    clip-path: circle(6px at 50% 50%);
     opacity: 1;
     filter: blur(0);
     transition: opacity 400ms, background 400ms, filter 400ms;
