@@ -318,17 +318,9 @@ a.fold-thumb:active, a.fold-thumb:focus {
     overflow: visible;
     z-index: 50;
 
-    width: 36px;
-    height: 36px;
-
-    border-radius: 36px;
-    background: rgba(0, 0, 0, 0.2);
+    width: 38px;
+    height: 38px;
     cursor: pointer;
-    transition: background-color 400ms;
-  }
-
-  .menu.dark {
-    background:  rgba(253, 244, 249, 0.6);;
   }
 
   .menu-toggler {
@@ -337,11 +329,14 @@ a.fold-thumb:active, a.fold-thumb:focus {
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    width: 36px;
-    height: 36px;
-    border-radius: 36px;
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;  
+    border: 4px solid rgb(253, 244, 249);
+    box-shadow: 1px 1px 4px rgba(37, 20, 59, 0.8);
     transition: border-color 400ms;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .menu-toggler-dot {
@@ -350,7 +345,8 @@ a.fold-thumb:active, a.fold-thumb:focus {
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgb(253, 244, 249);
+    box-shadow: 1px 1px 4px rgba(37, 20, 59, 0.8);
     width: 12px;
     height: 12px;
     border-radius: 12px;
@@ -410,8 +406,8 @@ a.fold-thumb:active, a.fold-thumb:focus {
 
   .menu .light { opacity: 0; }
   .menu .dark { opacity: 1; }
-  .menu.dark .menu-toggler-dot { background:rgba(37, 20, 59, 0.8); }
-  .menu.dark .menu-toggler { border-color: rgba(0, 0, 0, 0.8); }
+  .menu.dark .menu-toggler-dot { background: rgb(37, 20, 59); }
+  .menu.dark .menu-toggler { border-color: rgb(37, 20, 59); }
   .menu.dark .light { opacity: 1; }
   .menu.dark .dark { opacity: 0; }
   

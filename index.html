@@ -332,7 +332,7 @@
         , negHalfY = -y / 2
         , negThirdY = -y / 3
         , negQuarterY = -y / 4
-    if ((y > 3 * innerHeight / 4 && y < innerHeight) || y >= resumeTop && y <= resumeBottom) {
+    if ((y > 3 * innerHeight / 4 && y < innerHeight - 16) || y >= resumeTop - 16 && y <= resumeBottom - 16) {
       menu.classList.add('dark')
       card.classList.add('dark')
       document.body.style.backgroundColor = 'rgb(253, 244, 249)'
