@@ -384,9 +384,12 @@
       thumb.style.height = px(thumbHeight)
     }
     close()
-    thumb.addEventListener('click', () =>
+    thumb.addEventListener('click', e => {
+      e.preventDefault()
+      thumb.blur()
       fold.classList.contains('is-folded')
-        ? open() : close())
+        ? open() : close()
+    })    
     thumb.tabIndex = index + 1
   }
 

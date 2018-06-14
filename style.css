@@ -114,10 +114,16 @@ a.fold-thumb {
   text-decoration: none;
 }
 
-a.fold-thumb:active, a.fold-thumb:focus {
+a.fold-thumb:active {
   border-color: fuchsia;
 }
 
+a.fold-thumb:focus {
+  animation-name: cursor-blink;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
 
 .is-unfolded > a.fold-thumb {
   border-top: thin solid #5f1e4b7c;
@@ -453,6 +459,13 @@ a.fold-thumb:active, a.fold-thumb:focus {
     color: fuchsia;
   }
 
+  #card a:focus {
+    animation-name: cursor-blink-color;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;  
+  }
+
   #card a:hover {
     text-decoration: none;
   }
@@ -684,7 +697,10 @@ small {
 
 #long-card a:hover, #long-card a:focus {
   text-decoration: none;
-  border-color: fuchsia;
+  animation-name: cursor-blink;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
 }
 
 #long-card a:active {
@@ -704,4 +720,20 @@ a {
 
 a:focus {
   color: fuchsia;
+}
+
+@keyframes cursor-blink {
+  0% {  border-color: fuchsia;  }
+  30% { border-color: fuchsia; }
+  50% {  border-color: transparent;  }
+  80% {  border-color: transparent;  }
+  100% {  border-color: fuchsia;  }
+}
+
+@keyframes cursor-blink-color {
+  0% {  color: fuchsia;  }
+  30% { color: fuchsia; }
+  50% {  color: transparent;  }
+  80% {  color: transparent;  }
+  100% {  color: fuchsia;  }
 }
