@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400');
 
 body {
-  background: none;
+  background: black;
   padding: 0;
   margin: 0;
 
@@ -97,6 +97,7 @@ p, li {
   max-width: 580px;
 
   color: #5f1e4b;
+  cursor: pointer;
 }
 
 a.fold-thumb {
@@ -113,9 +114,10 @@ a.fold-thumb {
   text-decoration: none;
 }
 
-a.fold-thumb:active {
+a.fold-thumb:active, a.fold-thumb:focus {
   border-color: fuchsia;
 }
+
 
 .is-unfolded > a.fold-thumb {
   border-top: thin solid #5f1e4b7c;
@@ -165,7 +167,6 @@ a.fold-thumb:active {
   font-weight: 300;
   font-size: 16px;
   line-height: 118px;
-  vertical-align: sub;
   white-space: nowrap;
 
   background-size: auto 48px;
@@ -311,37 +312,127 @@ a.fold-thumb:active {
     height: 100vh;
   }
 
-  #card.hidden { opacity: 0; }
+  .menu {
+    position: fixed;
+    top: 18px; right: 18px;
+    overflow: visible;
+    z-index: 50;
 
+    width: 36px;
+    height: 36px;
+
+    border-radius: 36px;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 400ms;
+  }
+
+  .menu.dark {
+    background:  rgba(253, 244, 249, 0.6);;
+  }
+
+  .menu-toggler {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: border-color 400ms;
+  }
+
+  .menu-toggler-dot {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    opacity: 1;
+    filter: blur(0);
+    transition: opacity 400ms, background 400ms, filter 400ms;
+  }
+
+  .menu-backdrop {
+    display: block;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    box-sizing: border-box;
+
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+    width: 12px;
+    height: 12px;
+    border-radius: 150vmax;
+
+    transition:
+      backdrop-filter 600ms,
+      -webkit-backdrop-filter 600ms,
+      width 600ms,
+      height 600ms,
+      opacity 400ms;
+  }
+
+  .menu.open .menu-toggler-dot {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  .menu.open .menu-backdrop {
+    width: 300vmax;
+    height: 300vmax;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .menu-backdrop.dark {
+    background: radial-gradient(rgba(37, 20, 59, 0.2), rgba(37, 20, 59, 0));
+  }
+
+  .menu-open .menu-backdrop.dark {
+    background: radial-gradient(rgba(37, 20, 59, 0.8), rgba(37, 20, 59, 0.4));
+  }
+
+  .menu-backdrop.light {
+    background: radial-gradient(rgba(253, 244, 249, 0.2), rgba(253, 244, 249, 0));
+  }
+
+  .menu-open .menu-backdrop.light {
+    background: radial-gradient(rgba(253, 244, 249, 0.8), rgba(253, 244, 249, 0.4));
+  }
+
+  .menu .light { opacity: 0; }
+  .menu .dark { opacity: 1; }
+  .menu.dark .menu-toggler-dot { background:rgba(37, 20, 59, 0.8); }
+  .menu.dark .menu-toggler { border-color: rgba(0, 0, 0, 0.8); }
+  .menu.dark .light { opacity: 1; }
+  .menu.dark .dark { opacity: 0; }
+  
   #card {
     position: fixed;
     top: 0;
     right: 9px;
-    /* transform: translateY(-100%); */
     z-index: 100;
 
-    color: #1D111C;
     opacity: 0.9;
     font-size: 18px;
-    text-shadow: 0 0 1px #FDF4F9;
     transition: opacity 113ms;
     opacity: 0.9;
 
     display: flex;
     flex-flow: column nowrap;
-    transition: text-shadow 113ms;
-  }
-
-  #card.invert {
-    text-shadow:1px 1px 0px #1D111C;
-  }
-
-  #card.invert a {
-    color: #FDF4F9;
+    align-items: center;
+    justify-content: space-around;    
   }
 
   #card a {
-    color: #1D111C;
     font-size: 32px;
     font-variant: normal;
     transition: color 300ms;
@@ -350,7 +441,17 @@ a.fold-thumb:active {
     -moz-user-select: none;
   }
 
-  #card a:active {
+  #card, #card a {
+    color: #FDF4F9;
+    text-shadow: 0 0 32px rgba(37, 20, 59, 0.9);
+  }
+
+  #card.dark, #card.dark a {
+    color: rgb(37, 20, 59);
+    text-shadow: 0 0 32px rgba(253, 244, 249, 0.9);
+  }
+
+  #card a:active, #card a:hover {
     color: fuchsia;
   }
 
@@ -358,14 +459,67 @@ a.fold-thumb:active {
     text-decoration: none;
   }
 
-  #card h1 {
-    font-style: normal;
-    font-weight: 400;
-    margin: 0;
-    margin-bottom: -5px;
-    font-size: 24px;
-    color: #FDF4F9;
+  .menu { display: none; }
+
+  @media only screen and (max-width: 715px) {
+    #card { display: none; }
+    .menu { display: block; }
+
+    #card.present {
+      display: flex;
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      height: 75vh;
+      opacity: 0;
+      transition: opacity 200ms;
+    }    
+
+    #card a {
+      position: relative;
+      font-size: 48px;
+      transform: scale(0.7);
+      transition: transform 200ms;
+    }
+
+    #card a::before {
+      content: attr(class);
+      font-size: 16px;
+      position: absolute;
+      top: 50%; right: calc(100% + 9px);
+      transform: translateY(-50%) scale(0.8);
+    }
+
+    #card a::after {
+      content: attr(print-as);
+      font-size: 16px;
+      position: absolute;
+      top: 50%; left: calc(100% + 9px);
+      transform: translateY(-50%) scale(0.8);
+    }
+
+    #card.open { opacity: 1 }
+
+    #card.open a {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #card.open a::before {
+      transform: translateY(-50%) scale(1);
+    }
+
+    #card.open a::after {
+      transform: translateY(-50%) scale(1);
+    }
+
+    #card a:nth-of-type(1) { transition-duration: 200ms; }
+    #card a:nth-of-type(2) { transition-duration: 300ms; }
+    #card a:nth-of-type(3) { transition-duration: 400ms; }
+    #card a:nth-of-type(4) { transition-duration: 500ms; }
+
   }
+
 
   section {
     margin: auto;
@@ -381,7 +535,7 @@ a.fold-thumb:active {
   }
 
   .eggplant {
-    background: #25143b;
+    background: rgb(37, 20, 59);
     color: #FDF4F9;
     border: thin solid transparent;
     padding: 48px 0;
@@ -397,7 +551,7 @@ a.fold-thumb:active {
 
   .cream {
     color: #5f1e4b;
-    background: #FDF4F9;
+    background: rgb(253, 244, 249);
     transform: translateZ(0);
     border: thin solid transparent;
     padding: 48px 0;
@@ -439,7 +593,7 @@ address {
 }
 
 #card .email i {
-  transform: scale(0.8) translateX(-10%);
+  transform: scale(0.8);
 }
 
 small {

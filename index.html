@@ -5,7 +5,7 @@
 <meta charset=utf-8>
 <meta name=theme-color content=#5f1e4b>
 
-<!-- <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1"> -->
+<meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1">
 <meta property=og:title content="Ashi Krishnan">
 <meta property=og:type content=profile>
 <meta property=og:description content="teacher / writer / code whisperer / currently @github / formerly @google">
@@ -16,7 +16,15 @@
 <meta property=og:url content=http://ashi.io>
 <meta property=og:image content=http://ashi.io/ashi-headshot-02.jpg>
 
-<address id=card class=closed>
+<div id=menu class=menu>
+  <div class='menu-backdrop light'></div>
+  <div class='menu-backdrop dark'></div>
+  <a class=menu-toggler onclick=toggleMenu()>
+    <span class=menu-toggler-dot></span>
+  </a>
+</div>
+
+<address id=card>
   <span class="fn print-only">Ashi Krishnan</span>
   <a class=email href=mailto:hi@ashi.io title=hi@ashi.io print-as=hi@ashi.io>
     <i class="white fa fa-envelope"></i>
@@ -62,7 +70,7 @@
 
     <div class="instruction">Tap for more</div>
     <div id=github class=foldable>
-      <a class=fold-thumb>
+      <a href=#github class=fold-thumb>
         <div class=job-md>
           <span class=job-md-dates>2018 ⇢ <span style="color: transparent">0000</span></span>
           <span class=job-md-place>GitHub</span>
@@ -78,9 +86,9 @@
       </div>
     </div>
     <div id=grace-hopper class=foldable>
-      <a class=fold-thumb>
+      <a href=#grace-hopper class=fold-thumb>
         <div class=job-md>
-          <span class=job-md-dates>2016 ⇢ 2018</span>
+          <span class=job-md-dates>2016 → 2018</span>
           <span class=job-md-place>Fullstack Academy</span>
           <span class=job-md-position>Teacher</span>
         </div>
@@ -111,7 +119,7 @@
       </div>
     </div>
     <div id=hopscotch class=foldable>
-      <a class=fold-thumb>
+      <a href=#hopscotch class=fold-thumb>
         <div class=job-md>
           <span class=job-md-dates>2015 → 2016</span>
           <span class=job-md-place>Hopscotch</span>
@@ -143,7 +151,7 @@
       </div>
     </div>
     <div id=dbc class=foldable>
-      <a class=fold-thumb>
+      <a href=#dbc class=fold-thumb>
         <div class=job-md>
           <span class=job-md-dates>2014 → 2015</span>
           <span class=job-md-place>Dev Bootcamp</span>
@@ -173,7 +181,7 @@
       </div>
     </div>
     <div id=google class=foldable>
-      <a class=fold-thumb>
+      <a href=#google class=fold-thumb>
         <div class=job-md>
           <span class=job-md-dates>2010 → 2014</span>
           <span class=job-md-place>Google</span>
@@ -205,7 +213,7 @@
       </div>
     </div>
     <div id=noaa class=foldable>
-      <a class=fold-thumb>
+      <a href=#noaa class=fold-thumb>
         <div class=job-md>
           <span class=job-md-dates>2007 → 2010</span>
           <span class=job-md-place>NOAA</span>
@@ -309,16 +317,33 @@
       , hero = $('#hero')
       , hi = $('#hi')
 
+  let toggleMenu = openMenu
+  const menuIsOpen = () => toggleMenu === closeMenu
+
+  let resumeTop = 0, resumeBottom = 0;
+  addEventListener('resize', updateBoxSizes)
   addEventListener('scroll', processScroll)
   addEventListener('resize', processScroll)
+  updateBoxSizes()
   processScroll()
-
-  function processScroll() {
+  
+  function processScroll(evt) {
     const y = window.scrollY
         , negHalfY = -y / 2
         , negThirdY = -y / 3
         , negQuarterY = -y / 4
-    card.style.filter = invert(100 * Math.max(innerHeight - y, 0) / innerHeight)
+    if ((y > 3 * innerHeight / 4 && y < innerHeight) || y >= resumeTop && y <= resumeBottom) {
+      menu.classList.add('dark')
+      card.classList.add('dark')
+      document.body.style.backgroundColor = 'rgb(253, 244, 249)'
+    } else {
+      menu.classList.remove('dark')
+      card.classList.remove('dark')
+      document.body.style.backgroundColor = 'rgb(37, 20, 59)'
+    }
+
+    if (menuIsOpen()) closeMenu()
+
     if (y > innerHeight) return
     headshot.style.filter = hue(negHalfY)
     hero.style.filter = brightness(y > 0 ? 100 + y : 100)
@@ -329,6 +354,12 @@
        `${negQuarterY}px ${negThirdY}px 0 rgba(200, 255, 200, 0.7),
        0                 ${negThirdY}px 0 #FDF4F999,
        ${-negQuarterY}px ${negThirdY}px 0 rgba(200, 255, 200, 0.7)`
+  }
+
+  function updateBoxSizes() {
+    const {top, bottom} = resume.getBoundingClientRect()
+    resumeTop = top + scrollY
+    resumeBottom = bottom + scrollY
   }
 
   const doNotScroll = ({target}) => target.scrollTop = 0
@@ -356,23 +387,29 @@
     thumb.addEventListener('click', () =>
       fold.classList.contains('is-folded')
         ? open() : close())
-    thumb.tabIndex = index
+    thumb.tabIndex = index + 1
   }
 
   $$('.foldable').forEach(makeFoldable)
   document.addEventListener("touchstart", ()=>{}, true)
 
-  function openCard() {
+  const sleep = ms => new Promise(_ => setTimeout(_, ms))
+
+  async function openMenu() {
+    toggleMenu = closeMenu
+    menu.classList.add('open')
+    card.classList.add('present')
+    await sleep(100)
     card.classList.add('open')
-    card.classList.remove('closed')
   }
-  function toggleCard() {
-    card.classList.toggle('open')
-    card.classList.toggle('closed')
-  }
-  function closeCard(e) {
+
+  async function closeMenu() {
+    toggleMenu = openMenu
     card.classList.remove('open')
-    card.classList.add('closed')
+    await sleep(100)
+    menu.classList.remove('open')
+    await sleep(300)
+    card.classList.remove('present')
   }
 
 </script>
