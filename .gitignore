@@ -1,0 +1,5 @@
+face/node_modules
+face/.cache
+.cache
+dist
+face/dist
