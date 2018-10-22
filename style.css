@@ -250,7 +250,7 @@ a.fold-thumb:focus {
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
-    height: 111vh;
+    height: 100vh;
     transform: translateZ(0);
     filter: brightness(100%);
   }
@@ -680,22 +680,21 @@ small {
   border: thin solid transparent;
   margin: 4px;
   padding: 9px;
-
   transition: border-color 113ms, background-color 300ms, color 113ms;
 }
 
-#long-card a i {
+#contact a i {
   margin-right: 9px;
   font-size: 32px;
   line-height: 26px;
   vertical-align: middle;
 }
 
-#long-card a:after {
+#contact a:after {
   content: attr(title);
 }
 
-#long-card a:hover, #long-card a:focus {
+#contact a:hover, #contact a:focus {
   text-decoration: none;
   animation-name: cursor-blink;
   animation-duration: 1.2s;
@@ -703,7 +702,7 @@ small {
   animation-play-state: running;
 }
 
-#long-card a:active {
+#contact a:active {
   background: fuchsia;
   color: white;
 }
@@ -736,4 +735,27 @@ a:focus {
   50% {  color: transparent;  }
   80% {  color: transparent;  }
   100% {  color: fuchsia;  }
+}
+
+#prophecies-sign-up {
+  display: none;
+  text-align: center;
+  border-radius: 32px;
+  border: thin solid transparent;
+  margin: 4px auto;  
+  padding: 9px;
+  transition: border-color 113ms, background-color 300ms, color 113ms;
+  line-height: 32px;
+}
+
+#prophecies-sign-up > img {
+  width: 32px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+@media only screen {
+  #prophecies-sign-up {
+    display: table;
+  }
 }
