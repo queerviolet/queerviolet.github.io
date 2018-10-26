@@ -754,6 +754,11 @@ a:focus {
   margin-right: 4px;
 }
 
+.talk-text {
+  font-size: 14px;
+  font-style: italic;
+}
+
 @media only screen {
   #prophecies-sign-up {
     display: table;
