@@ -71,19 +71,64 @@
 <div id=talks class=eggplant>
   <div class=content>
       <h1>Talks</h1>
-      <h3><i class='glyph strangeloop-logo'></i> StrangeLoop, St. Louis, September 2018</h3>
+      <h3>
+        <i class='glyph strangeloop-logo'></i>
+        <div class=talk>
+          <span class=tk-event>StrangeLoop</span>
+          <span class=tk-location>St. Louis</span>
+        </div>
+        <span class=tk-date>September 2018</span>
+      </h3>
       <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/agMxgYE4mf4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
 
-      <h3><img class=glyph src=css-minsk-js-logo.svg> CSS-Minsk-JS, Minsk, September 2018 <sup class=tile>Video coming soon!</sup></h3>
-      <h3><img class=glyph src=jsconf-heart.svg> JSConf.eu, Berlin, June 2018</h3>
+      <h3>
+        <img class=glyph src=css-minsk-js-logo.svg>
+        <div class=talk>
+          <span class=tk-event>CSS-Minsk-JS</span>
+          <span class=tk-location>Minsk</span>
+        </div>
+        <span class=tk-date>October 2018</span>
+      </h3>
+      <span class=tile>Video coming soon!</span>      
+
+      <h3>
+        <img class=glyph src=jsconf-heart.svg>
+        <div class=talk>
+          <span class=tk-event>JSConf.eu</span>
+          <span class=tk-location>Berlin</span>
+        </div>
+        <span class=tk-date>June 2018</span>
+      </h3>
       <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/SV-cgdobtTA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-      <h3><span class=glyph>❣️</span> Impact Fellowship, New York, 2018</h3>
+      <h3>
+        <span class=glyph>❣️</span>
+        <div class=talk>
+          <span class=tk-event>Impact Fellowship</span>
+          <span class=tk-location>New York</span>
+        </div>
+        <span class=tk-date>January 2018</span>
+      </h3>
 
-      <h3><span class=glyph>🚀</span> Full Stack Fest, Barcelona, 2017</h3>
+
+      <h3>
+        <span class=glyph>🚀️</span>
+        <div class=talk>
+          <span class=tk-event>Full Stack Fest</span>
+          <span class=tk-location>Barcelona</span>
+        </div>
+        <span class=tk-date>September 2017</span>
+      </h3>      
       <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/DJ-oSy0tN_U" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-      <h3><span class=glyph>👩🏽‍🎤</span> Chick Tech Keynote, New York, 2016</h3>
+      <h3>
+        <span class=glyph>👩🏽‍🎤</span>
+        <div class=talk>
+          <span class=tk-event>Chick Tech (Keynote)</span>
+          <span class=tk-location>New York</span>
+        </div>
+        <span class=tk-date>2016</span>
+      </h3>      
   </div>
 </div>
 <div id=resume class=cream>
@@ -349,7 +394,7 @@
 
     if (menuIsOpen()) closeMenu()
 
-    if (y > innerHeight) return
+    if (y > 2 * innerHeight) return
     headshot.style.filter = hue(negHalfY)
     hero.style.filter = brightness(y > 0 ? 100 + y : 100)
     hero.style.transform = translateY(px(negQuarterY))

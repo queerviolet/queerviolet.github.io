@@ -195,16 +195,16 @@ a.fold-thumb:focus {
 }
 
 #been-hacking {
-  text-align: justify;
+  text-align: left;
   margin-top: 100vh;
   transform: translateZ(0);
   background: rgba(21, 0, 59, 0.9);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   color: white;
-  padding: 48px;
-  padding-right: 25vw;
-  padding-left: 25vw;
+  padding: 128px 9px;
+  /* padding-right: 25vw;
+  padding-left: 25vw; */
 }
 
 #been-hacking > h1 {
@@ -247,7 +247,6 @@ a.fold-thumb:focus {
   color: #ee4bbd;
   font-weight: bold;
   /* background: #FDF4F9; */
-  border: 1px solid #5f1e4b;
   margin: auto;
 }
 
@@ -260,7 +259,7 @@ a.fold-thumb:focus {
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
-    height: 115vh;
+    height: 125vh;
     transform: translateZ(0);
     filter: brightness(100%);
   }
@@ -281,7 +280,7 @@ a.fold-thumb:focus {
 
   #cover-photo-cite {
     position: absolute;
-    left: 9px; bottom: calc(15vh + 9px);
+    left: 9px; bottom: calc(25vh + 9px);
 
     font-style: normal;
     font-weight: 400;
@@ -557,13 +556,12 @@ a.fold-thumb:focus {
 
   .eggplant {
     /* background: rgb(37, 20, 59); */
-    background: rgba(13, 7, 21, 0.954);    
+    background: rgb(13, 7, 21);    
     color: #FDF4F9;
     border: thin solid transparent;
     padding: 48px 0;
     transform: translateZ(0);
     box-sizing: border-box;
-    backdrop-filter: blur(16px);
   }
 
   .eggplant h1 {
@@ -779,12 +777,12 @@ a:focus {
 
 #talks h3 {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   text-align: center;
   font-weight: 200;
   color: rgba(253, 244, 249, 0.673);
   /* border-bottom: thin solid rgba(253, 244, 249, 0.283); */
-  margin-top: 48px;
+  margin-top: 64px;
 }
 
 #talks h3 .glyph {
@@ -792,6 +790,27 @@ a:focus {
   margin-left: auto;
   font-variant: normal;
   position: relative;
-  top: 5px;
   color: white;
+}
+
+.talk {
+  display: flex;
+  flex-flow: column;
+}
+
+.tk-event {
+  font-size: 32px;
+  text-align: left;
+}
+
+.tk-date {
+  flex-grow: 1;
+}
+
+.tk-location {
+  text-align: left;
+}
+
+.tk-date, .tk-location {
+  font-size: 16px;
 }
