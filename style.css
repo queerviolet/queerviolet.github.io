@@ -259,7 +259,7 @@ a.fold-thumb:focus {
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
-    height: 125vh;
+    height: 110vh;
     transform: translateZ(0);
     filter: brightness(100%);
   }
@@ -280,7 +280,7 @@ a.fold-thumb:focus {
 
   #cover-photo-cite {
     position: absolute;
-    left: 9px; bottom: calc(25vh + 9px);
+    left: 9px; bottom: calc(10vh + 25px);
 
     font-style: normal;
     font-weight: 400;
@@ -556,7 +556,8 @@ a.fold-thumb:focus {
 
   .eggplant {
     /* background: rgb(37, 20, 59); */
-    background: rgb(13, 7, 21);    
+    /* background: rgb(13, 7, 21);     */
+    background: black;
     color: #FDF4F9;
     border: thin solid transparent;
     padding: 48px 0;
@@ -801,10 +802,13 @@ a:focus {
 .tk-event {
   font-size: 32px;
   text-align: left;
+  color: rgba(253, 244, 249, 0.913);
 }
 
 .tk-date {
   flex-grow: 1;
+  text-align: right;
+  margin-right: 9px;
 }
 
 .tk-location {
