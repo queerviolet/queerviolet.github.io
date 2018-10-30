@@ -49,25 +49,45 @@
   <span id=hi>hi, i'm ashi</span>
   <cite id=cover-photo-cite><a href="http://claytoncubitt.com/">Photo: Clayton Cubitt</a></cite>
 </div>
-<h1 id=been-hacking>I’ve been hacking for 27 years.</h1>
+<div id=been-hacking>
+    <h1>I’ve been hacking for 27 years.</h1>
+    <div class=content>
+        <p>I started as a kid and never stopped.</p>
+    
+        <p>
+          I've worked on <a href=https://www.gethopscotch.com/>mobile
+          apps (that let kids make mobile apps)</a>, <a href=https://sos.noaa.gov>
+          projection art for the government</a>, and
+          <a href=https://mail.google.com>infrastructure so vast that it is the
+          abyss staring back</a>; a monumental protomind which will sooner understand
+          you than you, it.
+        </p>
+    
+        <p>
+          I'm currently at GitHub, building the next generation of developer tools.
+        </p>
+      </div>
+</div>
+<div id=talks class=eggplant>
+  <div class=content>
+      <h1>Talks</h1>
+      <h3><i class='glyph strangeloop-logo'></i> StrangeLoop, St. Louis, September 2018</h3>
+      <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/agMxgYE4mf4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
 
+      <h3><img class=glyph src=css-minsk-js-logo.svg> CSS-Minsk-JS, Minsk, September 2018 <sup class=tile>Video coming soon!</sup></h3>
+      <h3><img class=glyph src=jsconf-heart.svg> JSConf.eu, Berlin, June 2018</h3>
+      <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/SV-cgdobtTA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+      <h3><span class=glyph>❣️</span> Impact Fellowship, New York, 2018</h3>
+
+      <h3><span class=glyph>🚀</span> Full Stack Fest, Barcelona, 2017</h3>
+      <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/DJ-oSy0tN_U" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+      <h3><span class=glyph>👩🏽‍🎤</span> Chick Tech Keynote, New York, 2016</h3>
+  </div>
+</div>
 <div id=resume class=cream>
   <div class="content">
-    <p>I started as a kid and never stopped.</p>
-
-    <p>
-      I've worked on <a href=https://www.gethopscotch.com/>mobile
-      apps (that let kids make mobile apps)</a>, <a href=https://sos.noaa.gov>
-      projection art for the government</a>, and
-      <a href=https://mail.google.com>infrastructure so vast that it is the
-      abyss staring back</a>; a monumental protomind which will sooner understand
-      you than you, it.
-    </p>
-
-    <p>
-      I'm currently at GitHub, building the next generation of developer tools.
-    </p>
-
     <div class="instruction">Tap for more</div>
     <div id=github class=foldable>
       <a href=#github class=fold-thumb>
@@ -258,31 +278,7 @@
     </div>
   </div>
 </div>
-<div id=talks class=eggplant>
-  <div class=content>
-    <div>
-      <h1>Talks</h1>
-      <h3><s><img class=glyph src=jsmobileconf-logo.png> jsMobileConf, Boston, October 2018</s><sup class=tile>Cancelled</sup></h3>
-      <div class=talk-text>
-        Unfortunately, I had to cancel this appearance <a href=https://onejob.org/>in solidarity with workers striking</a> against
-        the venue.
-      </div>        
-      <h3><i class=strangeloop-logo></i> StrangeLoop, St. Louis, September 2018</h3>
-      <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/agMxgYE4mf4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
 
-      <h3><img class=glyph src=css-minsk-js-logo.svg> CSS-Minsk-JS, Minsk, September 2018 <sup class=tile>Video coming soon!</sup></h3>
-      <h3><img class=glyph src=jsconf-heart.svg> JSConf.eu, Berlin, June 2018</h3>
-      <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/SV-cgdobtTA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-      <h3>❣️ Impact Fellowship, New York, 2018</h3>
-
-      <h3>🚀 Full Stack Fest, Barcelona, 2017</h3>
-      <iframe class=yt width="560" height="315" src="https://www.youtube.com/embed/DJ-oSy0tN_U" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-
-      <h3>👩🏽‍🎤 Chick Tech Keynote, New York, 2016</h3>
-    </div>
-  </div>
-</div>
 <div id=contact class=cream>
   <div class=content>
     <h1>Contact</h1>
@@ -344,11 +340,11 @@
     if ((y > 3 * innerHeight / 4 && y < innerHeight - 16) || y >= resumeTop - 16 && y <= resumeBottom - 16) {
       menu.classList.add('dark')
       card.classList.add('dark')
-      document.body.style.backgroundColor = 'rgb(253, 244, 249)'
+      // document.body.style.backgroundColor = 'rgb(253, 244, 249)'
     } else {
       menu.classList.remove('dark')
       card.classList.remove('dark')
-      document.body.style.backgroundColor = 'rgb(37, 20, 59)'
+      // document.body.style.backgroundColor = 'rgb(37, 20, 59)'
     }
 
     if (menuIsOpen()) closeMenu()
