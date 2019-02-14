@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Lato:400');
+/* @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700'); */
+@import url('fonts/nunito.css');
+@import url('node_modules/charter-webfont/charter.css');
+@import url('node_modules/source-sans-pro/source-sans-pro.css');
 
 body {
   background: black;
@@ -7,7 +9,7 @@ body {
   margin: 0;
 
   color: #5f1e4b;
-  font-family: Nunito, Helvetica, sans-serif;
+  font-family: Charter;
   font-size: 20px;
 }
 
@@ -75,6 +77,7 @@ h1 {
   color: #1D111C;
   text-align: center;
   page-break-after: avoid;
+  font-family: Nunito, Helvetica, sans-serif;
 }
 
 p, li {
@@ -234,6 +237,7 @@ a.fold-thumb:focus {
   font-size: 15vh;
   line-height: 16vh;
   color: #5f1e4b;
+  font-family: Nunito, Helvetica, sans-serif;
 }
 
 .tile {
@@ -809,6 +813,7 @@ a:focus {
   flex-grow: 1;
   text-align: right;
   margin-right: 9px;
+  font-family: 'Source Sans Pro';
 }
 
 .tk-location {

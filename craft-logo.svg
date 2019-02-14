@@ -1,0 +1,11 @@
+<svg id="logo-orange.svg" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e85a32;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="logo-orange" class="cls-1" d="M302.982,30L292.005,19.022l4.019-15,14.994-4.019L322,10.988l-4.017,14.993Zm8.8-19.775a6.759,6.759,0,1,0,0,9.558A6.758,6.758,0,0,0,311.779,10.226Z" transform="translate(-292)"/>
+</svg>
