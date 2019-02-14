@@ -64,10 +64,18 @@ a {
   text-decoration: none;
   font-weight: 700;
   color: #1D111C;
+  transition: filter 0.2s, background 0.2s, color 0.2s;
 }
 
 a:hover {
+  animation: trip 2s linear infinite reverse;
   text-decoration: underline;
+}
+
+@keyframes trip {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(359deg); }
 }
 
 h1 {
