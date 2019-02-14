@@ -251,15 +251,17 @@ a.fold-thumb:focus {
 .tile {
   font-size: 12px;
   border-radius: 4px;
-  padding: 4px;
+  padding: 4px 6px;
   vertical-align: top;
+  font-weight: light;  
+  font-family: 'Source Sans Pro';
 }
 
 .eggplant .tile {
-  color: #ee4bbd;
-  font-weight: bold;
-  /* background: #FDF4F9; */
-  margin: auto;
+  /* color: #ee4bbd; */
+  color: rgb(215, 180, 255);
+  background: rgb(64, 54, 65);
+  /* margin: auto; */
 }
 
 @media only screen {
