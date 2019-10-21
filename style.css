@@ -210,6 +210,7 @@ a.fold-thumb:focus {
   background-repeat: no-repeat;
 }
 
+#apollo .job-md-dates { background-size: contain; background-image: url('apollo.svg') }
 #github .job-md-dates { background-image: url('octocat-256.png') }
 #grace-hopper .job-md-dates { background-image: url('grace-hopper-logo.png') }
 #hopscotch .job-md-dates { background-image: url('hopscotch-logo.png') }
