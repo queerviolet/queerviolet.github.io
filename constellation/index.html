@@ -2,10 +2,10 @@
 <meta charset="utf-8">
 
 <title>The Future of Federation</title>
-<link rel="stylesheet" href="https://ashi.io/constellation/intro.75d94d9d.css">
-<link rel="stylesheet" href="https://ashi.io/constellation/constellation.4c24a6ae.css">
-<link rel="stylesheet" href="https://ashi.io/constellation/feat.f8110118.css">
-<script src="https://ashi.io/constellation/main.70414c8d.js"></script><link rel="stylesheet" href="https://ashi.io/constellation/main.8048b1a9.css"><script src="https://ashi.io/constellation/main.70414c8d.js"></script><link rel="stylesheet" href="https://ashi.io/constellation/main.8048b1a9.css"><script src="https://ashi.io/constellation/elements.faef3979.js"></script>
+<link rel="stylesheet" href="https://ashi.io/constellation/782ddb1d98b6a65502aa0b1d79e9bdc6.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/6d341b674658e3ef0c7d9aa8e2b8e26f.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/6b4ff723da0c7232fe3170003c23cee6.css">
+<script src="https://ashi.io/constellation/d318f2f47e38f8add32c0078b4e7f8a2.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600;700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700" rel="stylesheet">
@@ -14,7 +14,7 @@
 <div id="graph"></div>
 <div id="explosion"></div>
 
-<script src="https://ashi.io/constellation/main.80da6eda.js"></script>
+<script src="https://ashi.io/constellation/7a9076d6d94e62c13d641aa71f19ae8e.js"></script>
 
 <style>.hljs, .hljs-keyword, .hljs-type {
     background: none;
@@ -22,9 +22,8 @@
       0 0
       calc(var(--su) * 0.005)
       black;
-  }
-</style>
-<script src="https://ashi.io/constellation/graphql.18d2aadd.js"></script>
+  }</style>
+<script src="https://ashi.io/constellation/60b6f7eefec7d0e8c36678547e5c181f.js"></script>
 
 <build-note id="introCold">
 hi, i'm ashi krishnan, i'm an engineer at apollo
@@ -42,148 +41,11 @@ first, let's look at the state of graphql and federation today.
   i'm in this club where we read... inspirational fiction. we've got an app that lets us keep track of what we're reading and make notes. that app talks to a graphql backend. this is the graph:
 </build-note>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"140d94402d0526bcad5b5a30ba132a66":[function(require,module,exports) {
-When(buildInRange(introTitle, introClub)).start(function () {
+<script>When(buildInRange(introTitle, introClub)).start(function () {
   return writer.text = 'the future of federation\n\n\n\n\nashi krishnan — ashi@apollographql.com — @rakshesha';
 }).end(function () {
   return writer.text = '';
-});
-},{}]},{},["140d94402d0526bcad5b5a30ba132a66"], null)
-
-</script>
+});</script>
 
 <pre id="agitpropSchema">
 <code class="graphql">
@@ -270,141 +132,7 @@ query {
   some folks from the book club started a film club, which also has a graph:
 </build-note>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"76a4aca157975b70662d211673207118":[function(require,module,exports) {
-agitprop = {
+<script>agitprop = {
   schema: parseToGraph('agitprop', agitpropSchema.textContent),
   graph: Atlas.graphData('agitprop')
 };
@@ -416,10 +144,7 @@ When(introAgitpropRunQuery).start(function () {
   graphql(agitprop.schema, agitpropQuery.innerText).then(console.log, console.error);
 }).end(function () {
   return Graph.clearHighlights();
-});
-},{}]},{},["76a4aca157975b70662d211673207118"], null)
-
-</script>
+});</script>
 
 <build-note id="introObscuraGraph">
   this one's more of a tetrahedron
@@ -475,151 +200,14 @@ scalar Date
   this graph isn't connected to our other graph
 </build-note>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"aa0ebe5bde35a47081bdb8dd338b3705":[function(require,module,exports) {
-obscura = {
+<script>obscura = {
   schema: parseToGraph('obscura', obscuraSchema.textContent),
   graph: Atlas.graphData('obscura')
 };
 When(buildInRange(introObscuraGraph, introObscuraSchema)).start(function () {
   Graph.graphData(obscura.graph).recenter().clearHighlights();
 });
-When(buildInRange(introObscuraOrbit, introObscuraSchema)).withDuration(3[sec]).at(orbit());
-},{}]},{},["aa0ebe5bde35a47081bdb8dd338b3705"], null)
-
-</script>
+When(buildInRange(introObscuraOrbit, introObscuraSchema)).withDuration(3[sec]).at(orbit());</script>
 
 <build-note id="introBothGraph">
   but we can still think of them as existing in the same space  
@@ -671,141 +259,7 @@ query {
   naturally, federation solves this.
 </build-note>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"b77f5e6af48eb94caf29470af5c97377":[function(require,module,exports) {
-When(introRunManualQueryAgitprop).start(function () {
+<script>When(introRunManualQueryAgitprop).start(function () {
   Graph.clearHighlights();
   graphql(agitprop.schema, agitpropManualQuery.textContent).then(console.error);
 });
@@ -814,10 +268,7 @@ When(introRunManualQueryObscura).start(function () {
   graphql(obscura.schema, obscuraManualQuery.textContent, {}, {}, {
     id: 0
   });
-});
-},{}]},{},["b77f5e6af48eb94caf29470af5c97377"], null)
-
-</script>
+});</script>
 
 <build-note id="introFed">
   to link these two graphs with federation, we don't actually have to change our schemas. these schemas don't know about each other, so we should be able to just join them into a new graph:
@@ -864,145 +315,7 @@ query {
 </code>
 </pre>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"97187f824e65f5e90ba8312a8e8b7b9f":[function(require,module,exports) {
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-agitpropAndObscura = Atlas.graphData('agitprop', 'obscura');
+<script>agitpropAndObscura = Atlas.graphData('agitprop', 'obscura');
 When(buildInRange(introBothGraph, introFed)).start(function () {
   return Graph.graphData(agitpropAndObscura).recenter().clearHighlights();
 });
@@ -1021,8 +334,8 @@ unified = {
 When(buildInRange(introFedUnified, introFedUnifiedRunQuery)).start(function () {
   Graph.graphData(unified.graph).recenter().clearHighlights();
 });
-When(introFedUnifiedRunQuery).start( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-  return regeneratorRuntime.wrap(function _callee$(_context) {
+When(introFedUnifiedRunQuery).start(function _callee() {
+  return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
@@ -1035,12 +348,9 @@ When(introFedUnifiedRunQuery).start( /*#__PURE__*/_asyncToGenerator( /*#__PURE__
           return _context.stop();
       }
     }
-  }, _callee);
-})));
-When(buildInRange(introFedUnifiedOrbit, introFedUnifiedRunQuery)).withDuration(3[sec]).at(orbit());
-},{}]},{},["97187f824e65f5e90ba8312a8e8b7b9f"], null)
-
-</script>
+  });
+});
+When(buildInRange(introFedUnifiedOrbit, introFedUnifiedRunQuery)).withDuration(3[sec]).at(orbit());</script>
 
 <build-note id="csExplode">
   this is powerful, but it can also be a lot! the amount of accessible data in your organization and frankly in the world is enough to make anyone's brain start dropping frames just like my computer.
@@ -1062,151 +372,14 @@ When(buildInRange(introFedUnifiedOrbit, introFedUnifiedRunQuery)).withDuration(3
   earlier this year, we sat down and asked ourselves this question: what's next? how do build on federation? how do we develop tools to wrangle these increasingly massive graphs?
 </build-note>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"70b079e8d274292d686db02098958f15":[function(require,module,exports) {
-splode = addBloom(ForceGraph3D()(explosion)).nodeRelSize(1).enableNavigationControls(false).showNavInfo(false);
+<script>splode = addBloom(ForceGraph3D()(explosion)).nodeRelSize(1).enableNavigationControls(false).showNavInfo(false);
 When(buildInRange(csEarlier, {
   order: Infinity
 })).start(function () {
   return Graph.pauseAnimation();
 }).end(function () {
   return Graph.resumeAnimation();
-});
-},{}]},{},["70b079e8d274292d686db02098958f15"], null)
-
-</script>
+});</script>
 
 <build-note id="csWhatsNext">
   we've called the result project constellation.
@@ -1282,141 +455,7 @@ When(buildInRange(csEarlier, {
   let's go back and look at that federated query. this gets us all the data we want, but the shape is weird. we're getting back user.notes and member.ratings, and i'm sure we can reshape it in the frontend, but the whole point of all of this is that we shouldn't have to do that. our graph should be shaped how we want it.
 </build-note>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"56efc70fb9b97673e1662e0f0d12e3ba":[function(require,module,exports) {
-When(buildInRange(csExplode, {
+<script>When(buildInRange(csExplode, {
   order: Infinity
 })).start(function () {
   return splode.resumeAnimation().graphData(blocks).zoomToFit();
@@ -1457,10 +496,7 @@ When(buildInRange(csWhatsNext, csEnd)).changed(function (_, current) {
   writer.text = bullets[current.id];
 }).end(function () {
   writer.text = '';
-});
-},{}]},{},["56efc70fb9b97673e1662e0f0d12e3ba"], null)
-
-</script>
+});</script>
 
 <build-note id="featOldSchemas">
   the problem is we didn't modify our underlying services
@@ -1724,151 +760,14 @@ extend type Reading {
 </code>
 </pre>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"48549c856891c7feb0f83878f9562e9c":[function(require,module,exports) {
-When(buildInRange(feat, {
+<script>When(buildInRange(feat, {
   order: Infinity
 })).start(function () {
   return Graph.graphData(agitpropAndObscura);
 });
 When(buildInRange(feat, {
   order: Infinity
-})).withDuration(3[sec]).at(orbit());
-},{}]},{},["48549c856891c7feb0f83878f9562e9c"], null)
-
-</script>
+})).withDuration(3[sec]).at(orbit());</script>
 
 <build-note id="featUnifiedGutenberg">
 what we've done here is introduce a new directive—the @from directive, which says, "in order to resolve this field, run this other query." now we have the text of our readings!
@@ -1950,158 +849,21 @@ extend type Reading {
   thank you.
 </build-note>
 
-<script>// modules are defined as an array
-// [ module function, map of requires ]
-//
-// map of requires is short require name -> numeric require
-//
-// anything defined in a previous bundle is accessed via the
-// orig method which is the require for previous bundles
-
-(function(modules, cache, entry, globalName) {
-  /* eslint-disable no-undef */
-  var globalObject =
-    typeof globalThis !== 'undefined'
-      ? globalThis
-      : typeof self !== 'undefined'
-      ? self
-      : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-      ? global
-      : {};
-  /* eslint-enable no-undef */
-
-  // Save the require from previous bundle to this closure if any
-  var previousRequire =
-    typeof globalObject.parcelRequire === 'function' &&
-    globalObject.parcelRequire;
-  // Do not use `require` to prevent Webpack from trying to bundle this call
-  var nodeRequire =
-    typeof module !== 'undefined' &&
-    typeof module.require === 'function' &&
-    module.require.bind(module);
-
-  function newRequire(name, jumped) {
-    if (!cache[name]) {
-      if (!modules[name]) {
-        // if we cannot find the module within our internal map or
-        // cache jump to the current global require ie. the last bundle
-        // that was added to the page.
-        var currentRequire =
-          typeof parcelRequire === 'function' && parcelRequire;
-        if (!jumped && currentRequire) {
-          return currentRequire(name, true);
-        }
-
-        // If there are other bundles on this page the require from the
-        // previous one is saved to 'previousRequire'. Repeat this as
-        // many times as there are bundles until the module is found or
-        // we exhaust the require chain.
-        if (previousRequire) {
-          return previousRequire(name, true);
-        }
-
-        // Try the node require function if it exists.
-        if (nodeRequire && typeof name === 'string') {
-          return nodeRequire(name);
-        }
-
-        var err = new Error("Cannot find module '" + name + "'");
-        err.code = 'MODULE_NOT_FOUND';
-        throw err;
-      }
-
-      localRequire.resolve = resolve;
-      localRequire.cache = {};
-
-      var module = (cache[name] = new newRequire.Module(name));
-
-      modules[name][0].call(
-        module.exports,
-        localRequire,
-        module,
-        module.exports,
-        this
-      );
-    }
-
-    return cache[name].exports;
-
-    function localRequire(x) {
-      return newRequire(localRequire.resolve(x));
-    }
-
-    function resolve(x) {
-      return modules[name][1][x] || x;
-    }
-  }
-
-  function Module(moduleName) {
-    this.id = moduleName;
-    this.bundle = newRequire;
-    this.exports = {};
-  }
-
-  newRequire.isParcelRequire = true;
-  newRequire.Module = Module;
-  newRequire.modules = modules;
-  newRequire.cache = cache;
-  newRequire.parent = previousRequire;
-  newRequire.register = function(id, exports) {
-    modules[id] = [
-      function(require, module) {
-        module.exports = exports;
-      },
-      {},
-    ];
-  };
-
-  globalObject.parcelRequire = newRequire;
-
-  for (var i = 0; i < entry.length; i++) {
-    newRequire(entry[i]);
-  }
-
-  if (entry.length) {
-    // Expose entry point to Node, AMD or browser globals
-    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
-    var mainExports = newRequire(entry[entry.length - 1]);
-
-    // CommonJS
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-      module.exports = mainExports;
-
-      // RequireJS
-    } else if (typeof define === 'function' && define.amd) {
-      define(function() {
-        return mainExports;
-      });
-
-      // <script>
-    } else if (globalName) {
-      this[globalName] = mainExports;
-    }
-  }
-})({"f5416115791fa5ecf4f9df8dd880cf0c":[function(require,module,exports) {
-When(thanks).start(function () {
+<script>When(thanks).start(function () {
   return writer.text = "thanks!\n\n\n\nproject constellation: the future of federation\nashi krishnan — i@ashi.io — @rakshesha\n\nhttps://github.com/queerviolet/constellation.talk\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t~ xoxo, ashi";
-});
-},{}]},{},["f5416115791fa5ecf4f9df8dd880cf0c"], null)
-
-</script>
+});</script>
 
 
 <!-- Letterbox & Bug -->
-<link rel="stylesheet" href="https://ashi.io/constellation/bug.6ecfafab.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/f6d84f33acb249548c466b5eefc4d817.css">
 <div id="bug">
   <a href="https://twitter.com/rakshesha">@rakshesha</a>
   <a class="visible" href="https://ashi.io">ashi.io</a>
 </div>
-<script src="https://ashi.io/constellation/bug.927274b8.js"></script>
+<script src="https://ashi.io/constellation/4cf354441640fff370a6a121b6f2a68a.js"></script>
 <!-- End Letterbox & Bug -->
 
-<a style="display: none;" href="https://ashi.io/constellation/presenter.html"></a>
+<a style="display: none;" href="https://ashi.io/constellation/06f60ef0e81103e535ccb87a2e30d356.html"></a>
 <div id="letterbox-bar-1"></div>
 <div id="letterbox-bar-2"></div>
 

@@ -21,6 +21,7 @@
     "charter-webfont": "^3.0.1"
   },
   "dependencies": {
+    "fonts": "0.0.2",
     "source-sans-pro": "^2.45.0"
   }
 }
