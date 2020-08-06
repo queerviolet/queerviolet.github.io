@@ -2,19 +2,19 @@
 <meta charset="utf-8">
 
 <title>The Future of Federation</title>
-<link rel="stylesheet" href="https://ashi.io/constellation/782ddb1d98b6a65502aa0b1d79e9bdc6.css">
-<link rel="stylesheet" href="https://ashi.io/constellation/6d341b674658e3ef0c7d9aa8e2b8e26f.css">
-<link rel="stylesheet" href="https://ashi.io/constellation/6b4ff723da0c7232fe3170003c23cee6.css">
-<script src="https://ashi.io/constellation/d318f2f47e38f8add32c0078b4e7f8a2.js"></script>
+<link rel="stylesheet" href="https://ashi.io/constellation/intro.79e9bdc6.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/constellation.e2b8e26f.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/feat.3c23cee6.css">
+<script src="https://ashi.io/constellation/elements.b4e7f8a2.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600;700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700" rel="stylesheet">
 
-<div id="backdrop"></div>
+<script src="https://ashi.io/constellation/intro.79e9bdc6.js"></script><script src="https://ashi.io/constellation/constellation.e2b8e26f.js"></script><script src="https://ashi.io/constellation/feat.3c23cee6.js"></script><link rel="stylesheet" href="https://ashi.io/constellation/main.1f19ae8e.css"><script src="https://ashi.io/constellation/bug.efc4d817.js"></script><div id="backdrop"></div>
 <div id="graph"></div>
 <div id="explosion"></div>
 
-<script src="https://ashi.io/constellation/7a9076d6d94e62c13d641aa71f19ae8e.js"></script>
+<script src="https://ashi.io/constellation/main.1f19ae8e.js"></script>
 
 <style>.hljs, .hljs-keyword, .hljs-type {
     background: none;
@@ -23,7 +23,7 @@
       calc(var(--su) * 0.005)
       black;
   }</style>
-<script src="https://ashi.io/constellation/60b6f7eefec7d0e8c36678547e5c181f.js"></script>
+<script src="https://ashi.io/constellation/graphql.7e5c181f.js"></script>
 
 <build-note id="introCold">
 hi, i'm ashi krishnan, i'm an engineer at apollo
@@ -41,11 +41,7 @@ first, let's look at the state of graphql and federation today.
   i'm in this club where we read... inspirational fiction. we've got an app that lets us keep track of what we're reading and make notes. that app talks to a graphql backend. this is the graph:
 </build-note>
 
-<script>When(buildInRange(introTitle, introClub)).start(function () {
-  return writer.text = 'the future of federation\n\n\n\n\nashi krishnan — ashi@apollographql.com — @rakshesha';
-}).end(function () {
-  return writer.text = '';
-});</script>
+<script>When(buildInRange(introTitle, introClub)).start(() => writer.text = 'the future of federation\n\n\n\n\nashi krishnan — ashi@apollographql.com — @rakshesha').end(() => writer.text = '');</script>
 
 <pre id="agitpropSchema">
 <code class="graphql">
@@ -136,15 +132,11 @@ query {
   schema: parseToGraph('agitprop', agitpropSchema.textContent),
   graph: Atlas.graphData('agitprop')
 };
-When(buildInRange(introAgitpropGraph, introAgitpropRunQuery)).start(function () {
-  return Graph.graphData(agitprop.graph).clearHighlights().recenter();
-});
+When(buildInRange(introAgitpropGraph, introAgitpropRunQuery)).start(() => Graph.graphData(agitprop.graph).clearHighlights().recenter());
 When(buildInRange(introAgitpropGraphOrbit, introAgitpropRunQuery)).withDuration(3[sec]).at(orbit());
-When(introAgitpropRunQuery).start(function () {
+When(introAgitpropRunQuery).start(() => {
   graphql(agitprop.schema, agitpropQuery.innerText).then(console.log, console.error);
-}).end(function () {
-  return Graph.clearHighlights();
-});</script>
+}).end(() => Graph.clearHighlights());</script>
 
 <build-note id="introObscuraGraph">
   this one's more of a tetrahedron
@@ -204,7 +196,7 @@ scalar Date
   schema: parseToGraph('obscura', obscuraSchema.textContent),
   graph: Atlas.graphData('obscura')
 };
-When(buildInRange(introObscuraGraph, introObscuraSchema)).start(function () {
+When(buildInRange(introObscuraGraph, introObscuraSchema)).start(() => {
   Graph.graphData(obscura.graph).recenter().clearHighlights();
 });
 When(buildInRange(introObscuraOrbit, introObscuraSchema)).withDuration(3[sec]).at(orbit());</script>
@@ -259,11 +251,11 @@ query {
   naturally, federation solves this.
 </build-note>
 
-<script>When(introRunManualQueryAgitprop).start(function () {
+<script>When(introRunManualQueryAgitprop).start(() => {
   Graph.clearHighlights();
   graphql(agitprop.schema, agitpropManualQuery.textContent).then(console.error);
 });
-When(introRunManualQueryObscura).start(function () {
+When(introRunManualQueryObscura).start(() => {
   Graph.zoomToFit(300);
   graphql(obscura.schema, obscuraManualQuery.textContent, {}, {}, {
     id: 0
@@ -316,9 +308,7 @@ query {
 </pre>
 
 <script>agitpropAndObscura = Atlas.graphData('agitprop', 'obscura');
-When(buildInRange(introBothGraph, introFed)).start(function () {
-  return Graph.graphData(agitpropAndObscura).recenter().clearHighlights();
-});
+When(buildInRange(introBothGraph, introFed)).start(() => Graph.graphData(agitpropAndObscura).recenter().clearHighlights());
 When(buildInRange(introBothGraphOrbit, introFed)).withDuration(3[sec]).at(orbit());
 fedAgitpropObscura = composeServices([{
   name: 'agitprop',
@@ -331,24 +321,13 @@ unified = {
   schema: parseToGraph('unified', fedAgitpropObscura.schema),
   graph: Atlas.graphData()
 };
-When(buildInRange(introFedUnified, introFedUnifiedRunQuery)).start(function () {
+When(buildInRange(introFedUnified, introFedUnifiedRunQuery)).start(() => {
   Graph.graphData(unified.graph).recenter().clearHighlights();
 });
-When(introFedUnifiedRunQuery).start(function _callee() {
-  return regeneratorRuntime.async(function _callee$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          graphql(agitprop.schema, agitpropManualQuery.textContent);
-          graphql(obscura.schema, obscuraManualQuery.textContent);
-          graphql(unified.schema, unifiedQuery.textContent);
-
-        case 3:
-        case "end":
-          return _context.stop();
-      }
-    }
-  });
+When(introFedUnifiedRunQuery).start(async () => {
+  graphql(agitprop.schema, agitpropManualQuery.textContent);
+  graphql(obscura.schema, obscuraManualQuery.textContent);
+  graphql(unified.schema, unifiedQuery.textContent);
 });
 When(buildInRange(introFedUnifiedOrbit, introFedUnifiedRunQuery)).withDuration(3[sec]).at(orbit());</script>
 
@@ -375,11 +354,7 @@ When(buildInRange(introFedUnifiedOrbit, introFedUnifiedRunQuery)).withDuration(3
 <script>splode = addBloom(ForceGraph3D()(explosion)).nodeRelSize(1).enableNavigationControls(false).showNavInfo(false);
 When(buildInRange(csEarlier, {
   order: Infinity
-})).start(function () {
-  return Graph.pauseAnimation();
-}).end(function () {
-  return Graph.resumeAnimation();
-});</script>
+})).start(() => Graph.pauseAnimation()).end(() => Graph.resumeAnimation());</script>
 
 <build-note id="csWhatsNext">
   we've called the result project constellation.
@@ -457,15 +432,11 @@ When(buildInRange(csEarlier, {
 
 <script>When(buildInRange(csExplode, {
   order: Infinity
-})).start(function () {
-  return splode.resumeAnimation().graphData(blocks).zoomToFit();
-}).end(function () {
-  return splode.pauseAnimation();
-});
+})).start(() => splode.resumeAnimation().graphData(blocks).zoomToFit()).end(() => splode.pauseAnimation());
 When(buildInRange(csExplode, {
   order: Infinity
 })).withDuration(20[sec]).at(orbit(splode));
-var bullets = {
+const bullets = {
   csWhatsNext: 'project constellation:',
   csEvolution: ' federation next',
   csFaster: '\n    — faster',
@@ -481,20 +452,17 @@ var bullets = {
   csStream: ' 🐟',
   csCompatibility: ' 🔌'
 };
-var txt = '';
+let txt = '';
 
-for (var _i = 0, _Object$keys = Object.keys(bullets); _i < _Object$keys.length; _i++) {
-  var b = _Object$keys[_i];
+for (const b of Object.keys(bullets)) {
   txt = bullets[b] = txt + bullets[b];
 }
 
-When(csFlexiblier).start(function () {
-  return writer.text = bullets.csInsight + '\n    — flexiblier';
-});
-When(buildInRange(csWhatsNext, csEnd)).changed(function (_, current) {
+When(csFlexiblier).start(() => writer.text = bullets.csInsight + '\n    — flexiblier');
+When(buildInRange(csWhatsNext, csEnd)).changed((_, current) => {
   if (!(current.id in bullets)) return;
   writer.text = bullets[current.id];
-}).end(function () {
+}).end(() => {
   writer.text = '';
 });</script>
 
@@ -762,9 +730,7 @@ extend type Reading {
 
 <script>When(buildInRange(feat, {
   order: Infinity
-})).start(function () {
-  return Graph.graphData(agitpropAndObscura);
-});
+})).start(() => Graph.graphData(agitpropAndObscura));
 When(buildInRange(feat, {
   order: Infinity
 })).withDuration(3[sec]).at(orbit());</script>
@@ -849,21 +815,19 @@ extend type Reading {
   thank you.
 </build-note>
 
-<script>When(thanks).start(function () {
-  return writer.text = "thanks!\n\n\n\nproject constellation: the future of federation\nashi krishnan — i@ashi.io — @rakshesha\n\nhttps://github.com/queerviolet/constellation.talk\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t~ xoxo, ashi";
-});</script>
+<script>When(thanks).start(() => writer.text = "thanks!\n\n\n\nproject constellation: the future of federation\nashi krishnan — i@ashi.io — @rakshesha\n\nhttps://github.com/queerviolet/constellation.talk\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t~ xoxo, ashi");</script>
 
 
 <!-- Letterbox & Bug -->
-<link rel="stylesheet" href="https://ashi.io/constellation/f6d84f33acb249548c466b5eefc4d817.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/bug.efc4d817.css">
 <div id="bug">
   <a href="https://twitter.com/rakshesha">@rakshesha</a>
   <a class="visible" href="https://ashi.io">ashi.io</a>
 </div>
-<script src="https://ashi.io/constellation/4cf354441640fff370a6a121b6f2a68a.js"></script>
+<script src="https://ashi.io/constellation/bug.b6f2a68a.js"></script>
 <!-- End Letterbox & Bug -->
 
-<a style="display: none;" href="https://ashi.io/constellation/06f60ef0e81103e535ccb87a2e30d356.html"></a>
+<a style="display: none;" href="https://ashi.io/constellation/presenter.html"></a>
 <div id="letterbox-bar-1"></div>
 <div id="letterbox-bar-2"></div>
 
