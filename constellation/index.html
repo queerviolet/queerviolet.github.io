@@ -1,9 +1,191 @@
-<!doctype html><meta charset="utf-8"><title>The Future of Federation</title><link rel="stylesheet" href="https://ashi.io/constellation/intro.5b107d3d.css"><link rel="stylesheet" href="https://ashi.io/constellation/constellation.847eac78.css"><link rel="stylesheet" href="https://ashi.io/constellation/feat.a4799a0a.css"><script src="https://ashi.io/constellation/main.e7e5abc4.js"></script><link rel="stylesheet" href="https://ashi.io/constellation/main.e3b5ae23.css"><script src="https://ashi.io/constellation/main.e7e5abc4.js"></script><link rel="stylesheet" href="https://ashi.io/constellation/main.e3b5ae23.css"><script src="https://ashi.io/constellation/elements.9236e6e1.js"></script><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600;700" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700" rel="stylesheet"><div id="backdrop"></div><div id="graph"></div><div id="explosion"></div><script src="https://ashi.io/constellation/main.0f5e942c.js"></script><style>.hljs,.hljs-keyword,.hljs-type{background:none;text-shadow:0 0 calc(var(--su)*0.005) #000}</style><script src="https://ashi.io/constellation/graphql.d4670fed.js"></script><build-note id="introCold">
+<!doctype html>
+<meta charset="utf-8">
+
+<title>The Future of Federation</title>
+<link rel="stylesheet" href="https://ashi.io/constellation/intro.75d94d9d.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/constellation.4c24a6ae.css">
+<link rel="stylesheet" href="https://ashi.io/constellation/feat.f8110118.css">
+<script src="https://ashi.io/constellation/main.70414c8d.js"></script><link rel="stylesheet" href="https://ashi.io/constellation/main.8048b1a9.css"><script src="https://ashi.io/constellation/main.70414c8d.js"></script><link rel="stylesheet" href="https://ashi.io/constellation/main.8048b1a9.css"><script src="https://ashi.io/constellation/elements.faef3979.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600;700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700" rel="stylesheet">
+
+<div id="backdrop"></div>
+<div id="graph"></div>
+<div id="explosion"></div>
+
+<script src="https://ashi.io/constellation/main.80da6eda.js"></script>
+
+<style>.hljs, .hljs-keyword, .hljs-type {
+    background: none;
+    text-shadow: 
+      0 0
+      calc(var(--su) * 0.005)
+      black;
+  }
+</style>
+<script src="https://ashi.io/constellation/graphql.18d2aadd.js"></script>
+
+<build-note id="introCold">
 hi, i'm ashi krishnan, i'm an engineer at apollo
-</build-note><build-note id="introTitle">
-and i'm here to talk about the future of federation. we've been doing a lot of work over the last year, all aimed at making it easier for you to weave together many large graphs and end up with exactly the data you need, in exactly the shape you need it. after all, that's the promise of graphql. first, let's look at the state of graphql and federation today.
-</build-note><build-note id="introClub"> i'm in this club where we read... inspirational fiction. we've got an app that lets us keep track of what we're reading and make notes. that app talks to a graphql backend. this is the graph:
-</build-note><pre id="agitpropSchema">
+</build-note>
+
+<build-note id="introTitle">
+and i'm here to talk about the future of federation.
+
+we've been doing a lot of work over the last year, all aimed at making it easier for you to weave together many large graphs and end up with exactly the data you need, in exactly the shape you need it. after all, that's the promise of graphql.
+
+first, let's look at the state of graphql and federation today.
+</build-note>
+
+<build-note id="introClub">
+  i'm in this club where we read... inspirational fiction. we've got an app that lets us keep track of what we're reading and make notes. that app talks to a graphql backend. this is the graph:
+</build-note>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"140d94402d0526bcad5b5a30ba132a66":[function(require,module,exports) {
+When(buildInRange(introTitle, introClub)).start(function () {
+  return writer.text = 'the future of federation\n\n\n\n\nashi krishnan — ashi@apollographql.com — @rakshesha';
+}).end(function () {
+  return writer.text = '';
+});
+},{}]},{},["140d94402d0526bcad5b5a30ba132a66"], null)
+
+</script>
+
+<pre id="agitpropSchema">
 <code class="graphql">
 # agitprop.gql
 
@@ -34,11 +216,33 @@ type Reading {
 
 scalar Date
 </code>
-</pre><build-note id="introAgitpropGraph"> we can query readings, we can query users, and users can leave notes on readings. a little benzene ring of data.
-</build-note><build-note id="introAgitpropGraphOrbit"> when I said "here's the graph" just then, you may have been expecting something more like
-</build-note><build-note id="introAgitpropSchema"> ...this these are two views of more or less the same data—although our little floating space graph has a bit of information pruned out for simplicity. i started with the graph because... well, because it looks really cool, to be honest. but also! because i want to move away from the syntax a little bit and invite you to start thinking about graphs *as graphs*, and specifically, as structures we can manipulate: shift, fold, and reshape. [[ SHAKE A NODE ]] in this space, types are places you can *be*. fields are journeys—ways you can *move* from place to place. resolvers teach us *how to take a journey*.
-</build-note><build-note id="introAgitpropQuery"> so when we receive a query
-</build-note><pre id="agitpropQuery">
+</pre>
+
+<build-note id="introAgitpropGraph">
+  we can query readings, we can query users, and users can leave notes on readings. a little benzene ring of data.
+</build-note>
+
+<build-note id="introAgitpropGraphOrbit">
+  when I said "here's the graph" just then, you may have been expecting something more like
+</build-note>
+
+<build-note id="introAgitpropSchema">
+  ...this
+
+  these are two views of more or less the same data—although our little floating space graph has a bit of information pruned out for simplicity.
+
+  i started with the graph because... well, because it looks really cool, to be honest. but also! because i want to move away from the syntax a little bit and invite you to start thinking about graphs *as graphs*, and specifically, as structures we can manipulate: shift, fold, and reshape.
+
+  [[ SHAKE A NODE ]]
+
+  in this space, types are places you can *be*. fields are journeys—ways you can *move* from place to place. resolvers teach us *how to take a journey*.
+</build-note>
+
+<build-note id="introAgitpropQuery">
+  so when we receive a query
+</build-note>
+
+<pre id="agitpropQuery">
 <code class="graphql">
 query {
   readings(
@@ -50,10 +254,182 @@ query {
   }
 }
 </code>
-</pre><build-note id="introAgitpropRunQuery"> the resolvers know how to take us to the data if we didn't have graphql, we would still be able to expose this data. we'd just have to come up with our own interface to request it. graphql gives us a common language for expressing the shape of our data. yes, that makes accessing the data easier. but it's also more than that. a colleague of mine once said: "every problem in computer science can be solved with another layer of indirection". i probably shouldn't say this at a graphql summit, while working for the graphql people, but graphql is ultimately kindof a stupid technology. i mean that in the most loving way possible! it's beautifully stupid, beautifully simple. it's basically describing all your data as a big typed JSON object. anyone could have designed it, and in fact, everyone did! and everyone did it differently. but a common language is a powerful thing. with a common language, we can connect disparate clusters of concepts and data. the common language creates a new space, a data layer that holds the graph of everything. some folks from the book club started a film club, which also has a graph:
-</build-note><build-note id="introObscuraGraph"> this one's more of a tetrahedron
-</build-note><build-note id="introObscuraOrbit"> it's interesting to me how the layout engine here forms stereotypical shapes based on the structure of the schema. in graphql, a lot of our relationships tend to be bidirectional—ratings have a film, a film has ratings—and you can see how many such relationships there are by counting the cycles
-</build-note><pre id="obscuraSchema">
+</pre>
+
+<build-note id="introAgitpropRunQuery">
+  the resolvers know how to take us to the data
+
+  if we didn't have graphql, we would still be able to expose this data. we'd just have to come up with our own interface to request it.
+
+  graphql gives us a common language for expressing the shape of our data. yes, that makes accessing the data easier. but it's also more than that. a colleague of mine once said: "every problem in computer science can be solved with another layer of indirection".
+
+  i probably shouldn't say this at a graphql summit, while working for the graphql people, but graphql is ultimately kindof a stupid technology. i mean that in the most loving way possible! it's beautifully stupid, beautifully simple. it's basically describing all your data as a big typed JSON object. anyone could have designed it, and in fact, everyone did! and everyone did it differently.
+  
+  but a common language is a powerful thing. with a common language, we can connect disparate clusters of concepts and data. the common language creates a new space, a data layer that holds the graph of everything.
+
+  some folks from the book club started a film club, which also has a graph:
+</build-note>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"76a4aca157975b70662d211673207118":[function(require,module,exports) {
+agitprop = {
+  schema: parseToGraph('agitprop', agitpropSchema.textContent),
+  graph: Atlas.graphData('agitprop')
+};
+When(buildInRange(introAgitpropGraph, introAgitpropRunQuery)).start(function () {
+  return Graph.graphData(agitprop.graph).clearHighlights().recenter();
+});
+When(buildInRange(introAgitpropGraphOrbit, introAgitpropRunQuery)).withDuration(3[sec]).at(orbit());
+When(introAgitpropRunQuery).start(function () {
+  graphql(agitprop.schema, agitpropQuery.innerText).then(console.log, console.error);
+}).end(function () {
+  return Graph.clearHighlights();
+});
+},{}]},{},["76a4aca157975b70662d211673207118"], null)
+
+</script>
+
+<build-note id="introObscuraGraph">
+  this one's more of a tetrahedron
+</build-note>
+
+<build-note id="introObscuraOrbit">
+  it's interesting to me how the layout engine here forms stereotypical shapes based on the structure of the schema. in graphql, a lot of our relationships tend to be bidirectional—ratings have a film, a film has ratings—and you can see how many such relationships there are by counting the cycles
+</build-note>
+
+<pre id="obscuraSchema">
 <code class="graphql">
 # obscura.gql
 
@@ -91,10 +467,175 @@ type Rating {
 
 scalar Date
 </code>
-</pre><build-note id="introObscuraSchema"> this is the schema. a bit more complex. film folks, y'know? this graph isn't connected to our other graph
-</build-note><build-note id="introBothGraph"> but we can still think of them as existing in the same space </build-note><build-note id="introBothGraphOrbit"> they just don't have any cross-links—they're disconnected. but they both key their users on email—this is because i cheated—so we can, kindof, do a query across them. but since they're disconnected, we have join the data manually.
-</build-note><build-note id="introManualQueryAgitprop"> to get all the readings i've taken notes on, i query agitprop
-</build-note><pre id="agitpropManualQuery">
+</pre>
+
+<build-note id="introObscuraSchema">
+  this is the schema. a bit more complex. film folks, y'know?
+
+  this graph isn't connected to our other graph
+</build-note>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"aa0ebe5bde35a47081bdb8dd338b3705":[function(require,module,exports) {
+obscura = {
+  schema: parseToGraph('obscura', obscuraSchema.textContent),
+  graph: Atlas.graphData('obscura')
+};
+When(buildInRange(introObscuraGraph, introObscuraSchema)).start(function () {
+  Graph.graphData(obscura.graph).recenter().clearHighlights();
+});
+When(buildInRange(introObscuraOrbit, introObscuraSchema)).withDuration(3[sec]).at(orbit());
+},{}]},{},["aa0ebe5bde35a47081bdb8dd338b3705"], null)
+
+</script>
+
+<build-note id="introBothGraph">
+  but we can still think of them as existing in the same space  
+</build-note>
+
+<build-note id="introBothGraphOrbit">
+  they just don't have any cross-links—they're disconnected.
+
+  but they both key their users on email—this is because i cheated—so we can, kindof, do a query across them. but since they're disconnected, we have join the data manually.
+</build-note>
+
+<build-note id="introManualQueryAgitprop">
+  to get all the readings i've taken notes on, i query agitprop
+</build-note>
+
+<pre id="agitpropManualQuery">
 <code class="graphql">
 query {
   user(email: "i@ashi.io") {
@@ -102,8 +643,15 @@ query {
   }
 }
 </code>
-</pre><build-note id="introRunManualQueryAgitprop"></build-note><build-note id="introManualQueryObscura"> to get my film ratings, i query obscura
-</build-note><pre id="obscuraManualQuery">
+</pre>
+
+<build-note id="introRunManualQueryAgitprop"></build-note>
+
+<build-note id="introManualQueryObscura">
+  to get my film ratings, i query obscura
+</build-note>
+
+<pre id="obscuraManualQuery">
 <code class="graphql">
 query {
   member(email: "i@ashi.io") {
@@ -113,13 +661,195 @@ query {
   }
 }
 </code>
-</pre><build-note id="introRunManualQueryObscura"> then we glue them together in the frontend that works, but it's not exactly ideal. it breaks the graphql promise of making one query to feed your frontend naturally, federation solves this.
-</build-note><build-note id="introFed"> to link these two graphs with federation, we don't actually have to change our schemas. these schemas don't know about each other, so we should be able to just join them into a new graph:
-</build-note><build-note id="introFedUnified"> the federated graph
-</build-note><build-note id="introFedUnifiedOrbit"> the federated graph joins our other two graphs. you can think of it as a projection of both of them. and it's quite a faithful one—it contains all the types and fields from all our services, with the same types, names, arguments, and so on. you can see that it even more or less has the same shape it also has links to the source graphs. it knows where all these types and fields are *from* and how to get from one graph to another.
-</build-note><build-note id="introFedUnifiedQuery"> now we can express our request as a single query against the federated graph
-</build-note><build-note id="introFedUnifiedRunQuery"> and when we run the query the gateway knows what queries to issue against its subgraphs to resolve the data we asked for. that's federation as it stands today. it's is already incredibly powerful. lots of organizations are already getting tremendous benefit from it.  federation effectively gives us the "reduce" part of "map/reduce", but for the structure of our data itself. as with mapreduce, this lets you parallelize work—only in this case, the work is *growing the graph*. with federation, you can have multiple teams each working on growing the graph—it grows in parallel. which means, your graph can explode.
-</build-note><pre id="unifiedQuery">
+</pre>
+
+<build-note id="introRunManualQueryObscura">
+  then we glue them together in the frontend
+
+  that works, but it's not exactly ideal. it breaks the graphql promise of making one query to feed your frontend
+
+  naturally, federation solves this.
+</build-note>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"b77f5e6af48eb94caf29470af5c97377":[function(require,module,exports) {
+When(introRunManualQueryAgitprop).start(function () {
+  Graph.clearHighlights();
+  graphql(agitprop.schema, agitpropManualQuery.textContent).then(console.error);
+});
+When(introRunManualQueryObscura).start(function () {
+  Graph.zoomToFit(300);
+  graphql(obscura.schema, obscuraManualQuery.textContent, {}, {}, {
+    id: 0
+  });
+});
+},{}]},{},["b77f5e6af48eb94caf29470af5c97377"], null)
+
+</script>
+
+<build-note id="introFed">
+  to link these two graphs with federation, we don't actually have to change our schemas. these schemas don't know about each other, so we should be able to just join them into a new graph:
+</build-note>
+
+<build-note id="introFedUnified">
+  the federated graph
+</build-note>
+
+<build-note id="introFedUnifiedOrbit">
+  the federated graph joins our other two graphs. you can think of it as a projection of both of them. and it's quite a faithful one—it contains all the types and fields from all our services, with the same types, names, arguments, and so on. you can see that it even more or less has the same shape
+
+  it also has links to the source graphs. it knows where all these types and fields are *from* and how to get from one graph to another.
+</build-note>
+
+<build-note id="introFedUnifiedQuery">
+  now we can express our request as a single query against the federated graph
+</build-note>
+
+<build-note id="introFedUnifiedRunQuery">
+  and when we run the query the gateway knows what queries to issue against its subgraphs to resolve the data we asked for.
+
+  that's federation as it stands today. it's is already incredibly powerful. lots of organizations are already getting tremendous benefit from it.
+  
+  <!-- netflix has this huge federated graph, which surprised me until i thought about how much data they have. and every time we talk to them they're doing some new, cool thing with it because of federation. -->
+
+  federation effectively gives us the "reduce" part of "map/reduce", but for the structure of our data itself. as with mapreduce, this lets you parallelize work—only in this case, the work is *growing the graph*. with federation, you can have multiple teams each working on growing the graph—it grows in parallel.
+
+  which means, your graph can explode.
+</build-note>
+
+<pre id="unifiedQuery">
 <code class="graphql">
 query {
   user(email: "i@ashi.io") {
@@ -132,26 +862,615 @@ query {
   }
 }
 </code>
-</pre><build-note id="csExplode"> this is powerful, but it can also be a lot! the amount of accessible data in your organization and frankly in the world is enough to make anyone's brain start dropping frames just like my computer. massive graphs create new, massive problems. you still have one graph to reason about, but now it's made of tens or hundreds of subgraphs, each likely maintained by a separate team. you have to make sure they fit together, make sure nobody steps on anyone else's toes. there are also some use cases that federation doesn't handle yet. when we federate graphs today, we end up with a federated graph that looks a lot like our subgraphs. same names, same types, same fields. but what if we want to change that? what if we want more flexibility in how we merge our graphs together? some of you might remember schema stitching—some of you might *still be using* schema stitching. schema stitching was kindof a precursor to federation: a more bare-metal way of merging subgraphs together. with schema stitching, you could really do whatever you wanted to the subgraphs, pruning and reshaping fields, changing types. but schema stitching was very ad-hoc—literally, you write some javascript that manipulates the schema ASTs more or less directly. that's extremely flexible, but also quite hard to reason about. with federation, we can and do run validations on the composed graph. schema stitching doesn't really allow for that, because outside of the requirement that it be a valid graphql schema, we really have no way of knowing if the stitched schema is correct. what if we could have both? the verifiability of federation with the flexibility of schema stitching?
-</build-note><div id="text"> <type-writer id="writer"></type-writer>
-</div><build-note id="csEarlier"> earlier this year, we sat down and asked ourselves this question: what's next? how do build on federation? how do we develop tools to wrangle these increasingly massive graphs?
-</build-note><build-note id="csWhatsNext"> we've called the result project constellation.
-</build-note><build-note id="csEvolution"> project constellation is an evolution of federation, developed with a few goals in mind
-</build-note><build-note id="csFaster"> we knew we wanted to improve performance
-</build-note><build-note id="csRust"> to that end, we're rewriting the query planner in rust. this doesn't mean *you* have to write anything in rust; it also doesn't mean we've given up on javascript. our intention here is to provide a drop-in replacement for the current query planner within apollo server. when it's ready, all you'll have to do is update your gateway to get the benefits. now, we're not just dropping in rust and expecting things to get faster. </build-note><build-note id="csParallelism"> we're also doing a lot of testing. we're building out benchmarks and using them to explore design patterns that can exploit the many, many cores today's servers are stacked with
-</build-note><build-note id="csAheadOfTime"> longer term, we're developing workflows to reduce the work the gateway does—such as schema composition—by moving it to an ahead of time compilation step
-</build-note><build-note id="csStronger"> that ties into our next goal, which is to make federation *stronger*
-</build-note><build-note id="csValidations"> we'd like to be able to provide better validation information earlier in the development process
-</build-note><build-note id="csErrors"> when you're working on some part of your graph, you should be able to compile the whole thing during development, locally, and see if there are any problems
-</build-note><build-note id="csInsight"> and the tools to make that possible will give you a lot more insight than you have today into how the graph of everything liks together </build-note><build-note id="csFlexiblier"> that's important, because we're also making federation flexibili...er </build-note><build-note id="csMoreFlexible"> for starters, we want to bring back a lot of the customizability
-</build-note><build-note id="csStitching"> of schema stitching. also, everything in constellation
-</build-note><build-note id="csStream"> ...is being built with to stream. we're taking this opportunity, while we're re-writing the query planner and ultimately the gateway, to build all these systems with subscriptions, live, and deferred queries in mind.
-</build-note><build-note id="csCompatibility"> finally, flexibility also means compatibility. this was an important design criteria: we absolutely did not want to introduce any mandatory changes on the client side. all the new shiny features we're about to talk about will work with existing graphql clients. everything we're talking about today will work with your current clients and your current federated services. but they'll also work with services that aren't currently federated. federation does require a bit of work: you have to declare keys and define entity resolvers. and you may still want to do this, even in the future! but you won't have to. constellation gives us tools to federate services that have not implemented federation! it lets us weave together graphs that have no idea they're in a federation at all.
-</build-note><build-note id="csEnd"> let's see how.
-</build-note><build-note id="feat"> let's go back and look at that federated query. this gets us all the data we want, but the shape is weird. we're getting back user.notes and member.ratings, and i'm sure we can reshape it in the frontend, but the whole point of all of this is that we shouldn't have to do that. our graph should be shaped how we want it.
-</build-note><build-note id="featOldSchemas"> the problem is we didn't modify our underlying services
-</build-note><build-note id="featOldSchemasHighlight"> so we still have separate user and member types, which means we have to query them in independent query branches.
-</build-note><pre id="agitpropFedSchema">
+</pre>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"97187f824e65f5e90ba8312a8e8b7b9f":[function(require,module,exports) {
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+agitpropAndObscura = Atlas.graphData('agitprop', 'obscura');
+When(buildInRange(introBothGraph, introFed)).start(function () {
+  return Graph.graphData(agitpropAndObscura).recenter().clearHighlights();
+});
+When(buildInRange(introBothGraphOrbit, introFed)).withDuration(3[sec]).at(orbit());
+fedAgitpropObscura = composeServices([{
+  name: 'agitprop',
+  typeDefs: gql.call(null, [agitpropSchema.textContent.replace('type Query', 'extend type Query')])
+}, {
+  name: 'obscura',
+  typeDefs: gql.call(null, [obscuraSchema.textContent.replace('type Query', 'extend type Query')])
+}]);
+unified = {
+  schema: parseToGraph('unified', fedAgitpropObscura.schema),
+  graph: Atlas.graphData()
+};
+When(buildInRange(introFedUnified, introFedUnifiedRunQuery)).start(function () {
+  Graph.graphData(unified.graph).recenter().clearHighlights();
+});
+When(introFedUnifiedRunQuery).start( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+  return regeneratorRuntime.wrap(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          graphql(agitprop.schema, agitpropManualQuery.textContent);
+          graphql(obscura.schema, obscuraManualQuery.textContent);
+          graphql(unified.schema, unifiedQuery.textContent);
+
+        case 3:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _callee);
+})));
+When(buildInRange(introFedUnifiedOrbit, introFedUnifiedRunQuery)).withDuration(3[sec]).at(orbit());
+},{}]},{},["97187f824e65f5e90ba8312a8e8b7b9f"], null)
+
+</script>
+
+<build-note id="csExplode">
+  this is powerful, but it can also be a lot! the amount of accessible data in your organization and frankly in the world is enough to make anyone's brain start dropping frames just like my computer.
+  
+  massive graphs create new, massive problems. you still have one graph to reason about, but now it's made of tens or hundreds of subgraphs, each likely maintained by a separate team. you have to make sure they fit together, make sure nobody steps on anyone else's toes.
+  
+  there are also some use cases that federation doesn't handle yet. when we federate graphs today, we end up with a federated graph that looks a lot like our subgraphs. same names, same types, same fields. but what if we want to change that? what if we want more flexibility in how we merge our graphs together?
+
+  some of you might remember schema stitching—some of you might *still be using* schema stitching. schema stitching was kindof a precursor to federation: a more bare-metal way of merging subgraphs together. with schema stitching, you could really do whatever you wanted to the subgraphs, pruning and reshaping fields, changing types. but schema stitching was very ad-hoc—literally, you write some javascript that manipulates the schema ASTs more or less directly. that's extremely flexible, but also quite hard to reason about. with federation, we can and do run validations on the composed graph. schema stitching doesn't really allow for that, because outside of the requirement that it be a valid graphql schema, we really have no way of knowing if the stitched schema is correct.
+
+  what if we could have both? the verifiability of federation with the flexibility of schema stitching?
+</build-note>
+
+<div id="text">
+  <type-writer id="writer"></type-writer>
+</div>
+
+<build-note id="csEarlier">
+  earlier this year, we sat down and asked ourselves this question: what's next? how do build on federation? how do we develop tools to wrangle these increasingly massive graphs?
+</build-note>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"70b079e8d274292d686db02098958f15":[function(require,module,exports) {
+splode = addBloom(ForceGraph3D()(explosion)).nodeRelSize(1).enableNavigationControls(false).showNavInfo(false);
+When(buildInRange(csEarlier, {
+  order: Infinity
+})).start(function () {
+  return Graph.pauseAnimation();
+}).end(function () {
+  return Graph.resumeAnimation();
+});
+},{}]},{},["70b079e8d274292d686db02098958f15"], null)
+
+</script>
+
+<build-note id="csWhatsNext">
+  we've called the result project constellation.
+</build-note>
+
+<build-note id="csEvolution">
+  project constellation is an evolution of federation, developed with a few goals in mind
+</build-note>
+
+<build-note id="csFaster">
+  we knew we wanted to improve performance
+</build-note>
+
+<build-note id="csRust">
+  to that end, we're rewriting the query planner in rust. this doesn't mean *you* have to write anything in rust; it also doesn't mean we've given up on javascript. our intention here is to provide a drop-in replacement for the current query planner within apollo server. when it's ready, all you'll have to do is update your gateway to get the benefits.
+
+  now, we're not just dropping in rust and expecting things to get faster. 
+</build-note>
+
+<build-note id="csParallelism">
+  we're also doing a lot of testing. we're building out benchmarks and using them to explore design patterns that can exploit the many, many cores today's servers are stacked with
+</build-note>
+
+<build-note id="csAheadOfTime">
+  longer term, we're developing workflows to reduce the work the gateway does—such as schema composition—by moving it to an ahead of time compilation step
+</build-note>
+
+<build-note id="csStronger">
+  that ties into our next goal, which is to make federation *stronger*
+</build-note>
+
+<build-note id="csValidations">
+  we'd like to be able to provide better validation information earlier in the development process
+</build-note>
+
+<build-note id="csErrors">
+  when you're working on some part of your graph, you should be able to compile the whole thing during development, locally, and see if there are any problems
+</build-note>
+
+<build-note id="csInsight">
+  and the tools to make that possible will give you a lot more insight than you have today into how the graph of everything liks together  
+</build-note>
+
+<build-note id="csFlexiblier">
+  that's important, because we're also making federation flexibili...er 
+</build-note>
+
+<build-note id="csMoreFlexible">
+  for starters, we want to bring back a lot of the customizability
+</build-note>
+
+<build-note id="csStitching">
+  of schema stitching. also, everything in constellation
+</build-note>
+
+<build-note id="csStream">
+  ...is being built with to stream. we're taking this opportunity, while we're re-writing the query planner and ultimately the gateway, to build all these systems with subscriptions, live, and deferred queries in mind.
+</build-note>
+
+<build-note id="csCompatibility">
+  finally, flexibility also means compatibility.
+
+  this was an important design criteria: we absolutely did not want to introduce any mandatory changes on the client side. all the new shiny features we're about to talk about will work with existing graphql clients.
+
+  everything we're talking about today will work with your current clients and your current federated services. but they'll also work with services that aren't currently federated. federation does require a bit of work: you have to declare keys and define entity resolvers. and you may still want to do this, even in the future! but you won't have to. constellation gives us tools to federate services that have not implemented federation! it lets us weave together graphs that have no idea they're in a federation at all.
+</build-note>
+
+<build-note id="csEnd">
+  let's see how.
+</build-note>
+
+<build-note id="feat">
+  let's go back and look at that federated query. this gets us all the data we want, but the shape is weird. we're getting back user.notes and member.ratings, and i'm sure we can reshape it in the frontend, but the whole point of all of this is that we shouldn't have to do that. our graph should be shaped how we want it.
+</build-note>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"56efc70fb9b97673e1662e0f0d12e3ba":[function(require,module,exports) {
+When(buildInRange(csExplode, {
+  order: Infinity
+})).start(function () {
+  return splode.resumeAnimation().graphData(blocks).zoomToFit();
+}).end(function () {
+  return splode.pauseAnimation();
+});
+When(buildInRange(csExplode, {
+  order: Infinity
+})).withDuration(20[sec]).at(orbit(splode));
+var bullets = {
+  csWhatsNext: 'project constellation:',
+  csEvolution: ' federation next',
+  csFaster: '\n    — faster',
+  csRust: '\t\t\t\t🦀',
+  csParallelism: ' ⚗️',
+  csAheadOfTime: ' ⏱',
+  csStronger: '\n    — stronger',
+  csValidations: '\t\t\t✅',
+  csErrors: ' 🔥',
+  csInsight: ' 👁',
+  csMoreFlexible: '\n    — more flexible',
+  csStitching: '\t\t🧵',
+  csStream: ' 🐟',
+  csCompatibility: ' 🔌'
+};
+var txt = '';
+
+for (var _i = 0, _Object$keys = Object.keys(bullets); _i < _Object$keys.length; _i++) {
+  var b = _Object$keys[_i];
+  txt = bullets[b] = txt + bullets[b];
+}
+
+When(csFlexiblier).start(function () {
+  return writer.text = bullets.csInsight + '\n    — flexiblier';
+});
+When(buildInRange(csWhatsNext, csEnd)).changed(function (_, current) {
+  if (!(current.id in bullets)) return;
+  writer.text = bullets[current.id];
+}).end(function () {
+  writer.text = '';
+});
+},{}]},{},["56efc70fb9b97673e1662e0f0d12e3ba"], null)
+
+</script>
+
+<build-note id="featOldSchemas">
+  the problem is we didn't modify our underlying services
+</build-note>
+
+<build-note id="featOldSchemasHighlight">
+  so we still have separate user and member types, which means we have to query them in independent query branches.
+</build-note>
+
+<pre id="agitpropFedSchema">
 <code class="graphql">
 # agitprop-federated.gql
 
@@ -182,7 +1501,9 @@ type Reading {
 
 scalar Date
 </code>
-</pre><pre id="obscuraFedSchema">
+</pre>
+  
+<pre id="obscuraFedSchema">
 <code class="graphql">
 # obscura-federated.gql
 
@@ -220,8 +1541,29 @@ type Rating {
 
 scalar Date
 </code>
-</pre><build-note id="featFedSchemas"> to federate this service properly, we would probably merge the types into a single User type, defining email as a key. this would let us query everything together. but it's still not ideal. thing one: we've arbitrarily decided that agitprop should "own" the User type, and obscura should extend it. we could have decided it the other way, it doesn't matter. ideally, we'd like to avoid having to make decisions that don't matter, especially around a concept with emotional charge like "ownership". this change also means that obscura's `Query.member` now returns type User, which is... interesting. we could change it, but that means going through a whole breaking changes dance: adding new fields, @deprecating the old ones, and then, once the old fields aren't queried anymore, removing them. frankly, it doesn't really seem worth it. we had to change our services, adding `__entities` resolvers in the obscura service. those resolvers will basically do the same thing as resolvers we already have, so it's a bit frustrating that we have to define them at all. this example is synthetic, but these are not uncommon problems! this is basically what you run into whenever you're trying to link two graphs which have grown independently—they're going to have some overlap, so the unified schema will have some... odor to it. under federation today, fixing that odor requires changing the existing services. but constellation is going to give us some tools to improve the situation. before we dive in, i want to bracket this: nothing we're about to see is set in stone. everything is a draft! this is the direction we're thinking of going, and its shape is almost certainly going to change by the time we get there. so if you have thoughts, good or bad, please share them with us along the way! the first thing i want to share is a new argument to `@key`:
-</build-note><pre id="agitpropViaSchema">
+</pre>      
+
+<build-note id="featFedSchemas">
+  to federate this service properly, we would probably merge the types into a single User type, defining email as a key. this would let us query everything together.
+
+  but it's still not ideal.
+  
+  thing one: we've arbitrarily decided that agitprop should "own" the User type, and obscura should extend it. we could have decided it the other way, it doesn't matter. ideally, we'd like to avoid having to make decisions that don't matter, especially around a concept with emotional charge like "ownership".
+  
+  this change also means that obscura's `Query.member` now returns type User, which is... interesting. we could change it, but that means going through a whole breaking changes dance: adding new fields, @deprecating the old ones, and then, once the old fields aren't queried anymore, removing them. frankly, it doesn't really seem worth it.
+
+  we had to change our services, adding `__entities` resolvers in the obscura service. those resolvers will basically do the same thing as resolvers we already have, so it's a bit frustrating that we have to define them at all.
+  
+  this example is synthetic, but these are not uncommon problems! this is basically what you run into whenever you're trying to link two graphs which have grown independently—they're going to have some overlap, so the unified schema will have some... odor to it. under federation today, fixing that odor requires changing the existing services.
+
+  but constellation is going to give us some tools to improve the situation.
+
+  before we dive in, i want to bracket this: nothing we're about to see is set in stone. everything is a draft! this is the direction we're thinking of going, and its shape is almost certainly going to change by the time we get there. so if you have thoughts, good or bad, please share them with us along the way!
+
+  the first thing i want to share is a new argument to `@key`:
+</build-note>
+
+<pre id="agitpropViaSchema">
 <code class="graphql">
 # agitprop-federated.gql
 
@@ -254,7 +1596,9 @@ type Reading {
 
 scalar Date
 </code>
-</pre><pre id="obscuraViaSchema">
+</pre>
+  
+<pre id="obscuraViaSchema">
 <code class="graphql">
 # obscura-federated.gql
 
@@ -294,8 +1638,23 @@ type Rating {
 
 scalar Date
 </code>
-</pre><build-note id="featVia"> via. this argument tells the gateway what query to run to resolve an entity from this key. the query planner is smart about the types here—if the field takes an array of keys and returns an array of users, it'll call it with a batch of entities. if it doesn't, it'll generate multiple query branches. so now we don't have to write `__entities`. we still *can*, resolving via __entities is still the default, but we don't have to. which means we don't need to make any code changes to our services. ah, except we did change the names of the Member type to User. drat. to address that, we're going to do something new: we're going to write a schema for *the federated service itself* this makes some sense, right? a federated graph is, after all, a *whole new graph*. so we should be able to write a schema for it. in federation today, that schema is generated purely by composing our subgraph schemas. constellation gives us more control.
-</build-note><pre id="unifiedSchema">
+</pre>      
+
+<build-note id="featVia">
+  via.
+
+  this argument tells the gateway what query to run to resolve an entity from this key. the query planner is smart about the types here—if the field takes an array of keys and returns an array of users, it'll call it with a batch of entities. if it doesn't, it'll generate multiple query branches.
+
+  so now we don't have to write `__entities`. we still *can*, resolving via __entities is still the default, but we don't have to. which means we don't need to make any code changes to our services.
+
+  ah, except we did change the names of the Member type to User. drat.
+
+  to address that, we're going to do something new: we're going to write a schema for *the federated service itself*
+
+  this makes some sense, right? a federated graph is, after all, a *whole new graph*. so we should be able to write a schema for it. in federation today, that schema is generated purely by composing our subgraph schemas. constellation gives us more control.
+</build-note>
+
+<pre id="unifiedSchema">
 <code class="graphql">
 # unified.gql
 
@@ -313,9 +1672,29 @@ extend type User
   @key(graph: "agitprop", fields: "email", via: "user(email)")
   @key(graph: "obscura", fields: "email", via: "member(email)")
 </code>
-</pre><build-note id="featUnifiedSchema"> this is just graphql! we've introduced a new directive, @include, which includes other schemas into this one. the graph argument lets us specify what subgraphs to include. in its simplest form, it just takes the name of a subgraph—that's what we're doing with agitprop. but we can also use query-like syntax to select and in this case rename types from the schema, giving us control over what types are included and how. then we can extend the joined user type with keys for each subgraph. this part isn't really new, though we are using the new via argument. with this joined schema, we don't have to change the underlying services at all! instead, we're telling the compiler exactly how we want our graphs to be composed we can still do more. right now, our graph is pretty spare.
-</build-note><build-note id="featPositionButNoText"> in particular, the notes we can take on readings have a position, but no text, so the frontend has to go query the text from project gutenberg independently. we can fix this! if project gutenberg has a graphql api, we can add it to our service list and federate against it. as far as the gateway is concerned, it's just another service. and then, we can do this:
-</build-note><pre id="unifiedGutenberg">
+</pre>
+
+<build-note id="featUnifiedSchema">
+  this is just graphql! we've introduced a new directive, @include, which includes other schemas into this one.
+
+  the graph argument lets us specify what subgraphs to include. in its simplest form, it just takes the name of a subgraph—that's what we're doing with agitprop. but we can also use query-like syntax to select and in this case rename types from the schema, giving us control over what types are included and how.
+  
+  then we can extend the joined user type with keys for each subgraph. this part isn't really new, though we are using the new via argument.
+
+  with this joined schema, we don't have to change the underlying services at all! instead, we're telling the compiler exactly how we want our graphs to be composed
+
+  we can still do more. right now, our graph is pretty spare.
+</build-note>
+
+<build-note id="featPositionButNoText">
+  in particular, the notes we can take on readings have a position, but no text, so the frontend has to go query the text from project gutenberg independently.
+  
+  we can fix this! if project gutenberg has a graphql api, we can add it to our service list and federate against it. as far as the gateway is concerned, it's just another service.
+  
+  and then, we can do this:
+</build-note>
+
+<pre id="unifiedGutenberg">
 <code class="graphql">
 # unified.gql
 
@@ -343,9 +1722,167 @@ extend type Reading {
         title: title).nodes.0.text")
 }
 </code>
-</pre><build-note id="featUnifiedGutenberg">
-what we've done here is introduce a new directive—the @from directive, which says, "in order to resolve this field, run this other query." now we have the text of our readings! the query we specify has a couple of new pieces of syntax. this new query syntax isn't exposed to clients, but it's pretty important to have here, in the data layer. the new pieces are graph identifiers and dotted paths. here, the graph identifier tells us to query the gutenberg subgraph, which we've configured we need the dotted paths to dig into the search results and lift the text of the first one up so it can be its own string field. keeping with the spirit of graphql, dot paths here act like optional chains—if any step is nullable, the whole thing is nullable this turns out to be pretty powerful, especially when you start thinking about larger graphs. there's a lot of power here, but the DX is a bit lacking. we're doing a lot of work inside string arguments to directives, which isn't super great. what if... what if we could write this instead?
-</build-note><pre id="unifiedStar">
+</pre>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"48549c856891c7feb0f83878f9562e9c":[function(require,module,exports) {
+When(buildInRange(feat, {
+  order: Infinity
+})).start(function () {
+  return Graph.graphData(agitpropAndObscura);
+});
+When(buildInRange(feat, {
+  order: Infinity
+})).withDuration(3[sec]).at(orbit());
+},{}]},{},["48549c856891c7feb0f83878f9562e9c"], null)
+
+</script>
+
+<build-note id="featUnifiedGutenberg">
+what we've done here is introduce a new directive—the @from directive, which says, "in order to resolve this field, run this other query." now we have the text of our readings!
+
+the query we specify has a couple of new pieces of syntax. this new query syntax isn't exposed to clients, but it's pretty important to have here, in the data layer.
+
+the new pieces are graph identifiers and dotted paths. here, the graph identifier tells us to query the gutenberg subgraph, which we've configured we need the dotted paths to dig into the search results and lift the text of the first one up so it can be its own string field. keeping with the spirit of graphql, dot paths here act like optional chains—if any step is nullable, the whole thing is nullable
+
+this turns out to be pretty powerful, especially when you start thinking about larger graphs.
+
+there's a lot of power here, but the DX is a bit lacking. we're doing a lot of work inside string arguments to directives, which isn't super great. what if... what if we could write this instead?
+</build-note>
+
+<pre id="unifiedStar">
   <code class="graphql">
 # unified.star
 
@@ -369,9 +1906,202 @@ extend type Reading {
     .nodes.0.text
 }
   </code>
-</pre><build-note id="featUnifiedStar"> we call this a star schema. this is a proper superset of graphql. instead of @include directives, we've introduced a *type spread* operator. this works a lot like the existing fragment spread operator, but instead of adding selections to a query, we're adding types into our schema. you'll also be able to use the syntax to spread the fields of one type into another. the other new piece of syntax on display here is the assignment operator. here, we're assigning the text field to a query. that query can use the extended query syntax we saw earlier to select the gutenberg graph, and dig out the text of the first search result. right now, you might be thinking, "oh, cool!" or you might be thinking: "ashi! you promised back compatibility! you can't go adding features to the language all willy-nilly" maybe both! we contain multitudes! thing is: we're not adding this to graphql. and this *is* back compatible. all this new syntax compiles down to graphql. everything on the left is syntactic sugar for what we had earlier:
-</build-note><build-note id="featUnifiedSugar"> it's just a bit cleaner, shorter, easier to write. this is all possible because we're introducing a compile step. or rather, we're making the existing compile step—which happens in the gateway—more explicit, and more powerful, and something you are able to run yourself, locally. to be clear: we're not completely set on this syntax—though it does *feel* rather nice, doesn't it? part of why we're sharing this early work is to get some feedback. and the other reason is to get you excited. this is really cool! i mean, can you imagine the process you'd have to go through to write a service that does something like this today? here, with really just a few extensions to federation, we're able to do it without writing any resolvers, without pushing any binaries. these tools let us express joins and delegation and a whole host of data *flow* concepts within the data layer, where they can be statically analyzed, planned, and validated. that's exciting now, and it's going to be vital in the future
-</build-note><build-note id="future"> as the space of data that we're working with continues to grow in size and complexity, these are the kinds of tools we'll need to wrangle, project, and reshape those graphs. remember the semantic web? this idea that we'd create a substrate of machine-readable data on the web? and then it would be easy for everyone from hobbyists to partner organizations to navigate this massive space of information we're constantly creating and cataloguing? *this* is the semantic web. and this work is building a language for accessing and manipulating it. we're building new ways to find patterns in the sky. like i said before, these are ~forward looking statements which may contain inaccuracies~. or: this is prophecy. which means it's squishy, because that is the nature of the future. which means, if you're excited by any of this, you can help shape it. the best way to start is to get into federation now, so you can be involved in this next phase of development. apollo has been community driven from the beginning. we don't want to do this alone. we can't really do this alone. we can write the tools, but will we write the right tools? we can build a future, but will it be a future for all of us? that's the question in... a lot of areas of society right now, and also here. i'm excited by this work because... well, because i'm profoundly a nerd. but also because we're working to make the space of data—the graph of everything, this vast sea of everything known to computers—more intelligible. more accessible. we are creating tools which are easier to hold. we are opening possibilities. we are, hopefully, inviting more people into this world. and i think whatever the challenges, expanding the space of freedom is a fundamental good. so come with us. we're headed to the stars.
-</build-note><build-note id="thanks"> thank you.
-</build-note><script>When(buildInRange(introTitle,introClub)).start((function(){return writer.text="the future of federation\n\n\n\n\nashi krishnan — ashi@apollographql.com — @rakshesha"})).end((function(){return writer.text=""}));agitprop={schema:parseToGraph("agitprop",agitpropSchema.textContent),graph:Atlas.graphData("agitprop")},When(buildInRange(introAgitpropGraph,introAgitpropRunQuery)).start((function(){return Graph.graphData(agitprop.graph).clearHighlights().recenter()})),When(buildInRange(introAgitpropGraphOrbit,introAgitpropRunQuery)).withDuration(3[sec]).at(orbit()),When(introAgitpropRunQuery).start((function(){graphql(agitprop.schema,agitpropQuery.innerText).then(console.log,console.error)})).end((function(){return Graph.clearHighlights()}));obscura={schema:parseToGraph("obscura",obscuraSchema.textContent),graph:Atlas.graphData("obscura")},When(buildInRange(introObscuraGraph,introObscuraSchema)).start((function(){Graph.graphData(obscura.graph).recenter().clearHighlights()})),When(buildInRange(introObscuraOrbit,introObscuraSchema)).withDuration(3[sec]).at(orbit());When(introRunManualQueryAgitprop).start((function(){Graph.clearHighlights(),graphql(agitprop.schema,agitpropManualQuery.textContent).then(console.error)})),When(introRunManualQueryObscura).start((function(){Graph.zoomToFit(300),graphql(obscura.schema,obscuraManualQuery.textContent,{},{},{id:0})}));!function(){function e(e,t,r,n,a,i,o){try{var u=e[i](o),p=u.value}catch(e){return void r(e)}u.done?t(p):Promise.resolve(p).then(n,a)}function t(t){return function(){var r=this,n=arguments;return new Promise((function(a,i){var o=t.apply(r,n);function u(t){e(o,a,i,u,p,"next",t)}function p(t){e(o,a,i,u,p,"throw",t)}u(void 0)}))}}agitpropAndObscura=Atlas.graphData("agitprop","obscura"),When(buildInRange(introBothGraph,introFed)).start((function(){return Graph.graphData(agitpropAndObscura).recenter().clearHighlights()})),When(buildInRange(introBothGraphOrbit,introFed)).withDuration(3[sec]).at(orbit()),fedAgitpropObscura=composeServices([{name:"agitprop",typeDefs:gql.call(null,[agitpropSchema.textContent.replace("type Query","extend type Query")])},{name:"obscura",typeDefs:gql.call(null,[obscuraSchema.textContent.replace("type Query","extend type Query")])}]),unified={schema:parseToGraph("unified",fedAgitpropObscura.schema),graph:Atlas.graphData()},When(buildInRange(introFedUnified,introFedUnifiedRunQuery)).start((function(){Graph.graphData(unified.graph).recenter().clearHighlights()})),When(introFedUnifiedRunQuery).start(t(regeneratorRuntime.mark((function e(){return regeneratorRuntime.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:graphql(agitprop.schema,agitpropManualQuery.textContent),graphql(obscura.schema,obscuraManualQuery.textContent),graphql(unified.schema,unifiedQuery.textContent);case 3:case"end":return e.stop()}}),e)})))),When(buildInRange(introFedUnifiedOrbit,introFedUnifiedRunQuery)).withDuration(3[sec]).at(orbit())}();splode=addBloom(ForceGraph3D()(explosion)).nodeRelSize(1).enableNavigationControls(!1).showNavInfo(!1),When(buildInRange(csEarlier,{order:1/0})).start((function(){return Graph.pauseAnimation()})).end((function(){return Graph.resumeAnimation()}));!function(){When(buildInRange(csExplode,{order:1/0})).start((function(){return splode.resumeAnimation().graphData(blocks).zoomToFit()})).end((function(){return splode.pauseAnimation()})),When(buildInRange(csExplode,{order:1/0})).withDuration(20[sec]).at(orbit(splode));for(var t={csWhatsNext:"project constellation:",csEvolution:" federation next",csFaster:"\n    — faster",csRust:"\t\t\t\t🦀",csParallelism:" ⚗️",csAheadOfTime:" ⏱",csStronger:"\n    — stronger",csValidations:"\t\t\t✅",csErrors:" 🔥",csInsight:" 👁",csMoreFlexible:"\n    — more flexible",csStitching:"\t\t🧵",csStream:" 🐟",csCompatibility:" 🔌"},e="",n=0,i=Object.keys(t);n <i.length;n++){var r=i[n];e=t[r]=e+t[r]}When(csFlexiblier).start((function(){return writer.text=t.csInsight+"\n    — flexiblier"})),When(buildInRange(csWhatsNext,csEnd)).changed((function(e,n){n.id in t&&(writer.text=t[n.id])})).end((function(){writer.text=""}))}();When(buildInRange(feat,{order:1/0})).start((function(){return Graph.graphData(agitpropAndObscura)})),When(buildInRange(feat,{order:1/0})).withDuration(3[sec]).at(orbit());When(thanks).start((function(){return writer.text="thanks!\n\n\n\nproject constellation: the future of federation\nashi krishnan — i@ashi.io — @rakshesha\n\nhttps://github.com/queerviolet/constellation.talk\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t~ xoxo, ashi"}));</script><link rel="stylesheet" href="https://ashi.io/constellation/bug.53459f11.css"><div id="bug"> <a href="https://twitter.com/rakshesha">@rakshesha</a> <a class="visible" href="https://ashi.io">ashi.io</a>
-</div><script src="https://ashi.io/constellation/bug.df05809d.js"></script><a style="display:none" href="https://ashi.io/constellation/presenter.html"></a><div id="letterbox-bar-1"></div><div id="letterbox-bar-2"></div>
+</pre>
+
+<build-note id="featUnifiedStar">
+  we call this a star schema. this is a proper superset of graphql.
+
+  instead of @include directives, we've introduced a *type spread* operator. this works a lot like the existing fragment spread operator, but instead of adding selections to a query, we're adding types into our schema. you'll also be able to use the syntax to spread the fields of one type into another.
+
+  the other new piece of syntax on display here is the assignment operator. here, we're assigning the text field to a query. that query can use the extended query syntax we saw earlier to select the gutenberg graph, and dig out the text of the first search result.
+
+  right now, you might be thinking, "oh, cool!" or you might be thinking: "ashi! you promised back compatibility! you can't go adding features to the language all willy-nilly" maybe both! we contain multitudes!
+
+  thing is: we're not adding this to graphql. and this *is* back compatible. all this new syntax compiles down to graphql. everything on the left is syntactic sugar for what we had earlier:
+</build-note>
+
+<build-note id="featUnifiedSugar">
+  it's just a bit cleaner, shorter, easier to write.
+
+  this is all possible because we're introducing a compile step. or rather, we're making the existing compile step—which happens in the gateway—more explicit, and more powerful, and something you are able to run yourself, locally.
+
+  to be clear: we're not completely set on this syntax—though it does *feel* rather nice, doesn't it? part of why we're sharing this early work is to get some feedback.
+
+  and the other reason is to get you excited. this is really cool! i mean, can you imagine the process you'd have to go through to write a service that does something like this today? here, with really just a few extensions to federation, we're able to do it without writing any resolvers, without pushing any binaries. these tools let us express joins and delegation and a whole host of data *flow* concepts within the data layer, where they can be statically analyzed, planned, and validated.
+  
+  that's exciting now, and it's going to be vital in the future
+</build-note>
+
+<build-note id="future">
+  as the space of data that we're working with continues to grow in size and complexity, these are the kinds of tools we'll need to wrangle, project, and reshape those graphs.
+
+  remember the semantic web? this idea that we'd create a substrate of machine-readable data on the web? and then it would be easy for everyone from hobbyists to partner organizations to navigate this massive space of information we're constantly creating and cataloguing? *this* is the semantic web. and this work is building a language for accessing and manipulating it. we're building new ways to find patterns in the sky.
+
+  like i said before, these are ~forward looking statements which may contain inaccuracies~. or: this is prophecy. which means it's squishy, because that is the nature of the future. which means, if you're excited by any of this, you can help shape it. the best way to start is to get into federation now, so you can be involved in this next phase of development.
+  
+  apollo has been community driven from the beginning. we don't want to do this alone. we can't really do this alone. we can write the tools, but will we write the right tools? we can build a future, but will it be a future for all of us? that's the question in... a lot of areas of society right now, and also here.
+
+  i'm excited by this work because... well, because i'm profoundly a nerd. but also because we're working to make the space of data—the graph of everything, this vast sea of everything known to computers—more intelligible. more accessible. we are creating tools which are easier to hold. we are opening possibilities. we are, hopefully, inviting more people into this world. and i think whatever the challenges, expanding the space of freedom is a fundamental good.
+
+  so come with us. we're headed to the stars.
+</build-note>
+
+<build-note id="thanks">
+  thank you.
+</build-note>
+
+<script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function(modules, cache, entry, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject.parcelRequire === 'function' &&
+    globalObject.parcelRequire;
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function(id, exports) {
+    modules[id] = [
+      function(require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  globalObject.parcelRequire = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function() {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"f5416115791fa5ecf4f9df8dd880cf0c":[function(require,module,exports) {
+When(thanks).start(function () {
+  return writer.text = "thanks!\n\n\n\nproject constellation: the future of federation\nashi krishnan — i@ashi.io — @rakshesha\n\nhttps://github.com/queerviolet/constellation.talk\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t~ xoxo, ashi";
+});
+},{}]},{},["f5416115791fa5ecf4f9df8dd880cf0c"], null)
+
+</script>
+
+
+<!-- Letterbox & Bug -->
+<link rel="stylesheet" href="https://ashi.io/constellation/bug.6ecfafab.css">
+<div id="bug">
+  <a href="https://twitter.com/rakshesha">@rakshesha</a>
+  <a class="visible" href="https://ashi.io">ashi.io</a>
+</div>
+<script src="https://ashi.io/constellation/bug.927274b8.js"></script>
+<!-- End Letterbox & Bug -->
+
+<a style="display: none;" href="https://ashi.io/constellation/presenter.html"></a>
+<div id="letterbox-bar-1"></div>
+<div id="letterbox-bar-2"></div>
+
