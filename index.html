@@ -16,7 +16,7 @@
 <meta property=og:url content=http://ashi.io>
 <meta property=og:image content=http://ashi.io/ashi-headshot-02.jpg>
 
-<div id=menu class=menu>
+<div id=menu class="menu dark">
   <div class='menu-backdrop light'></div>
   <div class='menu-backdrop dark'></div>
   <a class=menu-toggler onclick=toggleMenu()>
@@ -89,7 +89,7 @@
           </div>
           <span class=tk-date>april 10-12, 2019</span>
         </h3>
-        <i>Painting With Pixels: Web GL and React</i> <span class=tile>New talk!</span>
+        <i>Painting With Pixels: Web GL and React</i>
 
       <h3>
         <img class=glyph src=empex-logo.png>
@@ -100,7 +100,6 @@
         <span class=tk-date>feb 2, 2018</span>
       </h3>
       <i>Living Things — Language</i> (Keynote)
-      <span class=tile>Video coming soon</span>
 
       <h3>
         <span class=glyph><b style='color: orange; white-space: pre;'>{ }</b></span>
@@ -111,7 +110,6 @@
         <span class=tk-date>nov 29, 2018</span>
       </h3>
       <i>Living Things</i> (Keynote)
-      <span class=tile>Upcoming</span>
   
       <h3>
         <span class=glyph><b style='color: orange; white-space: pre;'>{ }</b></span>
@@ -122,7 +120,6 @@
         <span class=tk-date>nov 2018</span>
       </h3>
       <i>Living Things</i> (Keynote)
-      <span class=tile>Video coming soon</span>
 
       <h3>
         <img class=glyph src=pydata-logo.png>
@@ -133,7 +130,6 @@
         <span class=tk-date>nov 2018</span>
       </h3>
       <i>Learning From Machines</i> (Keynote)
-      <span class=tile>Video coming soon</span>
 
       <h3>
         <i class='glyph strangeloop-logo'></i>
@@ -153,7 +149,7 @@
         </div>
         <span class=tk-date>oct 2018</span>
       </h3>
-      <i>Deep Learning in JS</i> <span class=tile>Video coming soon</span>      
+      <i>Deep Learning in JS</i>
 
       <h3>
         <img class=glyph src=wsc-logo.png>
@@ -251,11 +247,8 @@
   let toggleMenu = openMenu
   const menuIsOpen = () => toggleMenu === closeMenu
 
-  let resumeTop = 0, resumeBottom = 0;
-  addEventListener('resize', updateBoxSizes)
   addEventListener('scroll', processScroll)
   addEventListener('resize', processScroll)
-  updateBoxSizes()
   processScroll()
   
   function processScroll(evt) {
@@ -263,16 +256,6 @@
         , negHalfY = -y / 2
         , negThirdY = -y / 3
         , negQuarterY = -y / 4
-    if ((y > 3 * innerHeight / 4 && y < innerHeight - 16) || y >= resumeTop - 16 && y <= resumeBottom - 16) {
-      menu.classList.add('dark')
-      card.classList.add('dark')
-      // document.body.style.backgroundColor = 'rgb(253, 244, 249)'
-    } else {
-      menu.classList.remove('dark')
-      card.classList.remove('dark')
-      // document.body.style.backgroundColor = 'rgb(37, 20, 59)'
-    }
-
     if (menuIsOpen()) closeMenu()
 
     if (y > 2 * innerHeight) return
@@ -285,12 +268,6 @@
        `${negQuarterY}px ${negThirdY}px 0 rgba(200, 255, 200, 0.7),
        0                 ${negThirdY}px 0 #FDF4F999,
        ${-negQuarterY}px ${negThirdY}px 0 rgba(200, 255, 200, 0.7)`
-  }
-
-  function updateBoxSizes() {
-    const {top, bottom} = resume.getBoundingClientRect()
-    resumeTop = top + scrollY
-    resumeBottom = bottom + scrollY
   }
 
   const doNotScroll = ({target}) => target.scrollTop = 0
@@ -327,7 +304,7 @@
   $$('.foldable').forEach(makeFoldable)
   document.addEventListener("touchstart", ()=>{}, true)
 
-  const sleep = ms => new Promise(_ => setTimeout(_, ms))
+  function sleep(ms) { return new Promise(_ => setTimeout(_, ms)) }
 
   async function openMenu() {
     toggleMenu = closeMenu
