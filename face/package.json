@@ -1,0 +1,20 @@
+{
+  "name": "face",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.96.0",
+    "three-gltf-loader": "^1.96.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "parcel": "^1.9.7"
+  }
+}
